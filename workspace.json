@@ -5,29 +5,27 @@
     "packageManager": "pnpm"
   },
   "generators": {
-    "@nrwl/angular": {
-      "application": {
-        "e2eTestRunner": "cypress",
-        "linter": "eslint",
-        "routing": false,
-        "strict": true,
-        "style": "scss",
-        "unitTestRunner": "jest"
-      },
-      "component": {
-        "displayBlock": true,
-        "skipTests": true,
-        "style": "scss"
-      },
-      "library": {
-        "linter": "eslint",
-        "strict": true,
-        "style": "scss",
-        "unitTestRunner": "jest"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
+    "@nrwl/angular:application": {
+      "e2eTestRunner": "cypress",
+      "linter": "eslint",
+      "routing": false,
+      "strict": true,
+      "style": "scss",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "displayBlock": true,
+      "skipTests": true,
+      "style": "scss"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "strict": true,
+      "style": "scss",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:storybook-configuration": {
+      "linter": "eslint"
     }
   },
   "projects": {}
