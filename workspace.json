@@ -1,7 +1,8 @@
 {
   "version": 2,
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/workspace",
+    "packageManager": "pnpm"
   },
   "projects": {}
 }
