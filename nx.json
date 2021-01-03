@@ -25,9 +25,9 @@
       }
     }
   },
-  "projects": {},
   "workspaceLayout": {
     "appsDir": "packages",
     "libsDir": "packages"
-  }
+  },
+  "projects": {}
 }
