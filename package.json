@@ -1,5 +1,7 @@
 {
-  "name": "angular",
+  "name": "nxworker",
+  "description": "Monorepo for the @nxworker NPM organization.",
+  "private": true,
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -26,7 +28,6 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help"
   },
-  "private": true,
   "devDependencies": {
     "@nrwl/cli": "11.0.18",
     "@nrwl/nx-cloud": "latest",
