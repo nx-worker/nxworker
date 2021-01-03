@@ -29,5 +29,9 @@
     "appsDir": "apps",
     "libsDir": "packages"
   },
-  "projects": {}
+  "projects": {
+    "workspace-tools": {
+      "tags": ["type:tool"]
+    }
+  }
 }

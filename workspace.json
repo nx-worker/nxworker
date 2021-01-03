@@ -28,5 +28,27 @@
       "linter": "eslint"
     }
   },
-  "projects": {}
+  "projects": {
+    "workspace-tools": {
+      "projectType": "tool",
+      "root": "tools",
+      "sourceRoot": "tools",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["tools/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools"],
+          "options": {
+            "jestConfig": "tools/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  }
 }
