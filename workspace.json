@@ -5,14 +5,16 @@
     "packageManager": "pnpm"
   },
   "generators": {
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {}
+    "@nrwl/angular": {
+      "application": {
+        "unitTestRunner": "jest",
+        "e2eTestRunner": "cypress"
+      },
+      "component": {},
+      "library": {
+        "unitTestRunner": "jest"
+      }
+    }
   },
   "projects": {}
 }
