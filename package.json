@@ -26,7 +26,8 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "sort-projects": "json -I -f workspace.json -e \"this.projects = Object.fromEntries(Object.entries(this.projects).sort(([a], [b]) => (a < b) ? -1 : (a > b) ? 1 : 0));\" && json -I -f nx.json -e \"this.projects = Object.fromEntries(Object.entries(this.projects).sort(([a], [b]) => (a < b) ? -1 : (a > b) ? 1 : 0));\""
   },
   "devDependencies": {
     "@nrwl/cli": "11.0.18",
