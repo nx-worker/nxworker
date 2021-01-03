@@ -21,6 +21,7 @@ devDependencies:
   '@angular/language-service': 11.0.5
   '@nrwl/cli': 11.0.18
   '@nrwl/cypress': 11.0.20_c177ff3b3e7afd7cb4c623b31fd84e8d
+  '@nrwl/devkit': 11.0.20
   '@nrwl/eslint-plugin-nx': 11.0.18_6237246bab0c7efaf1f74ace93610d7c
   '@nrwl/jest': 11.0.20_@nrwl+workspace@11.0.18
   '@nrwl/nx-cloud': 10.1.10
@@ -12589,6 +12590,7 @@ specifiers:
   '@nrwl/angular': ^11.0.20
   '@nrwl/cli': 11.0.18
   '@nrwl/cypress': 11.0.20
+  '@nrwl/devkit': ^11.0.20
   '@nrwl/eslint-plugin-nx': 11.0.18
   '@nrwl/jest': 11.0.20
   '@nrwl/nx-cloud': latest
