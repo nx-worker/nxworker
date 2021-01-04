@@ -26,12 +26,19 @@
     }
   },
   "workspaceLayout": {
-    "appsDir": "apps",
+    "appsDir": "e2e",
     "libsDir": "packages"
   },
   "projects": {
+    "angular": {
+      "tags": ["platform:node", "type:package"]
+    },
+    "angular-e2e": {
+      "tags": ["platform:node", "type:e2e"],
+      "implicitDependencies": ["angular"]
+    },
     "workspace-tools": {
-      "tags": ["type:tool"]
+      "tags": ["platform:node", "type:tool"]
     }
   }
 }

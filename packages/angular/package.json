@@ -1,0 +1,42 @@
+{
+  "name": "@nxworker/angular",
+  "private": false,
+  "description": "Nx plugins and utilities for Angular projects.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "nx",
+    "angular"
+  ],
+  "author": {
+    "email": "larsbrinknielsen@gmail.com",
+    "name": "Lars Gyrup Brink Nielsen",
+    "url": "https://github.com/LayZeeDK"
+  },
+  "contributors": [
+    {
+      "email": "nacho.vazquez.dev@gmail.com",
+      "name": "Nacho Vazquez",
+      "url": "https://github.com/NachoVazquez"
+    }
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "unknown"
+  },
+  "bugs": {
+    "url": "https://github.com/nx-worker/nxworker/issue"
+  },
+  "homepage": "https://github.com/nx-worker/nxworker#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nx-worker/nxworker"
+  },
+  "dependencies": {
+    "@nrwl/devkit": "^11.0.0"
+  },
+  "main": "src/index.js",
+  "executors": "./executors.json",
+  "generators": "./generators.json"
+}

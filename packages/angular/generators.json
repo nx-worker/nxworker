@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "angular",
+  "version": "0.0.1",
+  "generators": {
+    "angular": {
+      "factory": "./src/generators/angular/generator",
+      "schema": "./src/generators/angular/schema.json",
+      "description": "angular generator"
+    }
+  }
+}

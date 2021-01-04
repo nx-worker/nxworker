@@ -13,6 +13,21 @@
             "allow": [],
             "depConstraints": [
               {
+                "sourceTag": "platform:isomorphic",
+                "onlyDependOnLibsWithTags": ["platform:isomorphic"]
+              },
+              {
+                "sourceTag": "platform:node",
+                "onlyDependOnLibsWithTags": [
+                  "platform:isomorphic",
+                  "platform:node"
+                ]
+              },
+              {
+                "sourceTag": "type:e2e",
+                "onlyDependOnLibsWithTags": ["type:package"]
+              },
+              {
                 "sourceTag": "type:tool",
                 "onlyDependOnLibsWithTags": ["type:tool"]
               },
