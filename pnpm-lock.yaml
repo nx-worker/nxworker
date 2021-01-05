@@ -7,6 +7,8 @@ dependencies:
   '@angular/platform-browser': 11.0.5_dbb5f844cd3655cc7c031f1771e1e04f
   '@angular/platform-browser-dynamic': 11.0.5_edbfe20dc0f7ac262750606b78a39e0b
   '@angular/router': 11.0.5_90eb12a6db44247ee1d762bf7579b2eb
+  '@ngrx/effects': 10.1.2_b57cf4a278ca1b2fcb2239114e7dd753
+  '@ngrx/store': 10.1.2_@angular+core@11.0.5+rxjs@6.5.5
   '@nrwl/angular': 11.0.20_4f93e793199fc5399dba9cfa47c8393f
   rxjs: 6.5.5
   tslib: 2.0.3
@@ -19,6 +21,7 @@ devDependencies:
   '@angular/cli': 11.0.5
   '@angular/compiler-cli': 11.0.5_ae04eea250591f41b901d33a8893b81f
   '@angular/language-service': 11.0.5
+  '@ngrx/schematics': 10.1.2_rxjs@6.5.5+zone.js@0.10.3
   '@nrwl/cli': 11.0.20
   '@nrwl/cypress': 11.0.20_27b23eeedd7e13744d5291dab3bb90c4
   '@nrwl/devkit': 11.0.20
@@ -387,6 +390,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-japxEn07P9z9FnW8ii+M5DIfgRAGNxl6QNQWKBkNo5ytN6iCAB7pVbJI0vn1AUT9TByV3+xDW/FNuoSuzsnX3w==
+  /@angular/core/10.2.4_rxjs@6.5.5+zone.js@0.10.3:
+    dependencies:
+      rxjs: 6.5.5
+      tslib: 2.0.3
+      zone.js: 0.10.3
+    dev: true
+    peerDependencies:
+      rxjs: ^6.5.3
+      zone.js: ~0.10.3
+    resolution:
+      integrity: sha512-5xpAvmZwD9nZ8eWx10urjibqEeePGEiFXVMEn3IaJWgfdOcMmeSoioW9JUllT3w85+DlNVWbRbhz0YfE9a4jyw==
   /@angular/core/11.0.5_rxjs@6.5.5+zone.js@0.10.3:
     dependencies:
       rxjs: 6.5.5
@@ -2406,6 +2420,39 @@ packages:
     dev: true
     resolution:
       integrity: sha512-EUCPEkaRPvmHjWAAZkWMT7JDzpw7FKB00WTISaiXsbNOd5hCHg77XLA8sLYLFDo1zepYLo2w7GstN8YBqRXZfA==
+  /@ngrx/effects/10.1.2_b57cf4a278ca1b2fcb2239114e7dd753:
+    dependencies:
+      '@angular/core': 11.0.5_rxjs@6.5.5+zone.js@0.10.3
+      '@ngrx/store': 10.1.2_@angular+core@11.0.5+rxjs@6.5.5
+      rxjs: 6.5.5
+      tslib: 2.0.3
+    dev: false
+    peerDependencies:
+      '@angular/core': ^10.0.0
+      '@ngrx/store': 10.1.2
+      rxjs: ^6.5.3
+    resolution:
+      integrity: sha512-6pX6FEzLlqdbtFVMbCvscsaL6QC/L95e72JKj76Xz+8V77UTlpVsxWyMo7YU9pM4EXNpBGmOpMs2xKjfBfK05Q==
+  /@ngrx/schematics/10.1.2_rxjs@6.5.5+zone.js@0.10.3:
+    dependencies:
+      '@angular/core': 10.2.4_rxjs@6.5.5+zone.js@0.10.3
+    dev: true
+    peerDependencies:
+      rxjs: '*'
+      zone.js: '*'
+    resolution:
+      integrity: sha512-N53YObCnZoBIHWuCiQSfY3r8M/T0lGkzApLoaGTSNUHbyTBYevpjpUpvANE+Pb4F6Jh/7EEZBsmXBYKcPD2BtA==
+  /@ngrx/store/10.1.2_@angular+core@11.0.5+rxjs@6.5.5:
+    dependencies:
+      '@angular/core': 11.0.5_rxjs@6.5.5+zone.js@0.10.3
+      rxjs: 6.5.5
+      tslib: 2.0.3
+    dev: false
+    peerDependencies:
+      '@angular/core': ^10.0.0
+      rxjs: ^6.5.3
+    resolution:
+      integrity: sha512-FUjN786ch4Qt9WgJ78ef7Yquq3mPCekgcWgZrs4ycZw1f+KdfTHLTk1bGDtO8A8CzOya5yTT7KhxbdVjbOS5ng==
   /@ngtools/webpack/11.0.5_dbeeca76d5afdca02a3417a598e41100:
     dependencies:
       '@angular-devkit/core': 11.0.5
@@ -13192,6 +13239,9 @@ specifiers:
   '@angular/platform-browser': ^11.0.0
   '@angular/platform-browser-dynamic': ^11.0.0
   '@angular/router': ^11.0.0
+  '@ngrx/effects': ^10.1.2
+  '@ngrx/schematics': ^10.1.2
+  '@ngrx/store': ^10.1.2
   '@nrwl/angular': 11.0.20
   '@nrwl/cli': 11.0.20
   '@nrwl/cypress': 11.0.20

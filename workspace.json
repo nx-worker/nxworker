@@ -37,12 +37,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/angular/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/angular/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/packages/angular"],
+          "outputs": [
+            "coverage/packages/angular"
+          ],
           "options": {
             "jestConfig": "packages/angular/jest.config.js",
             "passWithNoTests": true
@@ -50,7 +54,9 @@
         },
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/packages/angular",
             "tsConfig": "packages/angular/tsconfig.lib.json",
@@ -470,14 +476,45 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["tools/**/*.ts"]
+            "lintFilePatterns": [
+              "tools/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/tools"],
+          "outputs": [
+            "coverage/tools"
+          ],
           "options": {
             "jestConfig": "tools/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "examples-angular-nrwl-airlines-shared-root-data-access": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/shared/root/data-access",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/shared/root/data-access/src",
+      "prefix": "nrwl-airlines",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/examples/angular/nrwl-airlines/shared/root/data-access/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/shared/root/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/examples/angular/nrwl-airlines/shared/root/data-access"
+          ],
+          "options": {
+            "jestConfig": "packages/examples/angular/nrwl-airlines/shared/root/data-access/jest.config.js",
             "passWithNoTests": true
           }
         }

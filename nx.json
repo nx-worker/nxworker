@@ -51,6 +51,14 @@
     },
     "workspace-tools": {
       "tags": ["platform:node", "type:tool"]
+    },
+    "examples-angular-nrwl-airlines-shared-root-data-access": {
+      "tags": [
+        "domain:shared",
+        "platform:web",
+        "scope:root",
+        "type:data-access"
+      ]
     }
   }
 }

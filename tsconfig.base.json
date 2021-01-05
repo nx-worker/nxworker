@@ -19,7 +19,10 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@nxworker/angular": ["packages/angular/src/index.ts"]
+      "@nxworker/angular": ["packages/angular/src/index.ts"],
+      "@nxworker/examples/angular/nrwl-airlines/shared/root/data-access": [
+        "packages/examples/angular/nrwl-airlines/shared/root/data-access/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
