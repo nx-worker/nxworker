@@ -6,7 +6,7 @@ import {
   uniq,
 } from '@nrwl/nx-plugin/testing';
 describe('angular e2e', () => {
-  it('should create angular', async (done) => {
+  it('should create angular', async done => {
     const plugin = uniq('angular');
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
     await runNxCommandAsync(`generate @nxworker/angular:angular ${plugin}`);
@@ -18,7 +18,7 @@ describe('angular e2e', () => {
   });
 
   describe('--directory', () => {
-    it('should create src in the specified directory', async (done) => {
+    it('should create src in the specified directory', async done => {
       const plugin = uniq('angular');
       ensureNxProject('@nxworker/angular', 'dist/packages/angular');
       await runNxCommandAsync(
@@ -32,7 +32,7 @@ describe('angular e2e', () => {
   });
 
   describe('--tags', () => {
-    it('should add tags to nx.json', async (done) => {
+    it('should add tags to nx.json', async done => {
       const plugin = uniq('angular');
       ensureNxProject('@nxworker/angular', 'dist/packages/angular');
       await runNxCommandAsync(
