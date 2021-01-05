@@ -9,6 +9,7 @@ dependencies:
   '@angular/router': 11.0.5_90eb12a6db44247ee1d762bf7579b2eb
   '@ngrx/effects': 10.1.2_b57cf4a278ca1b2fcb2239114e7dd753
   '@ngrx/entity': 10.1.2_b57cf4a278ca1b2fcb2239114e7dd753
+  '@ngrx/router-store': 10.1.2_474bd6195a6031f9f23fba9e0cbcaaba
   '@ngrx/store': 10.1.2_@angular+core@11.0.5+rxjs@6.5.5
   '@nrwl/angular': 11.0.20_4f93e793199fc5399dba9cfa47c8393f
   luxon: 1.25.0
@@ -35,6 +36,7 @@ devDependencies:
   '@nrwl/tao': 11.0.20
   '@nrwl/workspace': 11.0.20_prettier@2.1.2
   '@types/jest': 26.0.8
+  '@types/luxon': 1.25.0
   '@types/node': 12.12.38
   '@typescript-eslint/eslint-plugin': 4.3.0_0a641c819e3f5e2d27a85327fbf21101
   '@typescript-eslint/parser': 4.3.0_eslint@7.10.0+typescript@4.0.5
@@ -2448,6 +2450,23 @@ packages:
       rxjs: ^6.5.3
     resolution:
       integrity: sha512-peit/zjLUxl8zQgNuPlPXDf4FmNZYMMNGsKQHiFpShIpWjLFTnR1wCeeLw8LMrqSy9vxLO3JpXwkDFZb8a+FDg==
+  /@ngrx/router-store/10.1.2_474bd6195a6031f9f23fba9e0cbcaaba:
+    dependencies:
+      '@angular/common': 11.0.5_@angular+core@11.0.5+rxjs@6.5.5
+      '@angular/core': 11.0.5_rxjs@6.5.5+zone.js@0.10.3
+      '@angular/router': 11.0.5_90eb12a6db44247ee1d762bf7579b2eb
+      '@ngrx/store': 10.1.2_@angular+core@11.0.5+rxjs@6.5.5
+      rxjs: 6.5.5
+      tslib: 2.0.3
+    dev: false
+    peerDependencies:
+      '@angular/common': ^10.0.0
+      '@angular/core': ^10.0.0
+      '@angular/router': ^10.0.0
+      '@ngrx/store': 10.1.2
+      rxjs: ^6.5.3
+    resolution:
+      integrity: sha512-IBsZee5ZUmLbXkY/O4OjhJP1Q6mdu4lcLcQ9jeXsdCMH/Vvc0EGK+MlhsZrxv5+v2ZXb1bhtKsLBUsTovanLWA==
   /@ngrx/schematics/10.1.2_rxjs@6.5.5+zone.js@0.10.3:
     dependencies:
       '@angular/core': 10.2.4_rxjs@6.5.5+zone.js@0.10.3
@@ -2870,6 +2889,10 @@ packages:
   /@types/json5/0.0.29:
     resolution:
       integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
+  /@types/luxon/1.25.0:
+    dev: true
+    resolution:
+      integrity: sha512-iIJp2CP6C32gVqI08HIYnzqj55tlLnodIBMCcMf28q9ckqMfMzocCmIzd9JWI/ALLPMUiTkCu1JGv3FFtu6t3g==
   /@types/minimatch/3.0.3:
     dev: true
     resolution:
@@ -13260,6 +13283,7 @@ specifiers:
   '@angular/router': ^11.0.0
   '@ngrx/effects': ^10.1.2
   '@ngrx/entity': ^10.1.2
+  '@ngrx/router-store': ^10.1.2
   '@ngrx/schematics': ^10.1.2
   '@ngrx/store': ^10.1.2
   '@nrwl/angular': 11.0.20
@@ -13274,6 +13298,7 @@ specifiers:
   '@nrwl/tao': 11.0.20
   '@nrwl/workspace': 11.0.20
   '@types/jest': 26.0.8
+  '@types/luxon': ^1.25.0
   '@types/node': 12.12.38
   '@typescript-eslint/eslint-plugin': 4.3.0
   '@typescript-eslint/parser': 4.3.0
