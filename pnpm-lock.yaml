@@ -50,6 +50,7 @@ devDependencies:
   eslint-plugin-prefer-arrow: 1.2.2_eslint@7.10.0
   jest: 26.2.2_ts-node@9.1.1
   jest-preset-angular: 8.3.1_d4e2336e85e5b1201d0ec6a7e45c3644
+  json: 10.0.0
   prettier: 2.1.2
   ts-jest: 26.4.0_jest@26.2.2+typescript@4.0.5
   ts-node: 9.1.1_typescript@4.0.5
@@ -8275,6 +8276,13 @@ packages:
     dev: true
     resolution:
       integrity: sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
+  /json/10.0.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    hasBin: true
+    resolution:
+      integrity: sha512-iK7tAZtpoghibjdB1ncCWykeBMmke3JThUe+rnkD4qkZaglOIQ70Pw7r5UJ4lyUT+7gnw7ehmmLUHDuhqzQD+g==
   /json3/3.3.3:
     dev: true
     resolution:
@@ -13312,6 +13320,7 @@ specifiers:
   eslint-plugin-prefer-arrow: ^1.2.2
   jest: 26.2.2
   jest-preset-angular: 8.3.1
+  json: ^10.0.0
   luxon: ^1.25.0
   prettier: 2.1.2
   rxjs: ~6.5.5
