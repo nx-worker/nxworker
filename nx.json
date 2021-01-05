@@ -43,14 +43,22 @@
     "examples-angular-nrwl-airlines-booking-mobile-app": {
       "tags": ["domain:booking", "platform:mobile", "type:app"]
     },
+    "examples-angular-nrwl-airlines-check-in-data-access": {
+      "tags": [
+        "domain:check-in",
+        "platform:web",
+        "scope:check-in",
+        "type:data-access"
+      ]
+    },
     "examples-angular-nrwl-airlines-check-in-desktop-app": {
       "tags": ["domain:check-in", "platform:desktop", "type:app"]
     },
     "examples-angular-nrwl-airlines-check-in-mobile-app": {
       "tags": ["domain:check-in", "platform:mobile", "type:app"]
     },
-    "workspace-tools": {
-      "tags": ["platform:node", "type:tool"]
+    "examples-angular-nrwl-airlines-check-in-root-feature-shell": {
+      "tags": ["domain:check-in", "platform:web", "scope:root", "type:shell"]
     },
     "examples-angular-nrwl-airlines-shared-root-data-access": {
       "tags": [
@@ -60,19 +68,14 @@
         "type:data-access"
       ]
     },
-    "examples-angular-nrwl-airlines-check-in-root-feature-shell": {
-      "tags": ["domain:check-in", "platform:web", "scope:root", "type:shell"]
-    },
-    "examples-angular-nrwl-airlines-check-in-data-access": {
-      "tags": [
-        "domain:check-in",
-        "platform:web",
-        "scope:check-in",
-        "type:data-access"
-      ]
-    },
     "examples-angular-nrwl-airlines-shared-ui-buttons": {
-      "tags": ["domain:check-in", "platform:web", "scope:shared", "type:ui"]
+      "tags": ["domain:shared", "platform:web", "scope:shared", "type:ui"]
+    },
+    "examples-angular-nrwl-airlines-shared-util-formatting": {
+      "tags": ["domain:shared", "platform:web", "scope:shared", "type:util"]
+    },
+    "workspace-tools": {
+      "tags": ["platform:node", "type:tool"]
     }
   }
 }

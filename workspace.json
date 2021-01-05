@@ -284,6 +284,33 @@
         }
       }
     },
+    "examples-angular-nrwl-airlines-check-in-data-access": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/check-in/data-access",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/check-in/data-access/src",
+      "prefix": "check-in",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/examples/angular/nrwl-airlines/check-in/data-access/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/check-in/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/examples/angular/nrwl-airlines/check-in/data-access"
+          ],
+          "options": {
+            "jestConfig": "packages/examples/angular/nrwl-airlines/check-in/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "examples-angular-nrwl-airlines-check-in-desktop-app": {
       "projectType": "application",
       "root": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app",
@@ -468,26 +495,28 @@
         }
       }
     },
-    "workspace-tools": {
-      "projectType": "tool",
-      "root": "tools",
-      "sourceRoot": "tools",
+    "examples-angular-nrwl-airlines-check-in-root-feature-shell": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src",
+      "prefix": "check-in",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "tools/**/*.ts"
+              "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src/**/*.html"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/tools"
+            "coverage/packages/examples/angular/nrwl-airlines/check-in/root/feature-shell"
           ],
           "options": {
-            "jestConfig": "tools/jest.config.js",
+            "jestConfig": "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -520,60 +549,6 @@
         }
       }
     },
-    "examples-angular-nrwl-airlines-check-in-root-feature-shell": {
-      "projectType": "library",
-      "root": "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell",
-      "sourceRoot": "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src",
-      "prefix": "check-in",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src/**/*.ts",
-              "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/packages/examples/angular/nrwl-airlines/check-in/root/feature-shell"
-          ],
-          "options": {
-            "jestConfig": "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "examples-angular-nrwl-airlines-check-in-data-access": {
-      "projectType": "library",
-      "root": "packages/examples/angular/nrwl-airlines/check-in/data-access",
-      "sourceRoot": "packages/examples/angular/nrwl-airlines/check-in/data-access/src",
-      "prefix": "check-in",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "packages/examples/angular/nrwl-airlines/check-in/data-access/src/**/*.ts",
-              "packages/examples/angular/nrwl-airlines/check-in/data-access/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/packages/examples/angular/nrwl-airlines/check-in/data-access"
-          ],
-          "options": {
-            "jestConfig": "packages/examples/angular/nrwl-airlines/check-in/data-access/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "examples-angular-nrwl-airlines-shared-ui-buttons": {
       "projectType": "library",
       "root": "packages/examples/angular/nrwl-airlines/shared/ui-buttons",
@@ -596,6 +571,58 @@
           ],
           "options": {
             "jestConfig": "packages/examples/angular/nrwl-airlines/shared/ui-buttons/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "examples-angular-nrwl-airlines-shared-util-formatting": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/shared/util-formatting",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/shared/util-formatting/src",
+      "prefix": "nrwl-airlines",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/examples/angular/nrwl-airlines/shared/util-formatting/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/shared/util-formatting/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/examples/angular/nrwl-airlines/shared/util-formatting"
+          ],
+          "options": {
+            "jestConfig": "packages/examples/angular/nrwl-airlines/shared/util-formatting/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "workspace-tools": {
+      "projectType": "tool",
+      "root": "tools",
+      "sourceRoot": "tools",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "tools/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/tools"
+          ],
+          "options": {
+            "jestConfig": "tools/jest.config.js",
             "passWithNoTests": true
           }
         }
