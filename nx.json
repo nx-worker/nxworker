@@ -48,6 +48,14 @@
     "examples-angular-nrwl-airlines-booking-desktop-app": {
       "tags": ["domain:booking", "platform:desktop", "type:app"]
     },
+    "examples-angular-nrwl-airlines-booking-feature-flight-search": {
+      "tags": [
+        "domain:booking",
+        "platform:web",
+        "scope:booking",
+        "type:feature"
+      ]
+    },
     "examples-angular-nrwl-airlines-booking-mobile-app": {
       "tags": ["domain:booking", "platform:mobile", "type:app"]
     },

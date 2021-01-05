@@ -213,6 +213,33 @@
         }
       }
     },
+    "examples-angular-nrwl-airlines-booking-feature-flight-search": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/booking/feature-flight-search",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/booking/feature-flight-search/src",
+      "prefix": "booking",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/examples/angular/nrwl-airlines/booking/feature-flight-search/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/booking/feature-flight-search/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/examples/angular/nrwl-airlines/booking/feature-flight-search"
+          ],
+          "options": {
+            "jestConfig": "packages/examples/angular/nrwl-airlines/booking/feature-flight-search/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "examples-angular-nrwl-airlines-booking-mobile-app": {
       "projectType": "application",
       "root": "e2e/examples/angular/nrwl-airlines/booking/mobile-app",

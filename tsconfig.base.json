@@ -23,6 +23,9 @@
       "@nrwl-airlines/booking/data-access": [
         "packages/examples/angular/nrwl-airlines/booking/data-access/src/index.ts"
       ],
+      "@nrwl-airlines/booking/feature-flight-search": [
+        "packages/examples/angular/nrwl-airlines/booking/feature-flight-search/src/index.ts"
+      ],
       "@nrwl-airlines/check-in/root/feature-shell": [
         "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src/index.ts"
       ],
