@@ -60,6 +60,22 @@
     "examples-angular-nrwl-airlines-check-in-root-feature-shell": {
       "tags": ["domain:check-in", "platform:web", "scope:root", "type:shell"]
     },
+    "examples-angular-nrwl-airlines-seatmap-data-access": {
+      "tags": [
+        "domain:seatmap",
+        "platform:web",
+        "scope:seatmap",
+        "type:data-access"
+      ]
+    },
+    "examples-angular-nrwl-airlines-seatmap-feature-seat-listing": {
+      "tags": [
+        "domain:seatmap",
+        "platform:web",
+        "scope:seatmap",
+        "type:feature"
+      ]
+    },
     "examples-angular-nrwl-airlines-shared-root-data-access": {
       "tags": [
         "domain:shared",
@@ -76,14 +92,6 @@
     },
     "workspace-tools": {
       "tags": ["platform:node", "type:tool"]
-    },
-    "examples-angular-nrwl-airlines-seatmap-data-access": {
-      "tags": [
-        "domain:seatmap",
-        "platform:web",
-        "scope:seatmap",
-        "type:data-access"
-      ]
     }
   }
 }

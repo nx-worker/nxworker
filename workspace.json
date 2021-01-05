@@ -516,6 +516,60 @@
         }
       }
     },
+    "examples-angular-nrwl-airlines-seatmap-data-access": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/seatmap/data-access",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/seatmap/data-access/src",
+      "prefix": "seatmap",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/examples/angular/nrwl-airlines/seatmap/data-access/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/seatmap/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/examples/angular/nrwl-airlines/seatmap/data-access"
+          ],
+          "options": {
+            "jestConfig": "packages/examples/angular/nrwl-airlines/seatmap/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "examples-angular-nrwl-airlines-seatmap-feature-seat-listing": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/seatmap/feature-seat-listing",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/seatmap/feature-seat-listing/src",
+      "prefix": "seatmap",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/examples/angular/nrwl-airlines/seatmap/feature-seat-listing/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/seatmap/feature-seat-listing/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/examples/angular/nrwl-airlines/seatmap/feature-seat-listing"
+          ],
+          "options": {
+            "jestConfig": "packages/examples/angular/nrwl-airlines/seatmap/feature-seat-listing/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "examples-angular-nrwl-airlines-shared-root-data-access": {
       "projectType": "library",
       "root": "packages/examples/angular/nrwl-airlines/shared/root/data-access",
@@ -613,33 +667,6 @@
           "outputs": ["coverage/tools"],
           "options": {
             "jestConfig": "tools/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "examples-angular-nrwl-airlines-seatmap-data-access": {
-      "projectType": "library",
-      "root": "packages/examples/angular/nrwl-airlines/seatmap/data-access",
-      "sourceRoot": "packages/examples/angular/nrwl-airlines/seatmap/data-access/src",
-      "prefix": "seatmap",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "packages/examples/angular/nrwl-airlines/seatmap/data-access/src/**/*.ts",
-              "packages/examples/angular/nrwl-airlines/seatmap/data-access/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/packages/examples/angular/nrwl-airlines/seatmap/data-access"
-          ],
-          "options": {
-            "jestConfig": "packages/examples/angular/nrwl-airlines/seatmap/data-access/jest.config.js",
             "passWithNoTests": true
           }
         }

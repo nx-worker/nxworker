@@ -29,6 +29,9 @@
       "@nrwl-airlines/seatmap/data-access": [
         "packages/examples/angular/nrwl-airlines/seatmap/data-access/src/index.ts"
       ],
+      "@nrwl-airlines/seatmap/feature-seat-listing": [
+        "packages/examples/angular/nrwl-airlines/seatmap/feature-seat-listing/src/index.ts"
+      ],
       "@nrwl-airlines/shared/root/data-access": [
         "packages/examples/angular/nrwl-airlines/shared/root/data-access/src/index.ts"
       ],
