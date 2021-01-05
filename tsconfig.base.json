@@ -28,6 +28,9 @@
       ],
       "@nxworker/examples/angular/nrwl-airlines/check-in/data-access": [
         "packages/examples/angular/nrwl-airlines/check-in/data-access/src/index.ts"
+      ],
+      "@nxworker/examples/angular/nrwl-airlines/shared/ui-buttons": [
+        "packages/examples/angular/nrwl-airlines/shared/ui-buttons/src/index.ts"
       ]
     }
   },

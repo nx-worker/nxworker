@@ -573,6 +573,33 @@
           }
         }
       }
+    },
+    "examples-angular-nrwl-airlines-shared-ui-buttons": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/shared/ui-buttons",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/shared/ui-buttons/src",
+      "prefix": "nrwl-airlines",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/examples/angular/nrwl-airlines/shared/ui-buttons/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/shared/ui-buttons/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/examples/angular/nrwl-airlines/shared/ui-buttons"
+          ],
+          "options": {
+            "jestConfig": "packages/examples/angular/nrwl-airlines/shared/ui-buttons/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

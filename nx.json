@@ -70,6 +70,9 @@
         "scope:check-in",
         "type:data-access"
       ]
+    },
+    "examples-angular-nrwl-airlines-shared-ui-buttons": {
+      "tags": ["domain:check-in", "platform:web", "scope:shared", "type:ui"]
     }
   }
 }

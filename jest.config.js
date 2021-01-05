@@ -10,5 +10,6 @@ module.exports = {
     '<rootDir>/packages/examples/angular/nrwl-airlines/shared/root/data-access',
     '<rootDir>/packages/examples/angular/nrwl-airlines/check-in/root/feature-shell',
     '<rootDir>/packages/examples/angular/nrwl-airlines/check-in/data-access',
+    '<rootDir>/packages/examples/angular/nrwl-airlines/shared/ui-buttons',
   ],
 };
