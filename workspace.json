@@ -94,6 +94,374 @@
         }
       }
     },
+    "examples-angular-nrwl-airlines-booking-desktop-app": {
+      "projectType": "application",
+      "root": "e2e/examples/angular/nrwl-airlines/booking/desktop-app",
+      "sourceRoot": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src",
+      "prefix": "nrwl-airlines",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/e2e/examples/angular/nrwl-airlines/booking/desktop-app",
+            "index": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/index.html",
+            "main": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/main.ts",
+            "polyfills": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/polyfills.ts",
+            "tsConfig": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/favicon.ico",
+              "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/assets"
+            ],
+            "styles": [
+              "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/environments/environment.ts",
+                  "with": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "examples-angular-nrwl-airlines-booking-desktop-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "examples-angular-nrwl-airlines-booking-desktop-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "examples-angular-nrwl-airlines-booking-desktop-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/**/*.ts",
+              "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/e2e/examples/angular/nrwl-airlines/booking/desktop-app"
+          ],
+          "options": {
+            "jestConfig": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "examples-angular-nrwl-airlines-booking-mobile-app": {
+      "projectType": "application",
+      "root": "e2e/examples/angular/nrwl-airlines/booking/mobile-app",
+      "sourceRoot": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src",
+      "prefix": "nrwl-airlines",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/e2e/examples/angular/nrwl-airlines/booking/mobile-app",
+            "index": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/index.html",
+            "main": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/main.ts",
+            "polyfills": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/polyfills.ts",
+            "tsConfig": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/favicon.ico",
+              "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/assets"
+            ],
+            "styles": [
+              "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/environments/environment.ts",
+                  "with": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "examples-angular-nrwl-airlines-booking-mobile-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "examples-angular-nrwl-airlines-booking-mobile-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "examples-angular-nrwl-airlines-booking-mobile-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/**/*.ts",
+              "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/e2e/examples/angular/nrwl-airlines/booking/mobile-app"
+          ],
+          "options": {
+            "jestConfig": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "examples-angular-nrwl-airlines-check-in-desktop-app": {
+      "projectType": "application",
+      "root": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app",
+      "sourceRoot": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src",
+      "prefix": "nrwl-airlines",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/e2e/examples/angular/nrwl-airlines/check-in/desktop-app",
+            "index": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/index.html",
+            "main": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/main.ts",
+            "polyfills": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/polyfills.ts",
+            "tsConfig": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/favicon.ico",
+              "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/assets"
+            ],
+            "styles": [
+              "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/environments/environment.ts",
+                  "with": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "examples-angular-nrwl-airlines-check-in-desktop-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "examples-angular-nrwl-airlines-check-in-desktop-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "examples-angular-nrwl-airlines-check-in-desktop-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/**/*.ts",
+              "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/e2e/examples/angular/nrwl-airlines/check-in/desktop-app"
+          ],
+          "options": {
+            "jestConfig": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "examples-angular-nrwl-airlines-check-in-mobile-app": {
+      "projectType": "application",
+      "root": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app",
+      "sourceRoot": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src",
+      "prefix": "nrwl-airlines",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/e2e/examples/angular/nrwl-airlines/check-in/mobile-app",
+            "index": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/index.html",
+            "main": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/main.ts",
+            "polyfills": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/polyfills.ts",
+            "tsConfig": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/favicon.ico",
+              "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/assets"
+            ],
+            "styles": [
+              "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/environments/environment.ts",
+                  "with": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "examples-angular-nrwl-airlines-check-in-mobile-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "examples-angular-nrwl-airlines-check-in-mobile-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "examples-angular-nrwl-airlines-check-in-mobile-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/**/*.ts",
+              "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/e2e/examples/angular/nrwl-airlines/check-in/mobile-app"
+          ],
+          "options": {
+            "jestConfig": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "workspace-tools": {
       "projectType": "tool",
       "root": "tools",

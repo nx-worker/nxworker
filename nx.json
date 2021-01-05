@@ -37,6 +37,18 @@
       "tags": ["platform:node", "type:e2e"],
       "implicitDependencies": ["angular"]
     },
+    "examples-angular-nrwl-airlines-booking-desktop-app": {
+      "tags": ["domain:booking", "platform:desktop", "type:app"]
+    },
+    "examples-angular-nrwl-airlines-booking-mobile-app": {
+      "tags": ["domain:booking", "platform:mobile", "type:app"]
+    },
+    "examples-angular-nrwl-airlines-check-in-desktop-app": {
+      "tags": ["domain:check-in", "platform:desktop", "type:app"]
+    },
+    "examples-angular-nrwl-airlines-check-in-mobile-app": {
+      "tags": ["domain:check-in", "platform:mobile", "type:app"]
+    },
     "workspace-tools": {
       "tags": ["platform:node", "type:tool"]
     }
