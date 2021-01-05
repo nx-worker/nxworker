@@ -20,8 +20,11 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@nxworker/angular": ["packages/angular/src/index.ts"],
-      "@nxworker/examples/angular/nrwl-airlines/shared/root/data-access": [
+      "@nrwl-airlines/shared/root/data-access": [
         "packages/examples/angular/nrwl-airlines/shared/root/data-access/src/index.ts"
+      ],
+      "@nrwl-airlines/check-in/root/feature-shell": [
+        "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src/index.ts"
       ]
     }
   },

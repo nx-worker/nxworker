@@ -519,6 +519,33 @@
           }
         }
       }
+    },
+    "examples-angular-nrwl-airlines-check-in-root-feature-shell": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src",
+      "prefix": "check-in",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/examples/angular/nrwl-airlines/check-in/root/feature-shell"
+          ],
+          "options": {
+            "jestConfig": "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
