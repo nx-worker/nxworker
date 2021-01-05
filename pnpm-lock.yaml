@@ -25,6 +25,7 @@ devDependencies:
   '@angular/compiler-cli': 11.0.5_ae04eea250591f41b901d33a8893b81f
   '@angular/language-service': 11.0.5
   '@ngrx/schematics': 10.1.2_rxjs@6.5.5+zone.js@0.10.3
+  '@ngrx/store-devtools': 10.1.2_@ngrx+store@10.1.2+rxjs@6.5.5
   '@nrwl/cli': 11.0.20
   '@nrwl/cypress': 11.0.20_27b23eeedd7e13744d5291dab3bb90c4
   '@nrwl/devkit': 11.0.20
@@ -2477,6 +2478,17 @@ packages:
       zone.js: '*'
     resolution:
       integrity: sha512-N53YObCnZoBIHWuCiQSfY3r8M/T0lGkzApLoaGTSNUHbyTBYevpjpUpvANE+Pb4F6Jh/7EEZBsmXBYKcPD2BtA==
+  /@ngrx/store-devtools/10.1.2_@ngrx+store@10.1.2+rxjs@6.5.5:
+    dependencies:
+      '@ngrx/store': 10.1.2_@angular+core@11.0.5+rxjs@6.5.5
+      rxjs: 6.5.5
+      tslib: 2.0.3
+    dev: true
+    peerDependencies:
+      '@ngrx/store': 10.1.2
+      rxjs: ^6.5.3
+    resolution:
+      integrity: sha512-HE681GuZ+lRgSXpgt7y7LKzsfu/+Tgy9yPZpaitvkhg+eCIjnN5Uvs1rWqETHYWnsKliW25yoqFUAVw+xb7hug==
   /@ngrx/store/10.1.2_@angular+core@11.0.5+rxjs@6.5.5:
     dependencies:
       '@angular/core': 11.0.5_rxjs@6.5.5+zone.js@0.10.3
@@ -13294,6 +13306,7 @@ specifiers:
   '@ngrx/router-store': ^10.1.2
   '@ngrx/schematics': ^10.1.2
   '@ngrx/store': ^10.1.2
+  '@ngrx/store-devtools': ^10.1.2
   '@nrwl/angular': 11.0.20
   '@nrwl/cli': 11.0.20
   '@nrwl/cypress': 11.0.20
