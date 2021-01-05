@@ -37,6 +37,14 @@
       "tags": ["platform:node", "type:e2e"],
       "implicitDependencies": ["angular"]
     },
+    "examples-angular-nrwl-airlines-booking-data-access": {
+      "tags": [
+        "domain:booking",
+        "platform:web",
+        "scope:booking",
+        "type:data-access"
+      ]
+    },
     "examples-angular-nrwl-airlines-booking-desktop-app": {
       "tags": ["domain:booking", "platform:desktop", "type:app"]
     },
