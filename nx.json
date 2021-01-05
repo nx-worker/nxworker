@@ -56,6 +56,14 @@
         "type:feature"
       ]
     },
+    "examples-angular-nrwl-airlines-booking-feature-passenger-info": {
+      "tags": [
+        "domain:booking",
+        "platform:web",
+        "scope:booking",
+        "type:feature"
+      ]
+    },
     "examples-angular-nrwl-airlines-booking-mobile-app": {
       "tags": ["domain:booking", "platform:mobile", "type:app"]
     },
