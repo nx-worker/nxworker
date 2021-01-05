@@ -546,6 +546,33 @@
           }
         }
       }
+    },
+    "examples-angular-nrwl-airlines-check-in-data-access": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/check-in/data-access",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/check-in/data-access/src",
+      "prefix": "check-in",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/examples/angular/nrwl-airlines/check-in/data-access/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/check-in/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/examples/angular/nrwl-airlines/check-in/data-access"
+          ],
+          "options": {
+            "jestConfig": "packages/examples/angular/nrwl-airlines/check-in/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

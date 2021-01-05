@@ -25,6 +25,9 @@
       ],
       "@nrwl-airlines/check-in/root/feature-shell": [
         "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src/index.ts"
+      ],
+      "@nxworker/examples/angular/nrwl-airlines/check-in/data-access": [
+        "packages/examples/angular/nrwl-airlines/check-in/data-access/src/index.ts"
       ]
     }
   },

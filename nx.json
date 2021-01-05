@@ -62,6 +62,14 @@
     },
     "examples-angular-nrwl-airlines-check-in-root-feature-shell": {
       "tags": ["domain:check-in", "platform:web", "scope:root", "type:shell"]
+    },
+    "examples-angular-nrwl-airlines-check-in-data-access": {
+      "tags": [
+        "domain:check-in",
+        "platform:web",
+        "scope:check-in",
+        "type:data-access"
+      ]
     }
   }
 }
