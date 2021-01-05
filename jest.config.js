@@ -17,5 +17,6 @@ module.exports = {
     '<rootDir>/packages/examples/angular/nrwl-airlines/booking/data-access',
     '<rootDir>/packages/examples/angular/nrwl-airlines/booking/feature-flight-search',
     '<rootDir>/packages/examples/angular/nrwl-airlines/booking/feature-passenger-info',
+    '<rootDir>/packages/examples/angular/nrwl-airlines/booking/root/feature-shell',
   ],
 };

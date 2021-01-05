@@ -67,6 +67,9 @@
     "examples-angular-nrwl-airlines-booking-mobile-app": {
       "tags": ["domain:booking", "platform:mobile", "type:app"]
     },
+    "examples-angular-nrwl-airlines-booking-root-feature-shell": {
+      "tags": ["domain:booking", "platform:web", "scope:root", "type:feature"]
+    },
     "examples-angular-nrwl-airlines-check-in-data-access": {
       "tags": [
         "domain:check-in",

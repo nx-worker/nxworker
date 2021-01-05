@@ -359,6 +359,33 @@
         }
       }
     },
+    "examples-angular-nrwl-airlines-booking-root-feature-shell": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/booking/root/feature-shell",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/booking/root/feature-shell/src",
+      "prefix": "booking",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/examples/angular/nrwl-airlines/booking/root/feature-shell/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/booking/root/feature-shell/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/examples/angular/nrwl-airlines/booking/root/feature-shell"
+          ],
+          "options": {
+            "jestConfig": "packages/examples/angular/nrwl-airlines/booking/root/feature-shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "examples-angular-nrwl-airlines-check-in-data-access": {
       "projectType": "library",
       "root": "packages/examples/angular/nrwl-airlines/check-in/data-access",

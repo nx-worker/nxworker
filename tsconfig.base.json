@@ -29,6 +29,9 @@
       "@nrwl-airlines/booking/feature-passenger-info": [
         "packages/examples/angular/nrwl-airlines/booking/feature-passenger-info/src/index.ts"
       ],
+      "@nrwl-airlines/booking/root/feature-shell": [
+        "packages/examples/angular/nrwl-airlines/booking/root/feature-shell/src/index.ts"
+      ],
       "@nrwl-airlines/check-in/root/feature-shell": [
         "packages/examples/angular/nrwl-airlines/check-in/root/feature-shell/src/index.ts"
       ],
