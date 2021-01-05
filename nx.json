@@ -76,6 +76,14 @@
     },
     "workspace-tools": {
       "tags": ["platform:node", "type:tool"]
+    },
+    "examples-angular-nrwl-airlines-seatmap-data-access": {
+      "tags": [
+        "domain:seatmap",
+        "platform:web",
+        "scope:seatmap",
+        "type:data-access"
+      ]
     }
   }
 }

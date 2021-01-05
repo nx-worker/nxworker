@@ -37,16 +37,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "packages/angular/**/*.ts"
-            ]
+            "lintFilePatterns": ["packages/angular/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/packages/angular"
-          ],
+          "outputs": ["coverage/packages/angular"],
           "options": {
             "jestConfig": "packages/angular/jest.config.js",
             "passWithNoTests": true
@@ -54,9 +50,7 @@
         },
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/angular",
             "tsConfig": "packages/angular/tsconfig.lib.json",
@@ -104,7 +98,7 @@
       "projectType": "application",
       "root": "e2e/examples/angular/nrwl-airlines/booking/desktop-app",
       "sourceRoot": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src",
-      "prefix": "nrwl-airlines",
+      "prefix": "booking",
       "targets": {
         "build": {
           "executor": "@angular-devkit/build-angular:browser",
@@ -196,7 +190,7 @@
       "projectType": "application",
       "root": "e2e/examples/angular/nrwl-airlines/booking/mobile-app",
       "sourceRoot": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src",
-      "prefix": "nrwl-airlines",
+      "prefix": "booking",
       "targets": {
         "build": {
           "executor": "@angular-devkit/build-angular:browser",
@@ -315,7 +309,7 @@
       "projectType": "application",
       "root": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app",
       "sourceRoot": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src",
-      "prefix": "nrwl-airlines",
+      "prefix": "check-in",
       "targets": {
         "build": {
           "executor": "@angular-devkit/build-angular:browser",
@@ -407,7 +401,7 @@
       "projectType": "application",
       "root": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app",
       "sourceRoot": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src",
-      "prefix": "nrwl-airlines",
+      "prefix": "check-in",
       "targets": {
         "build": {
           "executor": "@angular-devkit/build-angular:browser",
@@ -611,18 +605,41 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
+            "lintFilePatterns": ["tools/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/tools"],
+          "options": {
+            "jestConfig": "tools/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "examples-angular-nrwl-airlines-seatmap-data-access": {
+      "projectType": "library",
+      "root": "packages/examples/angular/nrwl-airlines/seatmap/data-access",
+      "sourceRoot": "packages/examples/angular/nrwl-airlines/seatmap/data-access/src",
+      "prefix": "seatmap",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
             "lintFilePatterns": [
-              "tools/**/*.ts"
+              "packages/examples/angular/nrwl-airlines/seatmap/data-access/src/**/*.ts",
+              "packages/examples/angular/nrwl-airlines/seatmap/data-access/src/**/*.html"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/tools"
+            "coverage/packages/examples/angular/nrwl-airlines/seatmap/data-access"
           ],
           "options": {
-            "jestConfig": "tools/jest.config.js",
+            "jestConfig": "packages/examples/angular/nrwl-airlines/seatmap/data-access/jest.config.js",
             "passWithNoTests": true
           }
         }
