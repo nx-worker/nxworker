@@ -7,6 +7,12 @@
       "factory": "./src/generators/angular/generator",
       "schema": "./src/generators/angular/schema.json",
       "description": "angular generator"
+    },
+    "convert-to-buildable": {
+      "factory": "./src/generators/convert-to-buildable/generator",
+      "schema": "./src/generators/convert-to-buildable/schema.json",
+      "aliases": ["buildable"],
+      "description": "Convert to buildable but non-publishable project. Supports application and library projects."
     }
   }
 }
