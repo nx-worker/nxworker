@@ -7,9 +7,9 @@ import { addNgPackagr } from './add-ng-packagr';
 describe(addNgPackagr.name, () => {
   beforeEach(() => {
     host = createTreeWithEmptyWorkspace();
-    project = 'shared-ui-buttons';
+    projectName = 'shared-ui-buttons';
     importPath = `@nrwl-airlines/shared/ui-buttons`;
-    projectConfiguration = {
+    project = {
       projectType: 'library',
       root: 'libs/shared/ui-buttons',
       sourceRoot: 'libs/shared/ui-buttons/src',
@@ -36,19 +36,19 @@ describe(addNgPackagr.name, () => {
     const tsconfigBase: TsconfigBaseJson = {
       compilerOptions: {
         paths: {
-          [importPath]: [`${projectConfiguration.sourceRoot}/index.ts`],
+          [importPath]: [`${project.sourceRoot}/index.ts`],
         },
       },
     };
 
     host.write('tsconfig.base.json', JSON.stringify(tsconfigBase));
-    addProjectConfiguration(host, project, projectConfiguration);
+    addProjectConfiguration(host, projectName, project);
   });
 
   let host: Tree;
   let importPath: string;
-  let projectConfiguration: ProjectConfiguration;
-  let project: string;
+  let project: ProjectConfiguration;
+  let projectName: string;
 
   it('installs ng-packagr when not installed', async () => {
     await addNgPackagr(host);
