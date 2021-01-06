@@ -3,23 +3,8 @@ import * as path from 'path';
 
 import { NormalizedSchema } from '../normalized-schema';
 import { FileTemplateReplacements } from './file-types';
+import { hasPackageConfigurations } from './util/has-package-configurations';
 import { readImportPathOrThrow } from './util/read-import-path-or-throw';
-
-function hasPackageConfigurations(host: Tree, projectRoot: string): boolean {
-  if (!host.exists(path.join(projectRoot, 'ng-package.json'))) {
-    return false;
-  }
-
-  if (!host.exists(path.join(projectRoot, 'package.json'))) {
-    return false;
-  }
-
-  if (!host.exists(path.join(projectRoot, 'tsconfig.lib.prod.json'))) {
-    return false;
-  }
-
-  return true;
-}
 
 export async function generateBuildableLibraryConfigurations(
   host: Tree,
@@ -39,7 +24,7 @@ export async function generateBuildableLibraryConfigurations(
   if (!hasPackageConfigurations(host, projectRoot)) {
     generateFiles(
       host,
-      path.join(__dirname, '../files'),
+      path.join(__dirname, 'files'),
       projectRoot,
       replacements
     );

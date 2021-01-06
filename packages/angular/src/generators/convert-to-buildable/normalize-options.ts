@@ -13,18 +13,7 @@ export function normalizeOptions(
     project: projectName,
     skipFormat = false,
   } = options;
-  const { sourceRoot: maybeProjectRoot } = readProjectConfiguration(
-    host,
-    projectName
-  );
-
-  if (!maybeProjectRoot) {
-    throw new Error(
-      `No "sourceRoot" setting for project with name "${projectName}"`
-    );
-  }
-
-  const projectRoot = maybeProjectRoot;
+  const { root: projectRoot } = readProjectConfiguration(host, projectName);
 
   return {
     enableIvy,
