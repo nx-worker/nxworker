@@ -1,15 +1,15 @@
 import { readJson, Tree } from '@nrwl/devkit';
 
-import { WorkspaceRootPackageJson } from '../file-types';
+import { WorkspaceRootPackageJson } from '../../file-types';
 
-export function installNgPackagr(host: Tree) {
+export function addNgPackagr(host: Tree) {
   const packageJsonPath = 'package.json';
   const currentPackageJson: WorkspaceRootPackageJson = readJson(
     host,
     packageJsonPath
   );
   const isNgPackagrInstalled =
-    currentPackageJson?.devDependencies['ng-packagr'] !== undefined;
+    currentPackageJson.devDependencies?.['ng-packagr'] !== undefined;
 
   if (isNgPackagrInstalled) {
     return;

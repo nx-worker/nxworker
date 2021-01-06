@@ -1,10 +1,10 @@
 import { addProjectConfiguration, ProjectConfiguration, readJson, Tree } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 
-import { TsconfigBaseJson, WorkspaceRootPackageJson } from '../file-types';
-import { installNgPackagr } from './install-ng-packagr';
+import { TsconfigBaseJson, WorkspaceRootPackageJson } from '../../file-types';
+import { addNgPackagr } from './add-ng-packagr';
 
-describe(installNgPackagr.name, () => {
+describe(addNgPackagr.name, () => {
   beforeEach(() => {
     host = createTreeWithEmptyWorkspace();
     project = 'shared-ui-buttons';
@@ -51,7 +51,7 @@ describe(installNgPackagr.name, () => {
   let project: string;
 
   it('installs ng-packagr when not installed', async () => {
-    await installNgPackagr(host);
+    await addNgPackagr(host);
 
     const { devDependencies = {} } = readJson<WorkspaceRootPackageJson>(
       host,
@@ -68,7 +68,7 @@ describe(installNgPackagr.name, () => {
     };
     host.write('package.json', JSON.stringify(packageJson));
 
-    await installNgPackagr(host);
+    await addNgPackagr(host);
 
     const { devDependencies = {} } = readJson<WorkspaceRootPackageJson>(
       host,
