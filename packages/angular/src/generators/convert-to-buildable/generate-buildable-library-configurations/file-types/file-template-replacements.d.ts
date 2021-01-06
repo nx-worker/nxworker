@@ -9,11 +9,11 @@ export interface FileTemplateReplacements {
    */
   readonly importPath: string;
   /**
-   * Project folder offset from root workspace folder, for example: `'../../'`.
+   * Project directory offset from root workspace directory, for example: `'../../'`.
    */
   readonly offsetFromRoot: string;
   /**
-   * Project root folder.
+   * Project root directory.
    */
   readonly projectRoot: string;
   /**

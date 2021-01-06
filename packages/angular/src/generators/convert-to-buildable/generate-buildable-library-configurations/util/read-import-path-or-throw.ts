@@ -6,10 +6,10 @@ import { TsconfigBaseJson } from '../file-types';
  * Get the import path of the specified project.
  *
  * @param host Virtual workspace tree. Must have tsconfig.base.json in the
- *   workspace root folder.
+ *   workspace root directory.
  * @param options Project options.
  * @param options.projectName The name of the project.
- * @param options.projectRoot The root folder of the project.
+ * @param options.projectRoot The root directory of the project.
  * @throws {Error} Throws an error if `tsconfig.base.json` is missing from the
  *   workspace root or if import path for the specified project is missing from
  *   tsconfig.base.json.
