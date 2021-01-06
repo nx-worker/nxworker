@@ -12,7 +12,7 @@
       "factory": "./src/generators/convert-to-buildable/generator",
       "schema": "./src/generators/convert-to-buildable/schema.json",
       "aliases": ["buildable"],
-      "description": "Convert to buildable but non-publishable project. Supports application and library projects."
+      "description": "Convert to buildable but non-publishable project. Supports application and workspace library projects."
     }
   }
 }
