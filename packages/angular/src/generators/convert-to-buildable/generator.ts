@@ -1,7 +1,7 @@
-import { Tree } from '@nrwl/devkit';
+import { formatFiles, installPackagesTask, Tree } from '@nrwl/devkit';
 
 import {
-  generatePackageConfigurations,
+  generateBuildableLibraryConfigurations,
 } from './generate-buildable-library-configurations/generate-buildable-library-configurations';
 import { normalizeOptions } from './normalize-options';
 import { ConvertToBuildableGeneratorSchema } from './schema';
@@ -12,5 +12,14 @@ export default async function (
 ) {
   const normalizedOptions = normalizeOptions(host, options);
 
-  await generatePackageConfigurations(host, normalizedOptions);
+  await generateBuildableLibraryConfigurations(host, normalizedOptions);
+  // installNgPackagr(host);
+
+  if (!normalizedOptions.skipFormat) {
+    await formatFiles(host);
+  }
+
+  return () => {
+    installPackagesTask(host);
+  };
 }

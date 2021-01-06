@@ -1,5 +1,5 @@
 export interface NormalizedSchema
-  extends Exclude<ConvertToBuildableGeneratorSchema, 'project'> {
+  extends Omit<ConvertToBuildableGeneratorSchema, 'project'> {
   /**
    * Enable incremental Angular Ivy compilation?
    */

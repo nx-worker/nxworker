@@ -1,33 +1,9 @@
-import { generateFiles, offsetFromRoot, readJson, Tree } from '@nrwl/devkit';
+import { generateFiles, Tree } from '@nrwl/devkit';
 import * as path from 'path';
 
 import { NormalizedSchema } from '../normalized-schema';
-import { FileTemplateReplacements, TsconfigBaseJson } from './file-types';
-
-function getImportPathOrThrow(
-  host: Tree,
-  {
-    project,
-    projectRoot,
-  }: { readonly project: string; readonly projectRoot: string }
-): string {
-  const tsconfigBaseJson = readJson<TsconfigBaseJson>(
-    host,
-    'tsconfig.base.json'
-  );
-  const pathMap = tsconfigBaseJson.compilerOptions.paths ?? {};
-  const maybePathEntry = Object.entries(pathMap).find(([, publicApis]) =>
-    publicApis.some(publicApi => publicApi.startsWith(projectRoot))
-  );
-
-  if (!maybePathEntry) {
-    throw new Error(`Import path is missing for project "${project}"`);
-  }
-
-  const [importPath] = maybePathEntry;
-
-  return importPath;
-}
+import { FileTemplateReplacements } from './file-types';
+import { readImportPathOrThrow } from './util/read-import-path-or-throw';
 
 function hasPackageConfigurations(host: Tree, projectRoot: string): boolean {
   if (!host.exists(path.join(projectRoot, 'ng-package.json'))) {
@@ -45,26 +21,26 @@ function hasPackageConfigurations(host: Tree, projectRoot: string): boolean {
   return true;
 }
 
-export async function generatePackageConfigurations(
+export async function generateBuildableLibraryConfigurations(
   host: Tree,
-  options: NormalizedSchema
+  { enableIvy, offsetFromRoot, projectName, projectRoot }: NormalizedSchema
 ) {
   const replacements: FileTemplateReplacements = {
-    enableIvy: options.enableIvy,
-    importPath: getImportPathOrThrow(host, {
-      project: options.projectName,
-      projectRoot: options.projectRoot,
+    enableIvy,
+    importPath: readImportPathOrThrow(host, {
+      projectName,
+      projectRoot,
     }),
-    offsetFromRoot: options.offsetFromRoot,
-    projectRoot: options.projectRoot,
+    offsetFromRoot,
+    projectRoot,
     template: '',
   };
 
-  if (!hasPackageConfigurations(host, options.projectRoot)) {
+  if (!hasPackageConfigurations(host, projectRoot)) {
     generateFiles(
       host,
       path.join(__dirname, '../files'),
-      options.projectRoot,
+      projectRoot,
       replacements
     );
   }

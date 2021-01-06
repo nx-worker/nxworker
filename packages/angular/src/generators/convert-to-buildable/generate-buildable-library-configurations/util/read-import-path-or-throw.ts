@@ -16,7 +16,10 @@ import { TsconfigBaseJson } from '../file-types';
  */
 export function readImportPathOrThrow(
   host: Tree,
-  options: {
+  {
+    projectName,
+    projectRoot,
+  }: {
     readonly projectName: string;
     readonly projectRoot: string;
   }
@@ -28,12 +31,12 @@ export function readImportPathOrThrow(
   const pathMap = tsconfigBaseJson.compilerOptions.paths ?? {};
 
   const maybePathEntry = Object.entries(pathMap).find(([, publicApis]) =>
-    publicApis.some(publicApi => publicApi.startsWith(options.projectRoot))
+    publicApis.some(publicApi => publicApi.startsWith(projectRoot))
   );
 
   if (!maybePathEntry) {
     throw new Error(
-      `Import path is missing for project with name "${options.projectName}".`
+      `Import path is missing for project with name "${projectName}".`
     );
   }
 
