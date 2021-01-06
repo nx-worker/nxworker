@@ -1,8 +1,8 @@
 import { offsetFromRoot, readProjectConfiguration, Tree } from '@nrwl/devkit';
 
-import { readImportPathOrThrow } from './generate-buildable-library-configurations/util/read-import-path-or-throw';
+import { ConvertToBuildableGeneratorSchema } from '../schema';
 import { NormalizedSchema } from './normalized-schema';
-import { ConvertToBuildableGeneratorSchema } from './schema';
+import { readImportPathOrThrow } from './read-import-path-or-throw';
 
 export function normalizeOptions(
   host: Tree,

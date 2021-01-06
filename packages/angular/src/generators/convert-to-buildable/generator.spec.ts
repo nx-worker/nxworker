@@ -1,12 +1,12 @@
+import { readProjectConfiguration, Tree } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { Tree, readProjectConfiguration } from '@nrwl/devkit';
 
 import generator from './generator';
 import { ConvertToBuildableGeneratorSchema } from './schema';
 
 describe('convert-to-buildable generator', () => {
   let appTree: Tree;
-  const options: ConvertToBuildableGeneratorSchema = { name: 'test' };
+  const options: ConvertToBuildableGeneratorSchema = { project: 'test' };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();
@@ -16,5 +16,5 @@ describe('convert-to-buildable generator', () => {
     await generator(appTree, options);
     const config = readProjectConfiguration(appTree, 'test');
     expect(config).toBeDefined();
-  })
+  });
 });

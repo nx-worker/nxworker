@@ -1,10 +1,8 @@
 import { formatFiles, installPackagesTask, Tree } from '@nrwl/devkit';
 
-import {
-  generateBuildableLibraryConfigurations,
-} from './generate-buildable-library-configurations/generate-buildable-library-configurations';
-import { normalizeOptions } from './normalize-options';
+import { generateBuildableLibraryConfigurations } from './generators/generate-buildable-library-configurations';
 import { ConvertToBuildableGeneratorSchema } from './schema';
+import { normalizeOptions } from './util';
 
 export default async function (
   host: Tree,

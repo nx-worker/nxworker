@@ -2,15 +2,9 @@ import { addProjectConfiguration, ProjectConfiguration, readJson, Tree } from '@
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import * as path from 'path';
 
-import { normalizeOptions } from '../normalize-options';
-import { NormalizedSchema } from '../normalized-schema';
-import {
-  AngularCompilerOptions,
-  BuildableLibraryPackageJson,
-  NgPackageJson,
-  TsconfigBaseJson,
-  TsconfigLibProdJson,
-} from './file-types';
+import { TsconfigBaseJson } from '../../file-types';
+import { NormalizedSchema, normalizeOptions } from '../../util';
+import { AngularCompilerOptions, BuildableLibraryPackageJson, NgPackageJson, TsconfigLibProdJson } from './file-types';
 import { generateBuildableLibraryConfigurations } from './generate-buildable-library-configurations';
 
 describe(generateBuildableLibraryConfigurations.name, () => {

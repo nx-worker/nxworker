@@ -1,3 +1,5 @@
+import { ConvertToBuildableGeneratorSchema } from '../schema';
+
 export interface NormalizedSchema
   extends Omit<ConvertToBuildableGeneratorSchema, 'project'> {
   /**

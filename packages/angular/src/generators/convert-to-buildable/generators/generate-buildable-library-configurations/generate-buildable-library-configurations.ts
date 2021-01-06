@@ -1,10 +1,9 @@
 import { generateFiles, Tree } from '@nrwl/devkit';
 import * as path from 'path';
 
-import { NormalizedSchema } from '../normalized-schema';
+import { NormalizedSchema, readImportPathOrThrow } from '../../util';
 import { FileTemplateReplacements } from './file-types';
 import { hasPackageConfigurations } from './util/has-package-configurations';
-import { readImportPathOrThrow } from './util/read-import-path-or-throw';
 
 export async function generateBuildableLibraryConfigurations(
   host: Tree,
