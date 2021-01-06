@@ -2,15 +2,15 @@ import { addProjectConfiguration, ProjectConfiguration, readJson, Tree } from '@
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import * as path from 'path';
 
+import { normalizeOptions } from '../normalize-options';
+import { NormalizedSchema } from '../normalized-schema';
 import {
   AngularCompilerOptions,
   BuildableLibraryPackageJson,
   NgPackageJson,
   TsconfigBaseJson,
-  TsconfigJson,
-} from '../file-types';
-import { normalizeOptions } from '../normalize-options';
-import { NormalizedSchema } from '../normalized-schema';
+  TsconfigLibProdJson,
+} from './file-types';
 import { generateBuildableLibraryConfigurations } from './generate-buildable-library-configurations';
 
 describe(generateBuildableLibraryConfigurations.name, () => {
@@ -18,7 +18,7 @@ describe(generateBuildableLibraryConfigurations.name, () => {
     host = createTreeWithEmptyWorkspace();
     projectName = 'shared-ui-buttons';
     importPath = `@nrwl-airlines/shared/ui-buttons`;
-    projectConfiguration = {
+    project = {
       projectType: 'library',
       root: 'libs/shared/ui-buttons',
       sourceRoot: 'libs/shared/ui-buttons/src',
@@ -45,13 +45,13 @@ describe(generateBuildableLibraryConfigurations.name, () => {
     const tsconfigBase: TsconfigBaseJson = {
       compilerOptions: {
         paths: {
-          [importPath]: [`${projectConfiguration.root}/src/index.ts`],
+          [importPath]: [`${project.root}/src/index.ts`],
         },
       },
     };
 
     host.write('tsconfig.base.json', JSON.stringify(tsconfigBase));
-    addProjectConfiguration(host, projectName, projectConfiguration);
+    addProjectConfiguration(host, projectName, project);
     options = normalizeOptions(host, {
       project: projectName,
     });
@@ -60,15 +60,15 @@ describe(generateBuildableLibraryConfigurations.name, () => {
   let host: Tree;
   let importPath: string;
   let options: NormalizedSchema;
-  let projectConfiguration: ProjectConfiguration;
+  let project: ProjectConfiguration;
   let projectName: string;
 
   describe('Package configurations', () => {
     it('generates ng-package.json', async () => {
-      const filePath = path.join(projectConfiguration.root, 'ng-package.json');
+      const filePath = path.join(project.root, 'ng-package.json');
       const expectedNgPackageJson: NgPackageJson = {
         $schema: '../../../node_modules/ng-packagr/ng-package.schema.json',
-        dest: `../../../dist/${projectConfiguration.root}`,
+        dest: `../../../dist/${project.root}`,
         lib: {
           entryFile: 'src/index.ts',
         },
@@ -82,7 +82,7 @@ describe(generateBuildableLibraryConfigurations.name, () => {
     });
 
     it('generates package.json', async () => {
-      const filePath = path.join(projectConfiguration.root, 'package.json');
+      const filePath = path.join(project.root, 'package.json');
       const expectedPackageJson: BuildableLibraryPackageJson = {
         name: importPath,
         private: true,
@@ -99,11 +99,8 @@ describe(generateBuildableLibraryConfigurations.name, () => {
     });
 
     it('generates tsconfig.lib.prod.json', async () => {
-      const filePath = path.join(
-        projectConfiguration.root,
-        'tsconfig.lib.prod.json'
-      );
-      const expectedTsconfig: TsconfigJson = {
+      const filePath = path.join(project.root, 'tsconfig.lib.prod.json');
+      const expectedTsconfig: TsconfigLibProdJson = {
         extends: './tsconfig.lib.json',
         compilerOptions: {
           declarationMap: false,
@@ -116,22 +113,16 @@ describe(generateBuildableLibraryConfigurations.name, () => {
       await generateBuildableLibraryConfigurations(host, options);
 
       expect(host.exists(filePath)).toBe(true);
-      const actualTsconfig: TsconfigJson = readJson(host, filePath);
+      const actualTsconfig: TsconfigLibProdJson = readJson(host, filePath);
       expect(actualTsconfig).toEqual(expectedTsconfig);
     });
 
     it('keeps package configurations when they all exist', async () => {
       const testConfiguration = { test: true };
-      const ngPackageJsonPath = path.join(
-        projectConfiguration.root,
-        'ng-package.json'
-      );
-      const packageJsonPath = path.join(
-        projectConfiguration.root,
-        'package.json'
-      );
+      const ngPackageJsonPath = path.join(project.root, 'ng-package.json');
+      const packageJsonPath = path.join(project.root, 'package.json');
       const productionTsconfigPath = path.join(
-        projectConfiguration.root,
+        project.root,
         'tsconfig.lib.prod.json'
       );
       host.write(ngPackageJsonPath, JSON.stringify(testConfiguration));
@@ -150,14 +141,8 @@ describe(generateBuildableLibraryConfigurations.name, () => {
 
     it('overwrites package configurations when only some of them exist', async () => {
       const testConfiguration = { test: true };
-      const ngPackageJsonPath = path.join(
-        projectConfiguration.root,
-        'ng-package.json'
-      );
-      const packageJsonPath = path.join(
-        projectConfiguration.root,
-        'package.json'
-      );
+      const ngPackageJsonPath = path.join(project.root, 'ng-package.json');
+      const packageJsonPath = path.join(project.root, 'package.json');
       host.write(ngPackageJsonPath, JSON.stringify(testConfiguration));
       host.write(packageJsonPath, JSON.stringify(testConfiguration));
 
@@ -172,7 +157,7 @@ describe(generateBuildableLibraryConfigurations.name, () => {
 
   describe('enableIvy option', () => {
     beforeEach(() => {
-      filePath = path.join(projectConfiguration.root, 'tsconfig.lib.prod.json');
+      filePath = path.join(project.root, 'tsconfig.lib.prod.json');
     });
 
     let filePath: string;
@@ -188,7 +173,7 @@ describe(generateBuildableLibraryConfigurations.name, () => {
 
       await generateBuildableLibraryConfigurations(host, options);
 
-      const actualTsconfig: TsconfigJson = readJson(host, filePath);
+      const actualTsconfig: TsconfigLibProdJson = readJson(host, filePath);
       expect(actualTsconfig.angularCompilerOptions).toEqual(
         expectedAngularCompilerOptions
       );
@@ -203,7 +188,7 @@ describe(generateBuildableLibraryConfigurations.name, () => {
 
       await generateBuildableLibraryConfigurations(host, options);
 
-      const actualTsconfig: TsconfigJson = readJson(host, filePath);
+      const actualTsconfig: TsconfigLibProdJson = readJson(host, filePath);
       expect(actualTsconfig.angularCompilerOptions).toEqual(
         expectedAngularCompilerOptions
       );
@@ -232,7 +217,7 @@ describe(generateBuildableLibraryConfigurations.name, () => {
       const act = () => generateBuildableLibraryConfigurations(host, options);
 
       await expect(act).rejects.toThrowError(
-        `Import path is missing for project "${projectName}"`
+        `Import path is missing for project with name "${projectName}"`
       );
     });
   });
