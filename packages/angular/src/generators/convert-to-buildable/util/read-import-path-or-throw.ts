@@ -1,6 +1,57 @@
 import { readJson, Tree } from '@nrwl/devkit';
+import * as path from 'path';
 
-import { TsconfigBaseJson } from '../file-types';
+import { PathMap, TsconfigBaseJson } from '../file-types';
+
+export interface ReadImportPathProjectOptions {
+  readonly projectName: string;
+  readonly sourceRoot: string;
+}
+
+/**
+ * Find the import path having an entry under the specified source root
+ * directory.
+ * @throws {Error} Throws an error if `tsconfig.base.json` is missing from the
+ *   workspace root or if import path for the specified project is missing from
+ *   tsconfig.base.json.
+ */
+function findPathEntryOrThrow(
+  { projectName, sourceRoot }: ReadImportPathProjectOptions,
+  pathMap: PathMap
+): string {
+  const maybePathEntry = Object.entries(pathMap).find(([, publicApis]) =>
+    publicApis.some(publicApi => publicApi.startsWith(sourceRoot))
+  );
+
+  if (!maybePathEntry) {
+    throw new Error(
+      `Import path is missing for project with name "${projectName}".`
+    );
+  }
+
+  const [importPath] = maybePathEntry;
+
+  return importPath;
+}
+
+/**
+ * Normalize the source paths of the specified path map according to operating
+ * system.
+ */
+function normalizePathMap(pathMap: PathMap): PathMap {
+  return Object.entries(pathMap)
+    .map(([importPath, sourcePaths]): [string, readonly string[]] => [
+      importPath,
+      sourcePaths.map(sourcePath => path.normalize(sourcePath)),
+    ])
+    .reduce(
+      (normalizePathMap, [importPath, sourcePaths]) => ({
+        ...normalizePathMap,
+        [importPath]: sourcePaths,
+      }),
+      {}
+    );
+}
 
 /**
  * Get the import path of the specified project.
@@ -16,31 +67,22 @@ import { TsconfigBaseJson } from '../file-types';
  */
 export function readImportPathOrThrow(
   host: Tree,
-  {
-    projectName,
-    sourceRoot,
-  }: {
-    readonly projectName: string;
-    readonly sourceRoot: string;
-  }
+  { projectName, sourceRoot }: ReadImportPathProjectOptions
 ): string {
+  sourceRoot = path.normalize(sourceRoot);
   const tsconfigBaseJson = readJson<TsconfigBaseJson>(
     host,
     'tsconfig.base.json'
   );
-  const pathMap = tsconfigBaseJson.compilerOptions.paths ?? {};
-
-  const maybePathEntry = Object.entries(pathMap).find(([, publicApis]) =>
-    publicApis.some(publicApi => publicApi.startsWith(sourceRoot))
+  const pathMap = normalizePathMap(
+    tsconfigBaseJson.compilerOptions.paths ?? {}
   );
 
-  if (!maybePathEntry) {
-    throw new Error(
-      `Import path is missing for project with name "${projectName}".`
-    );
-  }
-
-  const [importPath] = maybePathEntry;
-
-  return importPath;
+  return findPathEntryOrThrow(
+    {
+      projectName,
+      sourceRoot,
+    },
+    pathMap
+  );
 }

@@ -6,13 +6,12 @@ import { readImportPathOrThrow } from './read-import-path-or-throw';
 
 export function normalizeOptions(
   host: Tree,
-  options: ConvertToBuildableGeneratorSchema
-): NormalizedSchema {
-  const {
+  {
     enableIvy = true,
     project: projectName,
     skipFormat = false,
-  } = options;
+  }: ConvertToBuildableGeneratorSchema
+): NormalizedSchema {
   const {
     root: projectRoot,
     sourceRoot: maybeSourceRoot,

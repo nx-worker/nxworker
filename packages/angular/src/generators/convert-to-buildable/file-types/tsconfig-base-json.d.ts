@@ -1,3 +1,7 @@
+export interface PathMap {
+  readonly [importPath: string]: readonly string[];
+}
+
 /**
  * tsconfig.base.json configuration file in workspace root.
  */
@@ -9,6 +13,6 @@ export interface TsconfigBaseJson {
     /**
      * Import paths also known as TypeScript path mappings.
      */
-    readonly paths?: { readonly [importPath: string]: readonly string[] };
+    readonly paths?: PathMap;
   };
 }
