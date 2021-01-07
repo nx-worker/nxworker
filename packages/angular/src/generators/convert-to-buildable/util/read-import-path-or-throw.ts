@@ -18,10 +18,10 @@ export function readImportPathOrThrow(
   host: Tree,
   {
     projectName,
-    projectRoot,
+    sourceRoot,
   }: {
     readonly projectName: string;
-    readonly projectRoot: string;
+    readonly sourceRoot: string;
   }
 ): string {
   const tsconfigBaseJson = readJson<TsconfigBaseJson>(
@@ -31,7 +31,7 @@ export function readImportPathOrThrow(
   const pathMap = tsconfigBaseJson.compilerOptions.paths ?? {};
 
   const maybePathEntry = Object.entries(pathMap).find(([, publicApis]) =>
-    publicApis.some(publicApi => publicApi.startsWith(projectRoot))
+    publicApis.some(publicApi => publicApi.startsWith(sourceRoot))
   );
 
   if (!maybePathEntry) {

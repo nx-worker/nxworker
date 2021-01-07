@@ -7,13 +7,19 @@ import { hasPackageConfigurations } from './util/has-package-configurations';
 
 export async function generateBuildableLibraryConfigurations(
   host: Tree,
-  { enableIvy, offsetFromRoot, projectName, projectRoot }: NormalizedSchema
+  {
+    enableIvy,
+    offsetFromRoot,
+    projectName,
+    projectRoot,
+    sourceRoot,
+  }: NormalizedSchema
 ) {
   const replacements: FileTemplateReplacements = {
     enableIvy,
     importPath: readImportPathOrThrow(host, {
       projectName,
-      projectRoot,
+      sourceRoot,
     }),
     offsetFromRoot,
     projectRoot,

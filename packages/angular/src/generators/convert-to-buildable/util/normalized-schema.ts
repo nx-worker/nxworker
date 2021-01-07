@@ -11,7 +11,8 @@ export interface NormalizedSchema
    */
   readonly importPath: string;
   /**
-   * Project directory offset from root workspace directory, for example: `'../../'`.
+   * Project directory offset from root workspace directory, for example
+   * `'../../'`.
    */
   readonly offsetFromRoot: string;
   /**
@@ -22,6 +23,10 @@ export interface NormalizedSchema
    * Project root directory.
    */
   readonly projectRoot: string;
+  /**
+   * Project source directory, for example `libs/shared/util-formatting/src`.
+   */
+  readonly sourceRoot: string;
   /**
    * Skip formatting files?
    */

@@ -13,17 +13,29 @@ export function normalizeOptions(
     project: projectName,
     skipFormat = false,
   } = options;
-  const { root: projectRoot } = readProjectConfiguration(host, projectName);
+  const {
+    root: projectRoot,
+    sourceRoot: maybeSourceRoot,
+  } = readProjectConfiguration(host, projectName);
+
+  if (!maybeSourceRoot) {
+    throw new Error(
+      `No "sourceRoot" option for project with name "${projectName}"`
+    );
+  }
+
+  const sourceRoot = maybeSourceRoot;
 
   return {
     enableIvy,
     importPath: readImportPathOrThrow(host, {
       projectName,
-      projectRoot,
+      sourceRoot,
     }),
     offsetFromRoot: offsetFromRoot(projectRoot),
     projectName,
     projectRoot,
     skipFormat,
+    sourceRoot,
   };
 }
