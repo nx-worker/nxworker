@@ -1,20 +1,83 @@
-import { readProjectConfiguration, Tree } from '@nrwl/devkit';
+import { addProjectConfiguration, ProjectConfiguration, readJson, Tree } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
+import * as path from 'path';
 
+import { TsconfigBaseJson, WorkspaceRootPackageJson } from './file-types';
 import generator from './generator';
-import { ConvertToBuildableGeneratorSchema } from './schema';
 
 describe('convert-to-buildable generator', () => {
-  let appTree: Tree;
-  const options: ConvertToBuildableGeneratorSchema = { project: 'test' };
-
   beforeEach(() => {
-    appTree = createTreeWithEmptyWorkspace();
+    host = createTreeWithEmptyWorkspace();
+    projectName = 'booking-feature-flight-search';
+    project = {
+      projectType: 'library',
+      root: 'libs/booking/feature-flight-search',
+      sourceRoot: 'libs/booking/feature-flight-search/src',
+      targets: {
+        lint: {
+          executor: '@nrwl/linter:eslint',
+          options: {
+            lintFilePatterns: [
+              'libs/booking/feature-flight-search/src/**/*.ts',
+              'libs/booking/feature-flight-search/**/*.html',
+            ],
+          },
+        },
+        test: {
+          executor: '@nrwl/jest:jest',
+          outputs: ['coverage/libs/booking/feature-flight-search'],
+          options: {
+            jestConfig: 'libs/booking/feature-flight-search/jest.config.js',
+            passWithNoTests: true,
+          },
+        },
+      },
+    };
+    const tsconfigBase: TsconfigBaseJson = {
+      compilerOptions: {
+        paths: {
+          '@nrwl-airlines/booking/feature-flight-search': [
+            path.join(project.sourceRoot ?? '', 'index.ts'),
+          ],
+        },
+      },
+    };
+
+    host.write('tsconfig.base.json', JSON.stringify(tsconfigBase));
+    addProjectConfiguration(host, projectName, project);
   });
 
-  it('should run successfully', async () => {
-    await generator(appTree, options);
-    const config = readProjectConfiguration(appTree, 'test');
-    expect(config).toBeDefined();
+  let project: ProjectConfiguration;
+  let projectName: string;
+  let host: Tree;
+
+  it('generates buildable library configurations when none of them exist', async () => {
+    const configurationFileNames = [
+      'ng-package.json',
+      'package.json',
+      'tsconfig.lib.prod.json',
+    ];
+
+    await generator(host, {
+      project: projectName,
+    });
+
+    configurationFileNames.forEach(configurationFileName =>
+      expect(host.exists(path.join(project.root, configurationFileName))).toBe(
+        true
+      )
+    );
+  });
+
+  it('adds ng-packagr as a development dependency when not installed', async () => {
+    await generator(host, {
+      project: projectName,
+    });
+
+    const { devDependencies = {} } = readJson<WorkspaceRootPackageJson>(
+      host,
+      'package.json'
+    );
+    expect(devDependencies['ng-packagr']).toBeDefined();
   });
 });
