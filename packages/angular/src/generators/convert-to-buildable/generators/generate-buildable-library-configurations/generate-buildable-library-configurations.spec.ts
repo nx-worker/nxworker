@@ -39,7 +39,7 @@ describe(generateBuildableLibraryConfigurations.name, () => {
     const tsconfigBase: TsconfigBaseJson = {
       compilerOptions: {
         paths: {
-          [importPath]: [`${project.root}/src/index.ts`],
+          [importPath]: [`${project.sourceRoot}/index.ts`],
         },
       },
     };
