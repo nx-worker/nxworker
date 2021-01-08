@@ -11,5 +11,5 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/e2eangular-e2e',
+  coverageDirectory: '../../coverage/e2e/angular-e2e',
 };
