@@ -8,6 +8,7 @@ env:
   NX_BRANCH: ${{ github.event.number }}
   NX_RUN_GROUP: ${{ github.run_id }}
   PNPM_STORE_DIRECTORY: ~/.pnpm-store
+  RUNNER_ENVIRONMENT: ubuntu-20.04
 
 on:
   push:
@@ -17,7 +18,7 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: $RUNNER_ENVIRONMENT
 
     strategy:
       matrix:
@@ -47,7 +48,7 @@ jobs:
       - run: pnpm lint
 
   lint-examples:
-    runs-on: ubuntu-latest
+    runs-on: $RUNNER_ENVIRONMENT
 
     strategy:
       matrix:
@@ -77,7 +78,7 @@ jobs:
       - run: pnpm lint-examples
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: $RUNNER_ENVIRONMENT
 
     strategy:
       matrix:
@@ -107,7 +108,7 @@ jobs:
       - run: pnpm test
 
   test-examples:
-    runs-on: ubuntu-latest
+    runs-on: $RUNNER_ENVIRONMENT
 
     strategy:
       matrix:
@@ -137,7 +138,7 @@ jobs:
       - run: pnpm test-examples
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: $RUNNER_ENVIRONMENT
 
     strategy:
       matrix:
@@ -172,7 +173,7 @@ jobs:
           if-no-files-found: error
 
   build-examples:
-    runs-on: ubuntu-latest
+    runs-on: $RUNNER_ENVIRONMENT
 
     strategy:
       matrix:
@@ -202,7 +203,7 @@ jobs:
       - run: pnpm build-examples
 
   e2e:
-    runs-on: ubuntu-latest
+    runs-on: $RUNNER_ENVIRONMENT
 
     strategy:
       matrix:
