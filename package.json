@@ -21,6 +21,7 @@
     "affected:lint": "nx affected:lint --parallel",
     "affected:dep-graph": "nx affected:dep-graph",
     "affected": "nx affected",
+    "contributors:add": "all-contributors add",
     "format": "nx format:write && pnpx prettier --config .prettierrc --write \"**/*.*\" \"!dist/**\" \"!yarn.lock\"",
     "format:write": "nx format:write",
     "format:check": "nx format:check",
