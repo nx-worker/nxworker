@@ -20,7 +20,15 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - uses: actions/checkout@v2
+      - if: github.event_name == 'push'
+        uses: actions/checkout@v2
+      - if: github.event_name == 'pull_request'
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --prune --depth=5 origin main
 
       - name: Use Node.js
         uses: actions/setup-node@v2
@@ -52,7 +60,15 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - uses: actions/checkout@v2
+      - if: github.event_name == 'push'
+        uses: actions/checkout@v2
+      - if: github.event_name == 'pull_request'
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --prune --depth=5 origin main
 
       - name: Use Node.js
         uses: actions/setup-node@v2
@@ -84,7 +100,15 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - uses: actions/checkout@v2
+      - if: github.event_name == 'push'
+        uses: actions/checkout@v2
+      - if: github.event_name == 'pull_request'
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --prune --depth=5 origin main
 
       - name: Use Node.js
         uses: actions/setup-node@v2
@@ -121,7 +145,15 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - uses: actions/checkout@v2
+      - if: github.event_name == 'push'
+        uses: actions/checkout@v2
+      - if: github.event_name == 'pull_request'
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --prune --depth=5 origin main
 
       - name: Use Node.js
         uses: actions/setup-node@v2
