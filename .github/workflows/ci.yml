@@ -42,7 +42,6 @@ jobs:
           path: $PNPM_STORE_DIRECTORY
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
             ${{ runner.os }}-pnpm-
       - run:
           pnpm install --reporter silent --frozen-lockfile false
@@ -81,7 +80,6 @@ jobs:
           path: $PNPM_STORE_DIRECTORY
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
             ${{ runner.os }}-pnpm-
       - run:
           pnpm install --reporter silent --frozen-lockfile false
@@ -120,7 +118,6 @@ jobs:
           path: $PNPM_STORE_DIRECTORY
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
             ${{ runner.os }}-pnpm-
       - run:
           pnpm install --reporter silent --frozen-lockfile false
@@ -164,7 +161,6 @@ jobs:
           path: $PNPM_STORE_DIRECTORY
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
             ${{ runner.os }}-pnpm-
       - run:
           pnpm install --reporter silent --frozen-lockfile false
