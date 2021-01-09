@@ -40,7 +40,7 @@ jobs:
       - name: Cache PNPM store
         uses: actions/cache@v2
         with:
-          path: $PNPM_STORE_DIRECTORY
+          path: ${{ env.PNPM_STORE_DIRECTORY }}
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
@@ -79,7 +79,7 @@ jobs:
       - name: Cache PNPM store
         uses: actions/cache@v2
         with:
-          path: $PNPM_STORE_DIRECTORY
+          path: ${{ env.PNPM_STORE_DIRECTORY }}
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
@@ -118,7 +118,7 @@ jobs:
       - name: Cache PNPM store
         uses: actions/cache@v2
         with:
-          path: $PNPM_STORE_DIRECTORY
+          path: ${{ env.PNPM_STORE_DIRECTORY }}
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
@@ -162,7 +162,7 @@ jobs:
       - name: Cache PNPM store
         uses: actions/cache@v2
         with:
-          path: $PNPM_STORE_DIRECTORY
+          path: ${{ env.PNPM_STORE_DIRECTORY }}
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
