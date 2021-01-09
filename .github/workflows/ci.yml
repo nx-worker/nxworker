@@ -30,7 +30,7 @@ jobs:
       - if: github.event_name == 'pull_request'
         run: git fetch --no-tags --prune --depth=5 origin main
 
-      - uses: ./github/actions/job-setup
+      - uses: ././github/actions/job-setup
         with:
           node-version: 12.x
 
@@ -54,7 +54,7 @@ jobs:
       - if: github.event_name == 'pull_request'
         run: git fetch --no-tags --prune --depth=5 origin main
 
-      - uses: ./github/actions/job-setup
+      - uses: ././github/actions/job-setup
         with:
           node-version: 12.x
 
@@ -78,7 +78,7 @@ jobs:
       - if: github.event_name == 'pull_request'
         run: git fetch --no-tags --prune --depth=5 origin main
 
-      - uses: ./github/actions/job-setup
+      - uses: ././github/actions/job-setup
         with:
           node-version: 12.x
 
@@ -107,7 +107,7 @@ jobs:
       - if: github.event_name == 'pull_request'
         run: git fetch --no-tags --prune --depth=5 origin main
 
-      - uses: ./github/actions/job-setup
+      - uses: ././github/actions/job-setup
         with:
           node-version: 12.x
 
