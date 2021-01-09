@@ -10,7 +10,7 @@
     "nx": "nx",
     "start": "nx serve",
     "build": "nx run-many --target=build --configuration=production --projects=angular --with-deps --parallel",
-    "build-examples": "nx run-many --target=build --configuration=production --projects=examples-angular-nrwl-airlines-booking-desktop-app,examples-angular-nrwl-airlines-booking-mobile-app,examples-angular-nrwl-airlines-check-in-desktop-app,examples-angular-nrwl-airlines-check-in-mobile-app --with-deps --parallel",
+    "build-examples": "nx run-many --target=build --configuration=production --projects=examples-angular-nrwl-airlines-booking-desktop-app,examples-angular-nrwl-airlines-booking-mobile-app,examples-angular-nrwl-airlines-check-in-desktop-app,examples-angular-nrwl-airlines-check-in-mobile-app --with-deps",
     "test": "nx run-many --target=test --projects=angular --with-deps --parallel",
     "test-examples": "nx run-many --target=test --projects=examples-angular-nrwl-airlines-booking-desktop-app,examples-angular-nrwl-airlines-booking-mobile-app,examples-angular-nrwl-airlines-check-in-desktop-app,examples-angular-nrwl-airlines-check-in-mobile-app --parallel",
     "lint": "nx workspace-lint && nx run-many --target=lint --projects=angular --parallel",
