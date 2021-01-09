@@ -20,7 +20,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        angular-version: [11.0.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -36,10 +35,10 @@ jobs:
         with:
           path: $PNPM_STORE_DIRECTORY
           key:
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
-            matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-${{
+            hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-
       - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
@@ -51,7 +50,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        angular-version: [11.0.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -67,10 +65,10 @@ jobs:
         with:
           path: $PNPM_STORE_DIRECTORY
           key:
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
-            matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-${{
+            hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-
       - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
@@ -82,7 +80,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        angular-version: [9.0.x, 9.1.x, 10.0.x, 10.1.x, 10.2.x, 11.0.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -90,10 +87,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Use Angular version ${{ matrix.angular-version }}
-        uses: ngworker/angular-versions-action@v2
-        with:
-          angular_version: ${{ matrix.angular-version }}
 
       - run: npm install --global pnpm
       - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
@@ -102,10 +95,10 @@ jobs:
         with:
           path: $PNPM_STORE_DIRECTORY
           key:
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
-            matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-${{
+            hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-
       - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
@@ -117,7 +110,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        angular-version: [9.0.x, 9.1.x, 10.0.x, 10.1.x, 10.2.x, 11.0.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -125,10 +117,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Use Angular version ${{ matrix.angular-version }}
-        uses: ngworker/angular-versions-action@v2
-        with:
-          angular_version: ${{ matrix.angular-version }}
 
       - run: npm install --global pnpm
       - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
@@ -137,10 +125,10 @@ jobs:
         with:
           path: $PNPM_STORE_DIRECTORY
           key:
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
-            matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-${{
+            hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-
       - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
@@ -152,7 +140,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        angular-version: [11.0.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -160,10 +147,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Use Angular version ${{ matrix.angular-version }}
-        uses: ngworker/angular-versions-action@v2
-        with:
-          angular_version: ${{ matrix.angular-version }}
 
       - run: npm install --global pnpm
       - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
@@ -172,10 +155,10 @@ jobs:
         with:
           path: $PNPM_STORE_DIRECTORY
           key:
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
-            matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-${{
+            hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-
       - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
@@ -192,7 +175,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        angular-version: [11.0.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -200,10 +182,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Use Angular version ${{ matrix.angular-version }}
-        uses: ngworker/angular-versions-action@v2
-        with:
-          angular_version: ${{ matrix.angular-version }}
 
       - run: npm install --global pnpm
       - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
@@ -212,10 +190,10 @@ jobs:
         with:
           path: $PNPM_STORE_DIRECTORY
           key:
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
-            matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-${{
+            hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-
       - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
@@ -227,7 +205,6 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        angular-version: [9.0.x, 9.1.x, 10.0.x, 10.1.x, 10.2.x, 11.0.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -235,10 +212,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Use Angular version ${{ matrix.angular-version }}
-        uses: ngworker/angular-versions-action@v2
-        with:
-          angular_version: ${{ matrix.angular-version }}
 
       - run: npm install --global pnpm
       - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
@@ -247,10 +220,10 @@ jobs:
         with:
           path: $PNPM_STORE_DIRECTORY
           key:
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
-            matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-${{
+            hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
+            ${{ runner.os }}-node-${{ matrix.node-version }}-pnpm-
       - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
