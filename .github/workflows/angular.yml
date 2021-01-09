@@ -5,6 +5,8 @@ name: '@nxworker/angular CI pipeline'
 
 env:
   NODE_OPTIONS: --max_old_space_size=4096
+  NX_BRANCH: ${{ github.event.number }}
+  NX_RUN_GROUP: ${{ github.run_id }}
   PNPM_STORE_DIRECTORY: ~/.pnpm-store
 
 on:
