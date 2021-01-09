@@ -50,7 +50,7 @@ jobs:
       - if: github.event_name == 'push'
         run: pnpm lint
       - if: github.event_name == 'pull_request'
-        run: pnpm affected:lint -- --base=origin/master
+        run: pnpm affected:lint -- --base=origin/main
 
   test:
     runs-on: ubuntu-20.04
@@ -86,7 +86,7 @@ jobs:
       - if: github.event_name == 'push'
         run: pnpm test
       - if: github.event_name == 'pull_request'
-        run: pnpm affected:test -- --base=origin/master
+        run: pnpm affected:test -- --base=origin/main
 
   build:
     runs-on: ubuntu-20.04
@@ -122,7 +122,7 @@ jobs:
       - if: github.event_name == 'push'
         run: pnpm build
       - if: github.event_name == 'pull_request'
-        run: pnpm affected:build -- --base=origin/master
+        run: pnpm affected:build -- --base=origin/main
       - uses: actions/upload-artifact@v2
         with:
           name: angular-package
