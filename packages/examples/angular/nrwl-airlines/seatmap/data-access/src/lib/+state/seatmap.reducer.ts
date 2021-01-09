@@ -27,7 +27,7 @@ export const initialState: State = seatmapAdapter.getInitialState({
 
 const seatmapReducer = createReducer(
   initialState,
-  on(SeatmapActions.init, (state) => ({
+  on(SeatmapActions.init, state => ({
     ...state,
     loaded: false,
     error: null,

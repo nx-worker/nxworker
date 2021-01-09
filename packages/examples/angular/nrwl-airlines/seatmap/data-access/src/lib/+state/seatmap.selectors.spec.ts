@@ -1,5 +1,9 @@
 import { SeatmapEntity } from './seatmap.models';
-import { initialState, seatmapAdapter, SeatmapPartialState } from './seatmap.reducer';
+import {
+  initialState,
+  seatmapAdapter,
+  SeatmapPartialState,
+} from './seatmap.reducer';
 import * as SeatmapSelectors from './seatmap.selectors';
 
 describe('Seatmap Selectors', () => {

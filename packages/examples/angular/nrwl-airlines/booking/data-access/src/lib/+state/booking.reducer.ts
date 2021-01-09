@@ -27,7 +27,7 @@ export const initialState: State = bookingAdapter.getInitialState({
 
 const bookingReducer = createReducer(
   initialState,
-  on(BookingActions.init, (state) => ({
+  on(BookingActions.init, state => ({
     ...state,
     loaded: false,
     error: null,
