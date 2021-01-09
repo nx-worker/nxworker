@@ -171,9 +171,4 @@ jobs:
           --verify-store-integrity false
       - run: pnpm store prune
 
-      - name: Update Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get --only-upgrade install google-chrome-stable
-          google-chrome --version
       - run: pnpm e2e
