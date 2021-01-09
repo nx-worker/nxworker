@@ -40,7 +40,7 @@ jobs:
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
-      - run: pnpm install --verify-store-integrity false
+      - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
       - run: pnpm lint
@@ -75,7 +75,7 @@ jobs:
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
-      - run: pnpm install --verify-store-integrity false
+      - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
       - run: pnpm build:lib
@@ -115,7 +115,7 @@ jobs:
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
-      - run: pnpm install --verify-store-integrity false
+      - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
       - run: pnpm test:internal:ci
@@ -152,7 +152,7 @@ jobs:
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
-      - run: pnpm install --verify-store-integrity false
+      - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
       - run: pnpm delete-path-alias -- @ngworker/lumberjack
@@ -197,7 +197,7 @@ jobs:
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
-      - run: pnpm install --verify-store-integrity false
+      - run: pnpm install --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
       - run: pnpm delete-path-alias -- @ngworker/lumberjack
