@@ -25,7 +25,7 @@ jobs:
       - name: Use Node.js $NODE_VERSION
         uses: actions/setup-node@v2
         with:
-          node-version: $NODE_VESRION
+          node-version: ${{ env.NODE_VESRION }}
 
       - run: npm install --global pnpm
       - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
@@ -54,7 +54,7 @@ jobs:
       - name: Use Node.js $NODE_VERSION
         uses: actions/setup-node@v2
         with:
-          node-version: $NODE_VERSION
+          node-version: ${{ env.NODE_VESRION }}
 
       - run: npm install --global pnpm
       - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
@@ -83,7 +83,7 @@ jobs:
       - name: Use Node.js $NODE_VERSION
         uses: actions/setup-node@v2
         with:
-          node-version: $NODE_VERSION
+          node-version: ${{ env.NODE_VESRION }}
 
       - run: npm install --global pnpm
       - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
@@ -117,7 +117,7 @@ jobs:
       - name: Use Node.js $NODE_VERSION
         uses: actions/setup-node@v2
         with:
-          node-version: $NODE_VERSION
+          node-version: ${{ env.NODE_VESRION }}
 
       - run: npm install --global pnpm
       - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
