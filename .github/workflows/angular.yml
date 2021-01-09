@@ -18,7 +18,7 @@ on:
 
 jobs:
   lint:
-    runs-on: $RUNNER_ENVIRONMENT
+    runs-on: ${{ env.RUNNER_ENVIRONMENT }}
 
     steps:
       - uses: actions/checkout@v2
@@ -47,7 +47,7 @@ jobs:
         run: pnpm affected:lint
 
   test:
-    runs-on: $RUNNER_ENVIRONMENT
+    runs-on: ${{ env.RUNNER_ENVIRONMENT }}
 
     steps:
       - uses: actions/checkout@v2
@@ -76,7 +76,7 @@ jobs:
         run: pnpm affected:test
 
   build:
-    runs-on: $RUNNER_ENVIRONMENT
+    runs-on: ${{ env.RUNNER_ENVIRONMENT }}
 
     steps:
       - uses: actions/checkout@v2
@@ -110,7 +110,7 @@ jobs:
           if-no-files-found: error
 
   e2e:
-    runs-on: $RUNNER_ENVIRONMENT
+    runs-on: ${{ env.RUNNER_ENVIRONMENT }}
 
     steps:
       - uses: actions/checkout@v2
