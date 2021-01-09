@@ -44,7 +44,7 @@ jobs:
           key: ${{ runner.os }}-node-$NODE_VERSION-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-$NODE_VERSION-pnpm-
-      - run: pnpm install --reporter=silent --frozen-lockfile false --verify-store-integrity false
+      - run: pnpm install --reporter silent --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
       - if: github.event_name == 'push'
@@ -80,7 +80,7 @@ jobs:
           key: ${{ runner.os }}-node-$NODE_VERSION-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-$NODE_VERSION-pnpm-
-      - run: pnpm install --reporter=silent --frozen-lockfile false --verify-store-integrity false
+      - run: pnpm install --reporter silent --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
       - if: github.event_name == 'push'
@@ -116,7 +116,7 @@ jobs:
           key: ${{ runner.os }}-node-$NODE_VERSION-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-$NODE_VERSION-pnpm-
-      - run: pnpm install --reporter=silent --frozen-lockfile false --verify-store-integrity false
+      - run: pnpm install --reporter silent --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
       - if: github.event_name == 'push'
@@ -157,7 +157,7 @@ jobs:
           key: ${{ runner.os }}-node-$NODE_VERSION-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-$NODE_VERSION-pnpm-
-      - run: pnpm install --reporter=silent --frozen-lockfile false --verify-store-integrity false
+      - run: pnpm install --reporter silent --frozen-lockfile false --verify-store-integrity false
       - run: pnpm store prune
 
       - name: Update Chrome
