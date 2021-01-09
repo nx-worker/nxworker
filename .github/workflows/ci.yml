@@ -21,6 +21,7 @@ jobs:
     steps:
       - if: github.event_name == 'push'
         uses: actions/checkout@v2
+      # needed for nx affected command
       - if: github.event_name == 'pull_request'
         uses: actions/checkout@v2
         with:
@@ -59,6 +60,7 @@ jobs:
     steps:
       - if: github.event_name == 'push'
         uses: actions/checkout@v2
+      # needed for nx affected command
       - if: github.event_name == 'pull_request'
         uses: actions/checkout@v2
         with:
@@ -97,6 +99,7 @@ jobs:
     steps:
       - if: github.event_name == 'push'
         uses: actions/checkout@v2
+      # needed for nx affected command
       - if: github.event_name == 'pull_request'
         uses: actions/checkout@v2
         with:
@@ -140,6 +143,7 @@ jobs:
     steps:
       - if: github.event_name == 'push'
         uses: actions/checkout@v2
+      # needed for nx affected command
       - if: github.event_name == 'pull_request'
         uses: actions/checkout@v2
         with:
