@@ -5,6 +5,7 @@ name: '@nxworker/angular CI pipeline'
 
 env:
   NODE_OPTIONS: --max_old_space_size=4096
+  PNPM_STORE_DIRECTORY: ~/.pnpm-store
 
 on:
   push:
@@ -28,19 +29,19 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Variable-PNPM cache directory path
-        id: pnpm-cache-dir-path
-        run: echo "::set-output name=dir::$(pnpm cache dir)"
-      - name: Cache PNPM cache directory
+      - run: npm install --global pnpm
+      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
+      - name: Cache PNPM store
         uses: actions/cache@v2
         with:
-          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          path: $PNPM_STORE_DIRECTORY
           key:
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
-      - run: pnpm install
+      - run: pnpm install --verify-store-integrity false
+      - run: pnpm store prune
 
       - run: pnpm lint
 
@@ -63,10 +64,9 @@ jobs:
         with:
           angular_version: ${{ matrix.angular-version }}
 
-      - name: Variable-PNPM cache directory path
-        id: pnpm-cache-dir-path
-        run: echo "::set-output name=dir::$(pnpm cache dir)"
-      - name: Cache PNPM cache directory
+      - run: npm install --global pnpm
+      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
+      - name: Cache PNPM store
         uses: actions/cache@v2
         with:
           path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
@@ -75,7 +75,8 @@ jobs:
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
-      - run: pnpm install
+      - run: pnpm install --verify-store-integrity false
+      - run: pnpm store prune
 
       - run: pnpm build:lib
       - uses: actions/upload-artifact@v2
@@ -103,10 +104,9 @@ jobs:
         with:
           angular_version: ${{ matrix.angular-version }}
 
-      - name: Variable-PNPM cache directory path
-        id: pnpm-cache-dir-path
-        run: echo "::set-output name=dir::$(pnpm cache dir)"
-      - name: Cache PNPM cache directory
+      - run: npm install --global pnpm
+      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
+      - name: Cache PNPM store
         uses: actions/cache@v2
         with:
           path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
@@ -115,7 +115,8 @@ jobs:
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
-      - run: pnpm install
+      - run: pnpm install --verify-store-integrity false
+      - run: pnpm store prune
 
       - run: pnpm test:internal:ci
       - run: pnpm test:lib:ci
@@ -140,10 +141,9 @@ jobs:
         with:
           angular_version: ${{ matrix.angular-version }}
 
-      - name: Variable-PNPM cache directory path
-        id: pnpm-cache-dir-path
-        run: echo "::set-output name=dir::$(pnpm cache dir)"
-      - name: Cache PNPM cache directory
+      - run: npm install --global pnpm
+      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
+      - name: Cache PNPM store
         uses: actions/cache@v2
         with:
           path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
@@ -152,7 +152,8 @@ jobs:
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
-      - run: pnpm install
+      - run: pnpm install --verify-store-integrity false
+      - run: pnpm store prune
 
       - run: pnpm delete-path-alias -- @ngworker/lumberjack
       - run: pnpm delete-path-alias -- @ngworker/lumberjack/*-driver
@@ -185,10 +186,9 @@ jobs:
         with:
           angular_version: ${{ matrix.angular-version }}
 
-      - name: Variable-PNPM cache directory path
-        id: pnpm-cache-dir-path
-        run: echo "::set-output name=dir::$(pnpm cache dir)"
-      - name: Cache PNPM cache directory
+      - run: npm install --global pnpm
+      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
+      - name: Cache PNPM store
         uses: actions/cache@v2
         with:
           path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
@@ -197,7 +197,8 @@ jobs:
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{ matrix.angular-version }}-pnpm-
-      - run: pnpm install
+      - run: pnpm install --verify-store-integrity false
+      - run: pnpm store prune
 
       - run: pnpm delete-path-alias -- @ngworker/lumberjack
       - run: pnpm delete-path-alias -- @ngworker/lumberjack/*-driver
