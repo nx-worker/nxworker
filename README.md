@@ -32,7 +32,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
- 
+  <tr>
+    <td align="center"><a href="https://dev.to/layzee"><img src="https://avatars1.githubusercontent.com/u/6364586?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lars Gyrup Brink Nielsen</b></sub></a><br /><a href="#question-LayZeeDK" title="Answering Questions">💬</a> <a href="#blog-LayZeeDK" title="Blogposts">📝</a> <a href="https://github.com/@nxworker/nxworker/issues?q=author%3ALayZeeDK" title="Bug reports">🐛</a> <a href="https://github.com/@nxworker/nxworker/commits?author=LayZeeDK" title="Code">💻</a> <a href="https://github.com/@nxworker/nxworker/commits?author=LayZeeDK" title="Documentation">📖</a> <a href="#example-LayZeeDK" title="Examples">💡</a> <a href="#ideas-LayZeeDK" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-LayZeeDK" title="Maintenance">🚧</a> <a href="#mentoring-LayZeeDK" title="Mentoring">🧑‍🏫</a> <a href="#platform-LayZeeDK" title="Packaging/porting to new platform">📦</a> <a href="#plugin-LayZeeDK" title="Plugin/utility libraries">🔌</a> <a href="#projectManagement-LayZeeDK" title="Project Management">📆</a> <a href="#research-LayZeeDK" title="Research">🔬</a> <a href="https://github.com/@nxworker/nxworker/pulls?q=is%3Apr+reviewed-by%3ALayZeeDK" title="Reviewed Pull Requests">👀</a> <a href="#security-LayZeeDK" title="Security">🛡️</a> <a href="https://github.com/@nxworker/nxworker/commits?author=LayZeeDK" title="Tests">⚠️</a> <a href="#tool-LayZeeDK" title="Tools">🔧</a> <a href="#tutorial-LayZeeDK" title="Tutorials">✅</a> <a href="#userTesting-LayZeeDK" title="User Testing">📓</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->

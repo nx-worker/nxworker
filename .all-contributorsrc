@@ -9,6 +9,34 @@
   "imageSize": 100,
   "commit": true,
   "commitConvention": "angular",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "LayZeeDK",
+      "name": "Lars Gyrup Brink Nielsen",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/6364586?v=4",
+      "profile": "https://dev.to/layzee",
+      "contributions": [
+        "question",
+        "blog",
+        "bug",
+        "code",
+        "doc",
+        "example",
+        "ideas",
+        "maintenance",
+        "mentoring",
+        "platform",
+        "plugin",
+        "projectManagement",
+        "research",
+        "review",
+        "security",
+        "test",
+        "tool",
+        "tutorial",
+        "userTesting"
+      ]
+    }
+  ],
   "contributorsPerLine": 7
 }
