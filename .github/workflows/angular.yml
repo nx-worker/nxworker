@@ -69,7 +69,7 @@ jobs:
       - name: Cache PNPM store
         uses: actions/cache@v2
         with:
-          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          path: $PNPM_STORE_DIRECTORY
           key:
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -109,7 +109,7 @@ jobs:
       - name: Cache PNPM store
         uses: actions/cache@v2
         with:
-          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          path: $PNPM_STORE_DIRECTORY
           key:
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -146,7 +146,7 @@ jobs:
       - name: Cache PNPM store
         uses: actions/cache@v2
         with:
-          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          path: $PNPM_STORE_DIRECTORY
           key:
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -191,7 +191,7 @@ jobs:
       - name: Cache PNPM store
         uses: actions/cache@v2
         with:
-          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          path: $PNPM_STORE_DIRECTORY
           key:
             ${{ runner.os }}-node-${{ matrix.node-version }}-angular-${{
             matrix.angular-version }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
