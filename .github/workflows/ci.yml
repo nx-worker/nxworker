@@ -30,24 +30,9 @@ jobs:
       - if: github.event_name == 'pull_request'
         run: git fetch --no-tags --prune --depth=5 origin main
 
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+      - uses: ./github/actions/job-setup
         with:
           node-version: 12.x
-
-      - run: npm install --global pnpm
-      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
-      - name: Cache PNPM store
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.PNPM_STORE_DIRECTORY }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
-      - run: pnpm store prune
 
       - if: github.event_name == 'push'
         run: pnpm lint
@@ -69,24 +54,9 @@ jobs:
       - if: github.event_name == 'pull_request'
         run: git fetch --no-tags --prune --depth=5 origin main
 
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+      - uses: ./github/actions/job-setup
         with:
           node-version: 12.x
-
-      - run: npm install --global pnpm
-      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
-      - name: Cache PNPM store
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.PNPM_STORE_DIRECTORY }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
-      - run: pnpm store prune
 
       - if: github.event_name == 'push'
         run: pnpm test
@@ -108,24 +78,9 @@ jobs:
       - if: github.event_name == 'pull_request'
         run: git fetch --no-tags --prune --depth=5 origin main
 
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+      - uses: ./github/actions/job-setup
         with:
           node-version: 12.x
-
-      - run: npm install --global pnpm
-      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
-      - name: Cache PNPM store
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.PNPM_STORE_DIRECTORY }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
-      - run: pnpm store prune
 
       - if: github.event_name == 'push'
         run: pnpm build
@@ -152,23 +107,8 @@ jobs:
       - if: github.event_name == 'pull_request'
         run: git fetch --no-tags --prune --depth=5 origin main
 
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+      - uses: ./github/actions/job-setup
         with:
           node-version: 12.x
-
-      - run: npm install --global pnpm
-      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
-      - name: Cache PNPM store
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.PNPM_STORE_DIRECTORY }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
-      - run: pnpm store prune
 
       - run: pnpm e2e
