@@ -1,11 +1,6 @@
-import { ProjectConfiguration, TargetConfiguration } from '@nrwl/devkit';
+import { ProjectConfiguration } from '@nrwl/devkit';
 
 import { ConvertToBuildableGeneratorSchema } from '../schema';
-import { DeepReadonly } from './deep-readonly';
-
-export interface TargetConfigurations {
-  readonly [targetName: string]: DeepReadonly<TargetConfiguration>;
-}
 
 export interface NormalizedSchema
   extends Omit<ConvertToBuildableGeneratorSchema, 'project'> {
