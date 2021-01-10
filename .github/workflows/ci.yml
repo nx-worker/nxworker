@@ -1,0 +1,171 @@
+name: '@nxworker CI pipeline'
+
+env:
+  NODE_OPTIONS: --max_old_space_size=4096
+  NX_BRANCH: ${{ github.event.number }}
+  NX_RUN_GROUP: ${{ github.run_id }}
+  PNPM_STORE_DIRECTORY: ~/.pnpm-store
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - if: github.event_name == 'push'
+        uses: actions/checkout@v2
+      # needed for nx affected command
+      - if: github.event_name == 'pull_request'
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --prune --depth=5 origin main
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - run: npm install --global pnpm
+      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
+      - name: Cache PNPM store
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.PNPM_STORE_DIRECTORY }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+      - run:
+          pnpm install --reporter silent --frozen-lockfile false
+          --verify-store-integrity false
+      - run: pnpm store prune
+
+      - if: github.event_name == 'push'
+        run: pnpm lint
+      - if: github.event_name == 'pull_request'
+        run: pnpm affected:lint -- --base=origin/main
+
+  test:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - if: github.event_name == 'push'
+        uses: actions/checkout@v2
+      # needed for nx affected command
+      - if: github.event_name == 'pull_request'
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --prune --depth=5 origin main
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - run: npm install --global pnpm
+      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
+      - name: Cache PNPM store
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.PNPM_STORE_DIRECTORY }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+      - run:
+          pnpm install --reporter silent --frozen-lockfile false
+          --verify-store-integrity false
+      - run: pnpm store prune
+
+      - if: github.event_name == 'push'
+        run: pnpm test
+      - if: github.event_name == 'pull_request'
+        run: pnpm affected:test -- --base=origin/main
+
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - if: github.event_name == 'push'
+        uses: actions/checkout@v2
+      # needed for nx affected command
+      - if: github.event_name == 'pull_request'
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --prune --depth=5 origin main
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - run: npm install --global pnpm
+      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
+      - name: Cache PNPM store
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.PNPM_STORE_DIRECTORY }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+      - run:
+          pnpm install --reporter silent --frozen-lockfile false
+          --verify-store-integrity false
+      - run: pnpm store prune
+
+      - if: github.event_name == 'push'
+        run: pnpm build
+      - if: github.event_name == 'pull_request'
+        run: pnpm affected:build -- --base=origin/main
+      - uses: actions/upload-artifact@v2
+        with:
+          name: angular-package
+          path: dist/packages/angular
+          if-no-files-found: error
+
+  e2e:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - if: github.event_name == 'push'
+        uses: actions/checkout@v2
+      # needed for nx affected command
+      - if: github.event_name == 'pull_request'
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --prune --depth=5 origin main
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - run: npm install --global pnpm
+      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
+      - name: Cache PNPM store
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.PNPM_STORE_DIRECTORY }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+      - run:
+          pnpm install --reporter silent --frozen-lockfile false
+          --verify-store-integrity false
+      - run: pnpm store prune
+
+      - run: pnpm e2e

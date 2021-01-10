@@ -16,7 +16,7 @@ quote_type = single
 [*.html]
 max_line_length = 120
 
-[*.{json,yml}]
+[*.{json,yaml,yml}]
 max_line_length = off
 
 [*.md]
