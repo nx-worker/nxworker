@@ -26,7 +26,7 @@ export interface NormalizedSchema
    */
   readonly projectName: string;
   /**
-   * Project root directory.
+   * Project root directory, for example `libs/shared/util-formatting`.
    */
   readonly projectRoot: string;
   /**
