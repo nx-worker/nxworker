@@ -7,14 +7,15 @@ export function addNgPackagr(host: Tree) {
     currentPackageJson.devDependencies?.['ng-packagr'] !== undefined;
 
   if (isNgPackagrInstalled) {
-    return;
+    // return;
   }
 
   const modifiedPackageJson = {
     ...currentPackageJson,
     devDependencies: {
       ...currentPackageJson.devDependencies,
-      'ng-packagr': '^11.0.3',
+      // 'ng-packagr': '^11.0.3',
+      '@nrwl/angular': '^11.1.1',
     },
   };
 
