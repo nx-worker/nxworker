@@ -12,18 +12,18 @@ export function normalizeOptions(
     skipFormat = false,
   }: ConvertToBuildableGeneratorSchema
 ): NormalizedSchema {
+  const projectConfiguration = readProjectConfiguration(host, projectName);
   const {
+    projectType,
     root: projectRoot,
-    sourceRoot: maybeSourceRoot,
-  } = readProjectConfiguration(host, projectName);
+    sourceRoot = `${projectRoot}/src`,
+  } = projectConfiguration;
 
-  if (!maybeSourceRoot) {
+  if (projectType !== 'application' && projectType !== 'library') {
     throw new Error(
-      `No "sourceRoot" option for project with name "${projectName}"`
+      `No project type configured for project with name "${projectName}".`
     );
   }
-
-  const sourceRoot = maybeSourceRoot;
 
   return {
     enableIvy,
@@ -32,8 +32,10 @@ export function normalizeOptions(
       sourceRoot,
     }),
     offsetFromRoot: offsetFromRoot(projectRoot),
+    projectConfiguration,
     projectName,
     projectRoot,
+    projectType,
     skipFormat,
     sourceRoot,
   };

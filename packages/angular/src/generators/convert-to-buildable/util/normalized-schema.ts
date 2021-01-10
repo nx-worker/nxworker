@@ -1,4 +1,11 @@
+import { ProjectConfiguration, TargetConfiguration } from '@nrwl/devkit';
+
 import { ConvertToBuildableGeneratorSchema } from '../schema';
+import { DeepReadonly } from './deep-readonly';
+
+export interface TargetConfigurations {
+  readonly [targetName: string]: DeepReadonly<TargetConfiguration>;
+}
 
 export interface NormalizedSchema
   extends Omit<ConvertToBuildableGeneratorSchema, 'project'> {
@@ -16,6 +23,10 @@ export interface NormalizedSchema
    */
   readonly offsetFromRoot: string;
   /**
+   * The full configuration of the project.
+   */
+  readonly projectConfiguration: ProjectConfiguration;
+  /**
    * The name of the project.
    */
   readonly projectName: string;
@@ -24,11 +35,15 @@ export interface NormalizedSchema
    */
   readonly projectRoot: string;
   /**
-   * Project source directory, for example `libs/shared/util-formatting/src`.
+   * The type of the project.
    */
-  readonly sourceRoot: string;
+  readonly projectType: 'application' | 'library';
   /**
    * Skip formatting files?
    */
   readonly skipFormat: boolean;
+  /**
+   * Project source directory, for example `libs/shared/util-formatting/src`.
+   */
+  readonly sourceRoot: string;
 }

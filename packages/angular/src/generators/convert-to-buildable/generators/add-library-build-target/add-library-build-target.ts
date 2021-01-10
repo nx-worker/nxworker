@@ -1,4 +1,4 @@
-import { readProjectConfiguration, TargetConfiguration, Tree, updateProjectConfiguration } from '@nrwl/devkit';
+import { TargetConfiguration, Tree, updateProjectConfiguration } from '@nrwl/devkit';
 import * as path from 'path';
 
 import { NormalizedSchema } from '../../util';
@@ -7,13 +7,15 @@ const incrementalBuildExecutor = '@nrwl/angular:ng-packagr-lite';
 
 export function addLibraryBuildTarget(
   host: Tree,
-  { projectName, projectRoot }: NormalizedSchema
-): void {
-  const project = readProjectConfiguration(host, projectName);
-  const {
+  {
+    projectConfiguration,
+    projectName,
+    projectRoot,
     projectType,
-    targets: { build: buildTarget },
-  } = project;
+  }: NormalizedSchema
+): void {
+  const { targets: executionTargets } = projectConfiguration;
+  const { build: buildTarget } = executionTargets;
 
   if (projectType !== 'library') {
     console.error(
@@ -55,9 +57,9 @@ export function addLibraryBuildTarget(
   };
 
   updateProjectConfiguration(host, projectName, {
-    ...project,
+    ...projectConfiguration,
     targets: {
-      ...project.targets,
+      ...executionTargets,
       build: incrementalBuildTarget,
     },
   });
