@@ -14,7 +14,7 @@ export function addNgPackagr(host: Tree) {
     ...currentPackageJson,
     devDependencies: {
       ...currentPackageJson.devDependencies,
-      'ng-packagr': '*',
+      'ng-packagr': '^11.0.3',
     },
   };
 
