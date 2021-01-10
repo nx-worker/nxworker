@@ -5,13 +5,15 @@ import {
   readJson,
   runNxCommand,
   runNxCommandAsync,
+  runPackageManagerInstall,
   uniq,
 } from '@nrwl/nx-plugin/testing';
 import * as path from 'path';
 
 describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
   beforeAll(() => {
-    copyNodeModules(['@nrwl/angular']);
+    copyNodeModules(['@nrwl/angular', 'ng-packagr']);
+    runPackageManagerInstall();
   });
 
   beforeEach(async () => {
