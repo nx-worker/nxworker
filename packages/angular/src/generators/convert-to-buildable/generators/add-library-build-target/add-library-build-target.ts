@@ -11,7 +11,7 @@ export function addLibraryBuildTarget(
 
   if (project.targets.build) {
     console.warn(
-      `Project with name "${projectName} already has a "build" target. Overwriting..."`
+      `Project with name "${projectName}" already has a "build" target. Overwriting..."`
     );
   }
 
