@@ -1,4 +1,11 @@
-import { addProjectConfiguration, ProjectConfiguration, readJson, Tree } from '@nrwl/devkit';
+import {
+  addProjectConfiguration,
+  ProjectConfiguration,
+  readJson,
+  readProjectConfiguration,
+  TargetConfiguration,
+  Tree,
+} from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import * as path from 'path';
 
@@ -79,5 +86,29 @@ describe('convert-to-buildable generator', () => {
       'package.json'
     );
     expect(devDependencies['ng-packagr']).toBeDefined();
+  });
+
+  it('adds a build target', async () => {
+    const expectedBuildTarget: TargetConfiguration = {
+      executor: '@nrwl/angular:ng-packagr-lite',
+      options: {
+        tsConfig: path.join(project.root, 'tsconfig.lib.json'),
+        project: path.join(project.root, 'ng-package.json'),
+      },
+      configurations: {
+        production: {
+          tsConfig: path.join(project.root, 'tsconfig.lib.prod.json'),
+        },
+      },
+    };
+
+    await generator(host, {
+      project: projectName,
+    });
+
+    const {
+      targets: { build: actualBuildTarget },
+    } = readProjectConfiguration(host, projectName);
+    expect(actualBuildTarget).toEqual(expectedBuildTarget);
   });
 });
