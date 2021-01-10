@@ -14,7 +14,7 @@ export async function generateBuildableLibraryConfigurations(
     projectRoot,
     sourceRoot,
   }: NormalizedSchema
-) {
+): Promise<void> {
   const replacements: FileTemplateReplacements = {
     enableIvy,
     importPath: readImportPathOrThrow(host, {

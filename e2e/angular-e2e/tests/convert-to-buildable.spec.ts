@@ -3,6 +3,7 @@ import {
   copyNodeModules,
   ensureNxProject,
   readJson,
+  runNxCommand,
   runNxCommandAsync,
   uniq,
 } from '@nrwl/nx-plugin/testing';
@@ -17,7 +18,7 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
     projectName = uniq('test-library');
     await runNxCommandAsync(`generate @nrwl/angular:library ${projectName}`);
-  }, 30000);
+  });
 
   let projectName: string;
 
@@ -34,7 +35,7 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
 
     expect(() => checkFilesExist(...configurationFileNames)).not.toThrow();
     done();
-  }, 30000);
+  });
 
   it('adds ng-packagr', async done => {
     await runNxCommandAsync(
@@ -44,5 +45,16 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
     const { devDependencies = {} } = readJson('package.json');
     expect(devDependencies['ng-packagr']).toBeDefined();
     done();
-  }, 30000);
+  });
+
+  it('adds a build target when project is a library', async done => {
+    await runNxCommandAsync(
+      `generate @nxworker/angular:convert-to-buildable ${projectName}`
+    );
+
+    const act = () => runNxCommand(`build ${projectName}`);
+
+    expect(act).not.toThrow();
+    done();
+  });
 });
