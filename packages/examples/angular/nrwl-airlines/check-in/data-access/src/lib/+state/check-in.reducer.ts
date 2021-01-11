@@ -27,7 +27,7 @@ export const initialState: State = checkInAdapter.getInitialState({
 
 const checkInReducer = createReducer(
   initialState,
-  on(CheckInActions.init, (state) => ({
+  on(CheckInActions.init, state => ({
     ...state,
     loaded: false,
     error: null,

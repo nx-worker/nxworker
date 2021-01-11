@@ -1,6 +1,11 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { CHECK_IN_FEATURE_KEY, checkInAdapter, CheckInPartialState, State } from './check-in.reducer';
+import {
+  CHECK_IN_FEATURE_KEY,
+  checkInAdapter,
+  CheckInPartialState,
+  State,
+} from './check-in.reducer';
 
 // Lookup the 'CheckIn' feature state managed by NgRx
 export const getCheckInState = createFeatureSelector<

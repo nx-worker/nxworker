@@ -1,5 +1,9 @@
 import { BookingEntity } from './booking.models';
-import { bookingAdapter, BookingPartialState, initialState } from './booking.reducer';
+import {
+  bookingAdapter,
+  BookingPartialState,
+  initialState,
+} from './booking.reducer';
 import * as BookingSelectors from './booking.selectors';
 
 describe('Booking Selectors', () => {

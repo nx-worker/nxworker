@@ -1,5 +1,9 @@
 import { CheckInEntity } from './check-in.models';
-import { checkInAdapter, CheckInPartialState, initialState } from './check-in.reducer';
+import {
+  checkInAdapter,
+  CheckInPartialState,
+  initialState,
+} from './check-in.reducer';
 import * as CheckInSelectors from './check-in.selectors';
 
 describe('CheckIn Selectors', () => {
