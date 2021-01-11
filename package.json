@@ -110,15 +110,15 @@
   },
   "lint-staged": {
     "*.{js,json,css,scss,ts,html,component.html}": [
-      " pnpm format:write",
+      "yarn format:write",
       "git add"
     ]
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
-      "pre-commit": "pnpm hooks:pre-commit && lint-staged && pnpm affected:lint",
-      "pre-push": "pnpm affected:test"
+      "pre-commit": "yarn hooks:pre-commit && lint-staged && yarn affected:lint",
+      "pre-push": "yarn affected:test"
     }
   }
 }
