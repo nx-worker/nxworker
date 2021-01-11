@@ -4,11 +4,28 @@ import {
   readJson,
   runNxCommandAsync,
   uniq,
+  updateFile,
 } from '@nrwl/nx-plugin/testing';
+
 describe('angular e2e', () => {
+  beforeEach(() => {
+    ensureNxProject('@nxworker/angular', 'dist/packages/angular');
+    updateFile('workspace.json', raw => {
+      const workspaceJson = JSON.parse(raw);
+      const workspaceJsonUsingYarn = {
+        ...workspaceJson,
+        cli: {
+          ...workspaceJson.cli,
+          packageManager: 'yarn',
+        },
+      };
+
+      return JSON.stringify(workspaceJsonUsingYarn, null, 2);
+    });
+  });
+
   it('should create angular', async done => {
     const plugin = uniq('angular');
-    ensureNxProject('@nxworker/angular', 'dist/packages/angular');
     await runNxCommandAsync(`generate @nxworker/angular:angular ${plugin}`);
 
     const result = await runNxCommandAsync(`build ${plugin}`);
@@ -20,7 +37,6 @@ describe('angular e2e', () => {
   describe('--directory', () => {
     it('should create src in the specified directory', async done => {
       const plugin = uniq('angular');
-      ensureNxProject('@nxworker/angular', 'dist/packages/angular');
       await runNxCommandAsync(
         `generate @nxworker/angular:angular ${plugin} --directory subdir`
       );
@@ -34,7 +50,6 @@ describe('angular e2e', () => {
   describe('--tags', () => {
     it('should add tags to nx.json', async done => {
       const plugin = uniq('angular');
-      ensureNxProject('@nxworker/angular', 'dist/packages/angular');
       await runNxCommandAsync(
         `generate @nxworker/angular:angular ${plugin} --tags e2etag,e2ePackage`
       );

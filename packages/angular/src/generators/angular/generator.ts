@@ -3,11 +3,14 @@ import {
   formatFiles,
   generateFiles,
   getWorkspaceLayout,
+  installPackagesTask,
   names,
   offsetFromRoot,
   Tree,
 } from '@nrwl/devkit';
 import * as path from 'path';
+
+import { addNgPackagr } from './add-ng-packagr';
 import { AngularGeneratorSchema } from './schema';
 
 interface NormalizedSchema extends AngularGeneratorSchema {
@@ -69,5 +72,10 @@ export default async function (host: Tree, options: AngularGeneratorSchema) {
     tags: normalizedOptions.parsedTags,
   });
   addFiles(host, normalizedOptions);
+  addNgPackagr(host);
   await formatFiles(host);
+
+  return () => {
+    installPackagesTask(host);
+  };
 }
