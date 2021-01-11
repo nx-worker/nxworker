@@ -1,0 +1,62 @@
+{
+  "projectName": "nxworker",
+  "projectOwner": "@nxworker",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "LayZeeDK",
+      "name": "Lars Gyrup Brink Nielsen",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/6364586?v=4",
+      "profile": "https://dev.to/layzee",
+      "contributions": [
+        "question",
+        "blog",
+        "bug",
+        "code",
+        "doc",
+        "example",
+        "ideas",
+        "maintenance",
+        "mentoring",
+        "platform",
+        "plugin",
+        "projectManagement",
+        "research",
+        "review",
+        "security",
+        "test",
+        "tool",
+        "tutorial",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "NachoVazquez",
+      "name": "Nacho Vazquez",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9338604?v=4",
+      "profile": "https://github.com/NachoVazquez",
+      "contributions": [
+        "bug",
+        "code",
+        "doc",
+        "example",
+        "ideas",
+        "infra",
+        "maintenance",
+        "plugin",
+        "review",
+        "test",
+        "tool",
+        "userTesting"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
