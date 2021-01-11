@@ -24,10 +24,11 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
   });
 
   beforeEach(async () => {
+    ensureNxProject('@nxworker/angular', 'dist/packages/angular');
     updateFile('workspace.json', raw => {
       const workspaceJson: WorkspaceConfiguration = JSON.parse(raw);
       const defaultCollection =
-        workspaceJson?.cli?.defaultCollection ?? '@nrwl/angular';
+        workspaceJson.cli?.defaultCollection ?? '@nrwl/angular';
       const workspaceJsonUsingYarn: WorkspaceConfiguration = {
         ...workspaceJson,
         cli: {
@@ -38,7 +39,6 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
 
       return JSON.stringify(workspaceJsonUsingYarn, null, 2);
     });
-    ensureNxProject('@nxworker/angular', 'dist/packages/angular');
     projectName = uniq('test-library');
     await runNxCommandAsync(`generate @nrwl/angular:library ${projectName}`);
   });
