@@ -34,8 +34,8 @@ ISSUES MISSING IMPORTANT INFORMATION MAY BE CLOSED WITHOUT INVESTIGATION.
 ## Environment
 
 <pre><code>
-Angular version: X.Y.Z
-<!-- Check whether this is still an issue in the most recent Angular version -->
+
+<!-- Please run `nx report` and past the result here -->
 
 Browser:
 - [ ] Chrome (desktop) version XX
@@ -46,10 +46,6 @@ Browser:
 - [ ] Safari (iOS) version XX
 - [ ] IE version XX
 - [ ] Edge version XX
- 
-For Tooling issues:
-- Node version: XX  <!-- run `node --version` -->
-- Platform:  <!-- Mac, Linux, Windows -->
 
 Others:
 <!-- Anything else relevant?  Operating system version, IDE, package manager, HTTP server, ... -->
