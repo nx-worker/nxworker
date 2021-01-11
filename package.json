@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "preinstall": "(yarn remove codelyzer || echo ✅ Codelyzer is already removed.) && (yarn remove tslint || echo ✅ TSLint is already removed.)",
+    "preinstall": "(yarn remove codelyzer --silent || echo ✅ Codelyzer is already removed.) && (yarn remove tslint --silent || echo ✅ TSLint is already removed.)",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
     "start": "nx serve",
