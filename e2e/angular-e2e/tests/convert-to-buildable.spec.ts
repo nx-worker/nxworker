@@ -4,7 +4,6 @@ import {
   copyNodeModules,
   ensureNxProject,
   readJson,
-  runNxCommand,
   runNxCommandAsync,
   uniq,
   updateFile,
@@ -67,17 +66,6 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
 
     const { devDependencies = {} } = readJson('package.json');
     expect(devDependencies['ng-packagr']).toBeDefined();
-    done();
-  });
-
-  it('adds a build target when project is a library', async done => {
-    await runNxCommandAsync(
-      `generate @nxworker/angular:convert-to-buildable ${projectName}`
-    );
-
-    const act = () => runNxCommand(`build ${projectName}`);
-
-    expect(act).not.toThrow();
     done();
   });
 });
