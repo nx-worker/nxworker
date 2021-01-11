@@ -158,4 +158,4 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install --non-interactive --silent
 
-      - run: yarn e2e
+      - run: yarn e2e --skip-nx-cache
