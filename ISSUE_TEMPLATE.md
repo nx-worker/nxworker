@@ -37,16 +37,7 @@ ISSUES MISSING IMPORTANT INFORMATION MAY BE CLOSED WITHOUT INVESTIGATION.
 
 <!-- Please run `nx report` and past the result here -->
 
-Browser:
-- [ ] Chrome (desktop) version XX
-- [ ] Chrome (Android) version XX
-- [ ] Chrome (iOS) version XX
-- [ ] Firefox version XX
-- [ ] Safari (desktop) version XX
-- [ ] Safari (iOS) version XX
-- [ ] IE version XX
-- [ ] Edge version XX
 
 Others:
-<!-- Anything else relevant?  Operating system version, IDE, package manager, HTTP server, ... -->
+<!-- Anything else relevant?  Operating system version, IDE, framework, ... -->
 </code></pre>
