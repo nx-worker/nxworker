@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "preinstall": "(pnpm remove codelyzer || echo ✅ Codelyzer is already removed.) && (pnpm remove tslint || echo ✅ TSLint is already removed.)",
+    "preinstall": "(yarn remove codelyzer || echo ✅ Codelyzer is already removed.) && (yarn remove tslint || echo ✅ TSLint is already removed.)",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
     "start": "nx serve",
@@ -21,7 +21,7 @@
     "affected:lint": "nx affected:lint --parallel",
     "affected:dep-graph": "nx affected:dep-graph",
     "affected": "nx affected",
-    "format": "nx format:write && pnpx prettier --config .prettierrc --write \"**/*.*\" \"!dist/**\" \"!pnpm-lock.yaml\"",
+    "format": "nx format:write && pnpx prettier --config .prettierrc --write \"**/*.*\" \"!dist/**\" \"!yarn.lock\"",
     "format:write": "nx format:write",
     "format:check": "nx format:check",
     "update": "nx migrate @nrwl/worskpace && nx migrate latest",
@@ -31,8 +31,8 @@
     "commit": "git-cz",
     "help": "nx help",
     "sort-projects": "json -I -f workspace.json -e \"this.projects = Object.fromEntries(Object.entries(this.projects).sort(([a], [b]) => a.localeCompare(b)));\" && json -I -f nx.json -e \"this.projects = Object.fromEntries(Object.entries(this.projects).sort(([a], [b]) => a.localeCompare(b)));\"",
-    "ci": "pnpm lint && pnpm test && pnpm build && pnpm e2e",
-    "affected:ci": "pnpm affected:lint && pnpm affected:test && pnpm affected:build && pnpm affected:e2e"
+    "ci": "yarn lint && yarn test && yarn build && yarn e2e",
+    "affected:ci": "yarn affected:lint && yarn affected:test && yarn affected:build && yarn affected:e2e"
   },
   "dependencies": {
     "@angular/animations": "^11.0.7",
