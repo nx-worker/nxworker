@@ -20,7 +20,7 @@ yarn e2e
 Run the playground app:
 
 ```bash
-pnpm start
+yarn start
 ```
 
 ## Building
