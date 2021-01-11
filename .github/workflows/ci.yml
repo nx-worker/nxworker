@@ -4,7 +4,6 @@ env:
   NODE_OPTIONS: --max_old_space_size=4096
   NX_BRANCH: ${{ github.event.number }}
   NX_RUN_GROUP: ${{ github.run_id }}
-  PNPM_STORE_DIRECTORY: ~/.pnpm-store
 
 on:
   push:
@@ -32,20 +31,17 @@ jobs:
         with:
           node-version: 12.x
 
-      - run: npm install --global pnpm
-      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
-      - name: Cache PNPM store
+      - name: Variable-Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache Yarn cache directory
         uses: actions/cache@v2
         with:
-          path: ${{ env.PNPM_STORE_DIRECTORY }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
-      - run: pnpm store prune
-
+            ${{ runner.os }}-yarn-
+      - run: yarn install --non-interactive --silent
       - if: github.event_name == 'push'
         run: pnpm lint
       - if: github.event_name == 'pull_request'
@@ -71,20 +67,17 @@ jobs:
         with:
           node-version: 12.x
 
-      - run: npm install --global pnpm
-      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
-      - name: Cache PNPM store
+      - name: Variable-Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache Yarn cache directory
         uses: actions/cache@v2
         with:
-          path: ${{ env.PNPM_STORE_DIRECTORY }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
-      - run: pnpm store prune
-
+            ${{ runner.os }}-yarn-
+      - run: yarn install --non-interactive --silent
       - if: github.event_name == 'push'
         run: pnpm test
       - if: github.event_name == 'pull_request'
@@ -110,20 +103,17 @@ jobs:
         with:
           node-version: 12.x
 
-      - run: npm install --global pnpm
-      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
-      - name: Cache PNPM store
+      - name: Variable-Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache Yarn cache directory
         uses: actions/cache@v2
         with:
-          path: ${{ env.PNPM_STORE_DIRECTORY }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
-      - run: pnpm store prune
-
+            ${{ runner.os }}-yarn-
+      - run: yarn install --non-interactive --silent
       - if: github.event_name == 'push'
         run: pnpm build
       - if: github.event_name == 'pull_request'
@@ -154,18 +144,15 @@ jobs:
         with:
           node-version: 12.x
 
-      - run: npm install --global pnpm
-      - run: pnpm config set store-dir $PNPM_STORE_DIRECTORY
-      - name: Cache PNPM store
+      - name: Variable-Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache Yarn cache directory
         uses: actions/cache@v2
         with:
-          path: ${{ env.PNPM_STORE_DIRECTORY }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
-      - run: pnpm store prune
-
+            ${{ runner.os }}-yarn-
+      - run: yarn install --non-interactive --silent
       - run: pnpm e2e -- --no-nx-cache

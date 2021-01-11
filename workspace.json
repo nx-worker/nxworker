@@ -2,7 +2,7 @@
   "version": 2,
   "cli": {
     "defaultCollection": "@nrwl/angular",
-    "packageManager": "pnpm"
+    "packageManager": "yarn"
   },
   "generators": {
     "@nrwl/angular:application": {
