@@ -124,7 +124,7 @@ jobs:
         with:
           name: angular-package
           path: dist/packages/angular
-          if-no-files-found: error
+          if-no-files-found: warn
 
   e2e:
     runs-on: ubuntu-20.04
