@@ -26,10 +26,12 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
   beforeEach(async () => {
     updateFile('workspace.json', raw => {
       const workspaceJson: WorkspaceConfiguration = JSON.parse(raw);
+      const defaultCollection =
+        workspaceJson?.cli?.defaultCollection ?? '@nrwl/angular';
       const workspaceJsonUsingYarn: WorkspaceConfiguration = {
         ...workspaceJson,
         cli: {
-          ...(workspaceJson.cli ?? {}),
+          defaultCollection,
           packageManager: 'yarn',
         },
       };
