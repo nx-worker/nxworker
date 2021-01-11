@@ -780,5 +780,6 @@
         }
       }
     }
-  }
+  },
+  "defaultProject": "examples-angular-nrwl-airlines-booking-desktop-app"
 }

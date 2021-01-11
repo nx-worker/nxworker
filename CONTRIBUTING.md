@@ -17,6 +17,12 @@ yarn test
 yarn e2e
 ```
 
+Run the playground app:
+
+```bash
+pnpm start
+```
+
 ## Building
 
 ```bash
