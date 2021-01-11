@@ -43,9 +43,9 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install --non-interactive --silent
       - if: github.event_name == 'push'
-        run: pnpm lint
+        run: yarn lint
       - if: github.event_name == 'pull_request'
-        run: pnpm affected:lint -- --base=origin/main
+        run: yarn affected:lint --base=origin/main
 
   test:
     runs-on: ubuntu-20.04
@@ -79,9 +79,9 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install --non-interactive --silent
       - if: github.event_name == 'push'
-        run: pnpm test
+        run: yarn test
       - if: github.event_name == 'pull_request'
-        run: pnpm affected:test -- --base=origin/main
+        run: yarn affected:test --base=origin/main
 
   build:
     runs-on: ubuntu-20.04
@@ -115,9 +115,9 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install --non-interactive --silent
       - if: github.event_name == 'push'
-        run: pnpm build
+        run: yarn build
       - if: github.event_name == 'pull_request'
-        run: pnpm affected:build -- --base=origin/main
+        run: yarn affected:build --base=origin/main
       - uses: actions/upload-artifact@v2
         with:
           name: angular-package
@@ -155,4 +155,4 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: yarn install --non-interactive --silent
-      - run: pnpm e2e -- --no-nx-cache
+      - run: yarn e2e --skip-nx-cache
