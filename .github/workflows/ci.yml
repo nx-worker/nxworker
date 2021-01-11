@@ -78,6 +78,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: yarn install --non-interactive --silent
+
       - if: github.event_name == 'push'
         run: yarn test
       - if: github.event_name == 'pull_request'
@@ -114,6 +115,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: yarn install --non-interactive --silent
+
       - if: github.event_name == 'push'
         run: yarn build
       - if: github.event_name == 'pull_request'
@@ -155,4 +157,5 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: yarn install --non-interactive --silent
-      - run: yarn e2e --skip-nx-cache
+
+      - run: yarn e2e
