@@ -1,4 +1,8 @@
-import { TargetConfiguration, Tree, updateProjectConfiguration } from '@nrwl/devkit';
+import {
+  TargetConfiguration,
+  Tree,
+  updateProjectConfiguration,
+} from '@nrwl/devkit';
 import * as path from 'path';
 
 import { NormalizedSchema } from '../../util';
