@@ -54,9 +54,9 @@ export function updateApplicationBuildTarget(
     ...buildTarget,
     executor: incrementalBuildExecutor,
     options: {
-      ...buildTarget.options,
-      parallel: true,
-      withDeps: true,
+      ...(buildTarget.options ?? {}),
+      // parallel: true,
+      // withDeps: true,
     },
   };
 
