@@ -8,8 +8,8 @@ export function addNgPackagr(host: Tree) {
     host,
     packageJsonPath
   );
-  const isNgPackagrInstalled =
-    currentPackageJson.devDependencies?.['ng-packagr'] !== undefined;
+  const { devDependencies = {} } = currentPackageJson;
+  const isNgPackagrInstalled = devDependencies['ng-packagr'] !== undefined;
 
   if (isNgPackagrInstalled) {
     return;
@@ -18,8 +18,8 @@ export function addNgPackagr(host: Tree) {
   const modifiedPackageJson: WorkspaceRootPackageJson = {
     ...currentPackageJson,
     devDependencies: {
-      ...currentPackageJson.devDependencies,
-      'ng-packagr': '*',
+      ...devDependencies,
+      'ng-packagr': '^11.0.3',
     },
   };
 
