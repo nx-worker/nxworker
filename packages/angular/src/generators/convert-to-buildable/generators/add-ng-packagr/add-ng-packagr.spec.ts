@@ -62,7 +62,7 @@ describe(addNgPackagr.name, () => {
       host,
       'package.json'
     );
-    expect(devDependencies['ng-packagr']).toBe('*');
+    expect(devDependencies['ng-packagr']).toMatch(/\^\d+\.\d+\.\d+/);
   });
 
   it('leaves ng-packagr version intact when already installed', async () => {
