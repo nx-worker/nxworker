@@ -11,7 +11,7 @@ export interface NormalizedSchema
   /**
    * Library import path, for example `@nrwl-airlines/booking/data-access`.
    */
-  readonly importPath: string;
+  readonly importPath?: string;
   /**
    * Project directory offset from root workspace directory, for example
    * `'../../'`.

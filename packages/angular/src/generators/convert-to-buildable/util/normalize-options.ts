@@ -27,10 +27,13 @@ export function normalizeOptions(
 
   return {
     enableIvy,
-    importPath: readImportPathOrThrow(host, {
-      projectName,
-      sourceRoot,
-    }),
+    importPath:
+      projectType === 'application'
+        ? undefined
+        : readImportPathOrThrow(host, {
+            projectName,
+            sourceRoot,
+          }),
     offsetFromRoot: offsetFromRoot(projectRoot),
     projectConfiguration,
     projectName,
