@@ -1,4 +1,4 @@
-import { WorkspaceConfiguration as NxWorkspaceConfiguration } from '@nrwl/devkit';
+import { configurePackageManager } from '@internal/e2e-util';
 import {
   checkFilesExist,
   copyNodeModules,
@@ -6,16 +6,8 @@ import {
   readJson,
   runNxCommandAsync,
   uniq,
-  updateFile,
 } from '@nrwl/nx-plugin/testing';
 import * as path from 'path';
-
-interface WorkspaceConfiguration extends NxWorkspaceConfiguration {
-  cli?: {
-    defaultCollection: string;
-    packageManager: 'npm' | 'pnpm' | 'yarn';
-  };
-}
 
 describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
   beforeAll(() => {
@@ -24,20 +16,7 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
 
   beforeEach(async () => {
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
-    updateFile('workspace.json', raw => {
-      const workspaceJson: WorkspaceConfiguration = JSON.parse(raw);
-      const defaultCollection =
-        workspaceJson.cli?.defaultCollection ?? '@nrwl/angular';
-      const workspaceJsonUsingYarn: WorkspaceConfiguration = {
-        ...workspaceJson,
-        cli: {
-          defaultCollection,
-          packageManager: 'yarn',
-        },
-      };
-
-      return JSON.stringify(workspaceJsonUsingYarn, null, 2);
-    });
+    configurePackageManager('yarn');
     projectName = uniq('convert-to-buildable');
     await runNxCommandAsync(`generate @nrwl/angular:library ${projectName}`);
   });
