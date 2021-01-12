@@ -6,7 +6,7 @@ module.exports = {
       tsConfig: '<rootDir>/tsconfig.spec.json',
     },
   },
-  testTimeout: 30000,
+  testTimeout: 60000,
   transform: {
     '^.+\\.[tj]s$': 'ts-jest',
   },
