@@ -38,7 +38,7 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
 
       return JSON.stringify(workspaceJsonUsingYarn, null, 2);
     });
-    projectName = uniq('test-library');
+    projectName = uniq('convert-to-buildable');
     await runNxCommandAsync(`generate @nrwl/angular:library ${projectName}`);
   });
 
