@@ -1,6 +1,6 @@
-# @ngworker/\* monorepo
+# @nxworker/\* monorepo
 
-Monorepo for the `ngworker` NPM organization. Plugins and utilities for Nx workspaces.
+Monorepo for the `nxworker` NPM organization. Plugins and utilities for Nx workspaces.
 
 ## Wallaby.js
 
