@@ -1,32 +1,27 @@
-import { configurePackageManager, updateJsonFile } from '@internal/e2e-util';
+import { addPackages, configurePackageManager } from '@internal/e2e-util';
 import {
   checkFilesExist,
   copyNodeModules,
   ensureNxProject,
   readJson,
   runNxCommandAsync,
-  runPackageManagerInstall,
   uniq,
 } from '@nrwl/nx-plugin/testing';
 import * as path from 'path';
 
 describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
-  beforeAll(async () => {
+  beforeAll(() => {
     copyNodeModules(['@nrwl/angular', 'ng-packagr']);
-  }, 120_000);
+  });
 
   beforeEach(async () => {
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
     configurePackageManager('yarn');
-    updateJsonFile<any>('package.json', packageJson => ({
-      ...packageJson,
+    addPackages({
       devDependencies: {
-        ...packageJson.devDependencies,
-        ['@nrwl/angular']: '11.1.1',
+        ['@nrwl/angular']: '*',
       },
-    }));
-    runPackageManagerInstall();
-    await runNxCommandAsync('generate @nrwl/angular:init');
+    });
     projectName = uniq('convert-to-buildable');
   });
 
