@@ -10,17 +10,18 @@ import {
 describe('angular e2e', () => {
   beforeEach(() => {
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
+    updateFile('.npmrc', 'prefer-frozen-lockfile=false');
     updateFile('workspace.json', raw => {
       const workspaceJson = JSON.parse(raw);
-      const workspaceJsonUsingYarn = {
+      const workspaceJsonUsingPnpm = {
         ...workspaceJson,
         cli: {
           ...workspaceJson.cli,
-          packageManager: 'yarn',
+          packageManager: 'pnpm',
         },
       };
 
-      return JSON.stringify(workspaceJsonUsingYarn, null, 2);
+      return JSON.stringify(workspaceJsonUsingPnpm, null, 2);
     });
   });
 
