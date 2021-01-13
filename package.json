@@ -22,7 +22,7 @@
     "affected:dep-graph": "nx affected:dep-graph",
     "affected": "nx affected",
     "contributors:add": "all-contributors add",
-    "format": "nx format:write && yarn prettier --config .prettierrc --write \"**/*.*\" \"!dist/**\" \"!yarn.lock\"",
+    "format": "yarn sort-projects && nx format:write && yarn prettier --config .prettierrc --write \"**/*.*\" \"!dist/**\" \"!yarn.lock\"",
     "format:write": "nx format:write",
     "format:check": "nx format:check",
     "update": "nx migrate @nrwl/worskpace && nx migrate latest",
