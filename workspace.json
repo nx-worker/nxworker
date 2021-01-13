@@ -1,8 +1,7 @@
 {
   "version": 2,
   "cli": {
-    "defaultCollection": "@nrwl/angular",
-    "packageManager": "yarn"
+    "defaultCollection": "@nrwl/angular"
   },
   "generators": {
     "@nrwl/angular:application": {
