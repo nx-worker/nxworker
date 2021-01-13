@@ -12,9 +12,6 @@ import * as path from 'path';
 describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
   beforeAll(() => {
     copyNodeModules(['@nrwl/angular', 'ng-packagr']);
-  });
-
-  beforeEach(async () => {
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
     usePackageManager('yarn');
     addPackages({
@@ -22,6 +19,9 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
         ['@nrwl/angular']: '*',
       },
     });
+  });
+
+  beforeEach(() => {
     projectName = uniq('convert-to-buildable');
   });
 
