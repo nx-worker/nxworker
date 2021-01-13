@@ -6,7 +6,7 @@ import { updateJsonFile } from './update-json-file';
  *
  * NOTE! This must be called **after** `ensureNxProject`.
  */
-export function configurePackageManager(packageManager: PackageManager) {
+export function usePackageManager(packageManager: PackageManager) {
   updateJsonFile('workspace.json', (workspaceJson: WorkspaceConfiguration) => ({
     ...workspaceJson,
     cli: {

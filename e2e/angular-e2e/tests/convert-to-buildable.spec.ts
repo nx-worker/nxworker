@@ -1,4 +1,4 @@
-import { addPackages, configurePackageManager } from '@internal/e2e-util';
+import { addPackages, usePackageManager } from '@internal/e2e-util';
 import {
   checkFilesExist,
   copyNodeModules,
@@ -16,7 +16,7 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
 
   beforeEach(async () => {
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
-    configurePackageManager('yarn');
+    usePackageManager('yarn');
     addPackages({
       devDependencies: {
         ['@nrwl/angular']: '*',
