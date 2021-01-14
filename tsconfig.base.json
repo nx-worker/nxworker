@@ -54,7 +54,8 @@
       ],
       "@nrwl-airlines/shared/util-formatting": [
         "packages/examples/angular/nrwl-airlines/shared/util-formatting/src/index.ts"
-      ]
+      ],
+      "@nxworker/shared": ["packages/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

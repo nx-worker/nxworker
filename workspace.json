@@ -820,6 +820,38 @@
           }
         }
       }
+    },
+    "shared": {
+      "root": "packages/shared",
+      "sourceRoot": "packages/shared/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/shared/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/shared"],
+          "options": {
+            "jestConfig": "packages/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/shared",
+            "tsConfig": "packages/shared/tsconfig.lib.json",
+            "packageJson": "packages/shared/package.json",
+            "main": "packages/shared/src/index.ts",
+            "assets": ["packages/shared/*.md"]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular"
