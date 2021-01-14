@@ -58,57 +58,59 @@ describe('convert-to-buildable generator', () => {
   let projectName: string;
   let host: Tree;
 
-  it('generates buildable library configurations when none of them exist', async () => {
-    const configurationFileNames = [
-      'ng-package.json',
-      'package.json',
-      'tsconfig.lib.prod.json',
-    ];
+  describe('Libraries', () => {
+    it('generates buildable library configurations when none of them exist', async () => {
+      const configurationFileNames = [
+        'ng-package.json',
+        'package.json',
+        'tsconfig.lib.prod.json',
+      ];
 
-    await generator(host, {
-      project: projectName,
+      await generator(host, {
+        project: projectName,
+      });
+
+      configurationFileNames.forEach(configurationFileName =>
+        expect(
+          host.exists(path.join(project.root, configurationFileName))
+        ).toBe(true)
+      );
     });
 
-    configurationFileNames.forEach(configurationFileName =>
-      expect(host.exists(path.join(project.root, configurationFileName))).toBe(
-        true
-      )
-    );
-  });
+    it('adds ng-packagr as a development dependency when not installed', async () => {
+      await generator(host, {
+        project: projectName,
+      });
 
-  it('adds ng-packagr as a development dependency when not installed', async () => {
-    await generator(host, {
-      project: projectName,
+      const { devDependencies = {} } = readJson<WorkspaceRootPackageJson>(
+        host,
+        'package.json'
+      );
+      expect(devDependencies['ng-packagr']).toBeDefined();
     });
 
-    const { devDependencies = {} } = readJson<WorkspaceRootPackageJson>(
-      host,
-      'package.json'
-    );
-    expect(devDependencies['ng-packagr']).toBeDefined();
-  });
-
-  it('adds a build target', async () => {
-    const expectedBuildTarget: TargetConfiguration = {
-      executor: '@nrwl/angular:ng-packagr-lite',
-      options: {
-        tsConfig: path.join(project.root, 'tsconfig.lib.json'),
-        project: path.join(project.root, 'ng-package.json'),
-      },
-      configurations: {
-        production: {
-          tsConfig: path.join(project.root, 'tsconfig.lib.prod.json'),
+    it('adds a build target', async () => {
+      const expectedBuildTarget: TargetConfiguration = {
+        executor: '@nrwl/angular:ng-packagr-lite',
+        options: {
+          tsConfig: path.join(project.root, 'tsconfig.lib.json'),
+          project: path.join(project.root, 'ng-package.json'),
         },
-      },
-    };
+        configurations: {
+          production: {
+            tsConfig: path.join(project.root, 'tsconfig.lib.prod.json'),
+          },
+        },
+      };
 
-    await generator(host, {
-      project: projectName,
+      await generator(host, {
+        project: projectName,
+      });
+
+      const {
+        targets: { build: actualBuildTarget },
+      } = readProjectConfiguration(host, projectName);
+      expect(actualBuildTarget).toEqual(expectedBuildTarget);
     });
-
-    const {
-      targets: { build: actualBuildTarget },
-    } = readProjectConfiguration(host, projectName);
-    expect(actualBuildTarget).toEqual(expectedBuildTarget);
   });
 });
