@@ -18,6 +18,7 @@ module.exports = {
     '<rootDir>/packages/examples/angular/nrwl-airlines/shared/ui-buttons',
     '<rootDir>/packages/examples/angular/nrwl-airlines/shared/util-formatting',
     '<rootDir>/packages/internal/e2e-util',
+    '<rootDir>/packages/internal/test-util',
     '<rootDir>/tools',
   ],
 };

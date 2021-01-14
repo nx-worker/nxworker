@@ -122,6 +122,9 @@
     },
     "workspace-tools": {
       "tags": ["platform:node", "type:tool"]
+    },
+    "internal-test-util": {
+      "tags": ["platform:node", "scope:internal", "type:test-util"]
     }
   }
 }

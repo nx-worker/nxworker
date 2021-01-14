@@ -799,6 +799,27 @@
           }
         }
       }
+    },
+    "internal-test-util": {
+      "root": "packages/internal/test-util",
+      "sourceRoot": "packages/internal/test-util/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/internal/test-util/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/internal/test-util"],
+          "options": {
+            "jestConfig": "packages/internal/test-util/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular"
