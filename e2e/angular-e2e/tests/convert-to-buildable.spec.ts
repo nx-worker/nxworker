@@ -6,6 +6,7 @@ import {
   readJson,
   runNxCommandAsync,
   uniq,
+  updateFile,
 } from '@nrwl/nx-plugin/testing';
 import * as path from 'path';
 
@@ -18,6 +19,10 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
         ['@nrwl/angular']: '*',
       },
     });
+  });
+
+  beforeEach(() => {
+    updateFile('.npmrc', 'prefer-frozen-lockfile=false');
   });
 
   beforeEach(() => {
