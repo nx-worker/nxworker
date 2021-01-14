@@ -1,4 +1,7 @@
-export interface PathMap {
+/**
+ * Path map in TypeScript configuration. Mostly used in tsconfig.base.json.
+ */
+export interface TsconfigPathMap {
   readonly [importPath: string]: readonly string[];
 }
 
@@ -13,6 +16,6 @@ export interface TsconfigBaseJson {
     /**
      * Import paths also known as TypeScript path mappings.
      */
-    readonly paths?: PathMap;
+    readonly paths?: TsconfigPathMap;
   };
 }
