@@ -1,17 +1,26 @@
 # @nxworker/\* monorepo
 
-Monorepo for the `nxworker` NPM organization. Plugins and utilities for Nx workspaces.
+Monorepo for the `@nxworker` NPM organization. Plugins and utilities for Nx workspaces.
 
-## Wallaby.js
+## Sponsors
+
+### Wallaby 🦘
+
+The maintainers of nxworker use Wallaby.js for inline test feeedback sponsored by Wallaby.
+[Get your free OSS license at the Wallaby website](https://wallabyjs.com/oss/).
 
 [![Wallaby.js](https://img.shields.io/badge/wallaby.js-powered-blue.svg?style=for-the-badge&logo=github)](https://wallabyjs.com/oss/)
 
 Contributors to this repository are welcome to use the [Wallaby.js OSS License](https://wallabyjs.com/oss/) to get test
 results immediately as you type, and see the results in your editor right next to your code.
 
-## ☁ Nx Cloud
+### Nrwl 🌊
 
-### Computation Memoization in the Cloud
+Nrwl sponsors unlimited computation hours saved for nxworker through Nx Cloud ☁. Apply for a free license for your OSS
+project at cloud-support@nrwl.io or
+[watch nxworker's Nx Cloud runs and cache stats on nx.app](https://nx.app/orgs/5e8d01f710d04300054a941c/workspaces/5ff24782660b8f0e348d557a/report).
+
+#### Computation Memoization in the Cloud
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
 
@@ -23,6 +32,16 @@ advanced code generation and project dependency graph, plus a unified experience
 developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+### Systemate 🇩🇰
+
+Nxworker is produced in collaboration with
+[Systemate A/S](https://www.systemate.dk/?utm_source=github.com/nx-worker/nxworker&utm_medium=link&utm_campaign=lars) in
+Denmark.
+
+> Better Software Faster®.
+>
+> –[Systemate](https://www.systemate.dk/?utm_source=github.com/nx-worker/nxworker&utm_medium=link&utm_campaign=lars)
 
 ## Contributors
 
