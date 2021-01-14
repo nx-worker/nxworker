@@ -12,6 +12,7 @@ import * as path from 'path';
 describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
   beforeAll(() => {
     copyNodeModules(['@nrwl/angular', 'ng-packagr']);
+    ensureNxProject('@nxworker/shared', 'dist/packages/shared');
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
     fixPnpmInstallInCiPipeline();
     addPackages({
