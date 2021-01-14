@@ -1,1 +1,1 @@
-export * from './lib/internal-test-util';
+export * from './lib/add-angular-library';
