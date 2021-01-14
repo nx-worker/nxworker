@@ -1,4 +1,4 @@
-import { addPackages } from '@internal/e2e-util';
+import { addPackages, fixPnpmInstallInCiPipeline } from '@internal/e2e-util';
 import {
   checkFilesExist,
   copyNodeModules,
@@ -6,7 +6,6 @@ import {
   readJson,
   runNxCommandAsync,
   uniq,
-  updateFile,
 } from '@nrwl/nx-plugin/testing';
 import * as path from 'path';
 
@@ -22,7 +21,7 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
   });
 
   beforeEach(() => {
-    updateFile('.npmrc', 'prefer-frozen-lockfile=false');
+    fixPnpmInstallInCiPipeline();
   });
 
   beforeEach(() => {
