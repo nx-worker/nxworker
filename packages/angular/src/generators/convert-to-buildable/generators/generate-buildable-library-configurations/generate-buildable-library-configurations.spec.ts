@@ -5,9 +5,9 @@ import {
   Tree,
 } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
+import { TsconfigBaseJson } from '@nxworker/shared';
 import * as path from 'path';
 
-import { TsconfigBaseJson } from '../../file-types';
 import { NormalizedSchema, normalizeOptions } from '../../util';
 import {
   AngularCompilerOptions,

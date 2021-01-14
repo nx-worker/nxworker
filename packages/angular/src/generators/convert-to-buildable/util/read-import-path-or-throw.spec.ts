@@ -1,7 +1,7 @@
 import { Tree } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
+import { TsconfigBaseJson } from '@nxworker/shared';
 
-import { TsconfigBaseJson } from '../file-types';
 import { readImportPathOrThrow } from './read-import-path-or-throw';
 
 describe(readImportPathOrThrow.name, () => {

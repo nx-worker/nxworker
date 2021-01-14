@@ -1,7 +1,6 @@
 import { readJson, Tree } from '@nrwl/devkit';
+import { TsconfigBaseJson, TsconfigPathMap } from '@nxworker/shared';
 import * as path from 'path';
-
-import { PathMap, TsconfigBaseJson } from '../file-types';
 
 export interface ReadImportPathProjectOptions {
   readonly projectName: string;
@@ -17,7 +16,7 @@ export interface ReadImportPathProjectOptions {
  */
 function findPathEntryOrThrow(
   { projectName, sourceRoot }: ReadImportPathProjectOptions,
-  pathMap: PathMap
+  pathMap: TsconfigPathMap
 ): string {
   const maybePathEntry = Object.entries(pathMap).find(([, publicApis]) =>
     publicApis.some(publicApi => publicApi.startsWith(sourceRoot))
@@ -38,7 +37,7 @@ function findPathEntryOrThrow(
  * Normalize the source paths of the specified path map according to operating
  * system.
  */
-function normalizePathMap(pathMap: PathMap): PathMap {
+function normalizePathMap(pathMap: TsconfigPathMap): TsconfigPathMap {
   return Object.entries(pathMap)
     .map(([importPath, sourcePaths]): [string, readonly string[]] => [
       importPath,
