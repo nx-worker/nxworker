@@ -5,6 +5,8 @@ import { TsconfigBaseJson } from '@nxworker/shared';
 import { WorkspaceRootPackageJson } from '../../file-types';
 import { addNgPackagr } from './add-ng-packagr';
 
+// Trigger pipeline run
+
 describe(addNgPackagr.name, () => {
   beforeEach(() => {
     host = createTreeWithEmptyWorkspace();
