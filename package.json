@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "preinstall": "(yarn remove codelyzer --silent || echo ✅ Codelyzer is already removed.) && (yarn remove tslint --silent || echo ✅ TSLint is already removed.)",
+    "preinstall": "(pnpm remove codelyzer --silent || echo ✅ Codelyzer is already removed.) && (pnpm remove tslint --silent || echo ✅ TSLint is already removed.)",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
     "start": "nx serve examples-angular-nrwl-airlines-booking-desktop-app",
@@ -22,7 +22,7 @@
     "affected:dep-graph": "nx affected:dep-graph",
     "affected": "nx affected",
     "contributors:add": "all-contributors add",
-    "format": "yarn sort-projects && nx format:write && yarn prettier --config .prettierrc --write \"**/*.*\" \"!dist/**\" \"!yarn.lock\"",
+    "format": "pnpm sort-projects && nx format:write && pnpx prettier --config .prettierrc --write \"**/*.*\" \"!dist/**\" \"!pnmpm-lock.yaml\"",
     "format:write": "nx format:write",
     "format:check": "nx format:check",
     "update": "nx migrate @nrwl/worskpace && nx migrate latest",
@@ -32,8 +32,8 @@
     "commit": "git-cz",
     "help": "nx help",
     "sort-projects": "json -I -f workspace.json -e \"this.projects = Object.fromEntries(Object.entries(this.projects).sort(([a], [b]) => a.localeCompare(b)));\" && json -I -f nx.json -e \"this.projects = Object.fromEntries(Object.entries(this.projects).sort(([a], [b]) => a.localeCompare(b)));\"",
-    "ci": "yarn lint && yarn test && yarn build && yarn e2e",
-    "affected:ci": "yarn affected:lint && yarn affected:test && yarn affected:build && yarn affected:e2e"
+    "ci": "pnpm lint && pnpm test && pnpm build && pnpm e2e",
+    "affected:ci": "pnpm affected:lint && pnpm affected:test && pnpm affected:build && pnpm affected:e2e"
   },
   "dependencies": {
     "@angular/animations": "^11.0.7",
@@ -112,15 +112,15 @@
   },
   "lint-staged": {
     "*.{js,json,css,scss,ts,html,component.html}": [
-      "yarn format:write",
+      "pnpm format:write",
       "git add"
     ]
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn hooks:pre-commit && lint-staged && yarn affected:lint",
-      "pre-push": "yarn affected:test"
+      "pre-commit": "pnpm hooks:pre-commit && lint-staged && pnpm affected:lint",
+      "pre-push": "pnpm affected:test"
     }
   }
 }
