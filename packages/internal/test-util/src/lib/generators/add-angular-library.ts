@@ -1,11 +1,7 @@
-import {
-  addProjectConfiguration,
-  getWorkspaceLayout,
-  ProjectConfiguration,
-  Tree,
-} from '@nrwl/devkit';
-import { joinPath, TsconfigBaseJson } from '@nxworker/shared';
+import { addProjectConfiguration, getWorkspaceLayout, ProjectConfiguration, Tree } from '@nrwl/devkit';
+import { joinPath } from '@nxworker/shared';
 
+import { TsconfigBaseJson } from '../file-types';
 import { createProjectName } from '../util/create-project-name';
 
 export enum LibraryType {
