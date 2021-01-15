@@ -1,8 +1,4 @@
-import {
-  TargetConfiguration,
-  Tree,
-  updateProjectConfiguration,
-} from '@nrwl/devkit';
+import { TargetConfiguration, Tree, updateProjectConfiguration } from '@nrwl/devkit';
 
 import { NormalizedSchema } from '../../util';
 
@@ -11,16 +7,8 @@ const incrementalBuildExecutor = '@nrwl/angular:webpack-browser';
 
 export function updateApplicationBuildTarget(
   host: Tree,
-  { projectConfiguration, projectName, projectType }: NormalizedSchema
+  { projectConfiguration, projectName }: NormalizedSchema
 ): void {
-  if (projectType !== 'application') {
-    console.error(
-      `Project with name "${projectName}" is not an application. Skipping..."`
-    );
-
-    return;
-  }
-
   const { targets: executionTargets } = projectConfiguration;
   const { build: buildTarget } = executionTargets;
 

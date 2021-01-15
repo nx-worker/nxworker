@@ -19,21 +19,16 @@ export function normalizeOptions(
     sourceRoot = `${projectRoot}/src`,
   } = projectConfiguration;
 
-  if (projectType !== 'application' && projectType !== 'library') {
-    throw new Error(
-      `No project type configured for project with name "${projectName}".`
-    );
+  if (projectType !== 'library') {
+    throw new Error(`Project with name "${projectName}" is not a library.`);
   }
 
   return {
     enableIvy,
-    importPath:
-      projectType === 'application'
-        ? undefined
-        : readImportPathOrThrow(host, {
-            projectName,
-            sourceRoot,
-          }),
+    importPath: readImportPathOrThrow(host, {
+      projectName,
+      sourceRoot,
+    }),
     offsetFromRoot: offsetFromRoot(projectRoot),
     projectConfiguration,
     projectName,

@@ -3,7 +3,6 @@ import { formatFiles, installPackagesTask, Tree } from '@nrwl/devkit';
 import { addLibraryBuildTarget } from './generators/add-library-build-target';
 import { addNgPackagr } from './generators/add-ng-packagr';
 import { generateBuildableLibraryConfigurations } from './generators/generate-buildable-library-configurations';
-import { updateApplicationBuildTarget } from './generators/update-application-build-target';
 import { ConvertToBuildableGeneratorSchema } from './schema';
 import { normalizeOptions } from './util';
 
@@ -13,13 +12,9 @@ export default async function (
 ): Promise<() => void> {
   const options = normalizeOptions(host, schema);
 
-  if (options.projectType === 'application') {
-    updateApplicationBuildTarget(host, options);
-  } else {
-    await generateBuildableLibraryConfigurations(host, options);
-    addNgPackagr(host);
-    addLibraryBuildTarget(host, options);
-  }
+  await generateBuildableLibraryConfigurations(host, options);
+  addNgPackagr(host);
+  addLibraryBuildTarget(host, options);
 
   if (!options.skipFormat) {
     await formatFiles(host);
