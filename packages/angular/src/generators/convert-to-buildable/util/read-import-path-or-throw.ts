@@ -1,6 +1,7 @@
 import { readJson, Tree } from '@nrwl/devkit';
-import { TsconfigBaseJson, TsconfigPathMap } from '@nxworker/shared';
 import * as path from 'path';
+
+import { TsconfigBaseJson, TsconfigPathMap } from '../file-types';
 
 export interface ReadImportPathProjectOptions {
   readonly projectName: string;

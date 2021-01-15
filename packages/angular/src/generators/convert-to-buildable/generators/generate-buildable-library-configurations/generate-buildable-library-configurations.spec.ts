@@ -1,20 +1,10 @@
-import {
-  addProjectConfiguration,
-  ProjectConfiguration,
-  readJson,
-  Tree,
-} from '@nrwl/devkit';
+import { addProjectConfiguration, ProjectConfiguration, readJson, Tree } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { TsconfigBaseJson } from '@nxworker/shared';
 import * as path from 'path';
 
+import { TsconfigBaseJson } from '../../file-types';
 import { NormalizedSchema, normalizeOptions } from '../../util';
-import {
-  AngularCompilerOptions,
-  BuildableLibraryPackageJson,
-  NgPackageJson,
-  TsconfigLibProdJson,
-} from './file-types';
+import { AngularCompilerOptions, BuildableLibraryPackageJson, NgPackageJson, TsconfigLibProdJson } from './file-types';
 import { generateBuildableLibraryConfigurations } from './generate-buildable-library-configurations';
 
 describe(generateBuildableLibraryConfigurations.name, () => {

@@ -7,10 +7,9 @@ import {
   Tree,
 } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { TsconfigBaseJson } from '@nxworker/shared';
 import * as path from 'path';
 
-import { WorkspaceRootPackageJson } from './file-types';
+import { TsconfigBaseJson, WorkspaceRootPackageJson } from './file-types';
 import generator from './generator';
 
 describe('convert-to-buildable generator', () => {
