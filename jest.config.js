@@ -20,6 +20,5 @@ module.exports = {
     '<rootDir>/packages/internal/e2e-util',
     '<rootDir>/packages/internal/test-util',
     '<rootDir>/tools',
-    '<rootDir>/packages/shared',
   ],
 };

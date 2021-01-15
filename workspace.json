@@ -36,12 +36,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/angular/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/angular/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/packages/angular"],
+          "outputs": [
+            "coverage/packages/angular"
+          ],
           "options": {
             "jestConfig": "packages/angular/jest.config.js",
             "passWithNoTests": true
@@ -49,7 +53,9 @@
         },
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/packages/angular",
             "tsConfig": "packages/angular/tsconfig.lib.json",
@@ -766,12 +772,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/internal/e2e-util/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/internal/e2e-util/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/packages/internal/e2e-util"],
+          "outputs": [
+            "coverage/packages/internal/e2e-util"
+          ],
           "options": {
             "jestConfig": "packages/internal/e2e-util/jest.config.js",
             "passWithNoTests": true
@@ -787,12 +797,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["tools/**/*.ts"]
+            "lintFilePatterns": [
+              "tools/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/tools"],
+          "outputs": [
+            "coverage/tools"
+          ],
           "options": {
             "jestConfig": "tools/jest.config.js",
             "passWithNoTests": true
@@ -808,47 +822,19 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/internal/test-util/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/internal/test-util/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/packages/internal/test-util"],
+          "outputs": [
+            "coverage/packages/internal/test-util"
+          ],
           "options": {
             "jestConfig": "packages/internal/test-util/jest.config.js",
             "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "shared": {
-      "root": "packages/shared",
-      "sourceRoot": "packages/shared/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["packages/shared/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/packages/shared"],
-          "options": {
-            "jestConfig": "packages/shared/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/packages/shared",
-            "tsConfig": "packages/shared/tsconfig.lib.json",
-            "packageJson": "packages/shared/package.json",
-            "main": "packages/shared/src/index.ts",
-            "assets": ["packages/shared/*.md"]
           }
         }
       }

@@ -123,9 +123,6 @@
     "internal-test-util": {
       "tags": ["platform:node", "scope:internal", "type:test-util"]
     },
-    "shared": {
-      "tags": ["platform:node", "scope:shared", "type:package"]
-    },
     "workspace-tools": {
       "tags": ["platform:node", "type:tool"]
     }
