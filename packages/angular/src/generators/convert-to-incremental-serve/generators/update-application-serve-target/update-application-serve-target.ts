@@ -4,23 +4,15 @@ import {
   updateProjectConfiguration,
 } from '@nrwl/devkit';
 
-import { NormalizedSchema } from '../../util';
+import { NormalizedSchema } from '../../utils';
 
 const defaultAngularServeExecutor = '@angular-devkit/build-angular:dev-server';
 const incrementalServeExecutor = '@nrwl/web:file-server';
 
 export function updateApplicationServeTarget(
   host: Tree,
-  { projectConfiguration, projectName, projectType }: NormalizedSchema
+  { projectConfiguration, projectName }: NormalizedSchema
 ): void {
-  if (projectType !== 'application') {
-    console.error(
-      `Project with name "${projectName}" is not an application. Skipping..."`
-    );
-
-    return;
-  }
-
   const { targets: executionTargets } = projectConfiguration;
   const { serve: serveTarget } = executionTargets;
 

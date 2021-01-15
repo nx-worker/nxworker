@@ -14,6 +14,11 @@
       "schema": "./src/generators/use-incremental-build/schema.json",
       "description": "Use incremental build executor for Angular application project.",
       "aliases": ["inc-build"]
+    },
+    "convert-to-incremental-serve": {
+      "factory": "./src/generators/convert-to-incremental-serve/generator",
+      "schema": "./src/generators/convert-to-incremental-serve/schema.json",
+      "description": "convert-to-incremental-serve generator"
     }
   }
 }
