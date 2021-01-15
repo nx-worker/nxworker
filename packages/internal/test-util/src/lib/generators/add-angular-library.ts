@@ -1,8 +1,8 @@
 import { addProjectConfiguration, getWorkspaceLayout, ProjectConfiguration, Tree } from '@nrwl/devkit';
-import { joinPath } from '@nxworker/shared';
+import * as path from 'path';
 
 import { TsconfigBaseJson } from '../file-types';
-import { createProjectName } from '../util/create-project-name';
+import { createProjectName, normalizePath } from '../util';
 
 export enum LibraryType {
   BuildableLibrary,
@@ -24,8 +24,8 @@ export function addAngularLibrary(
   const { libsDir, npmScope: defaultNpmScope } = getWorkspaceLayout(host);
   npmScope ??= defaultNpmScope;
   const importPath = `@${npmScope}/${directory}/${name}`;
-  const root = joinPath(libsDir, directory, name);
-  const sourceRoot = joinPath(libsDir, directory, name, 'src');
+  const root = normalizePath(path.join(libsDir, directory, name));
+  const sourceRoot = normalizePath(path.join(libsDir, directory, name, 'src'));
   const project: ProjectConfiguration = {
     projectType: 'library',
     root,
@@ -35,16 +35,16 @@ export function addAngularLibrary(
         executor: '@nrwl/linter:eslint',
         options: {
           lintFilePatterns: [
-            joinPath(sourceRoot, '**', '*.ts'),
-            joinPath(sourceRoot, '**', '*.html'),
+            normalizePath(path.join(sourceRoot, '**', '*.ts')),
+            normalizePath(path.join(sourceRoot, '**', '*.html')),
           ],
         },
       },
       test: {
         executor: '@nrwl/jest:jest',
-        outputs: [joinPath('coverage', root)],
+        outputs: [normalizePath(path.join('coverage', root))],
         options: {
-          jestConfig: joinPath(root, 'jest.config.js'),
+          jestConfig: normalizePath(path.join(root, 'jest.config.js')),
           passWithNoTests: true,
         },
       },
@@ -53,7 +53,7 @@ export function addAngularLibrary(
   const tsconfigBase: TsconfigBaseJson = {
     compilerOptions: {
       paths: {
-        [importPath]: [joinPath(sourceRoot, 'index.ts')],
+        [importPath]: [normalizePath(path.join(sourceRoot, 'index.ts'))],
       },
     },
   };
