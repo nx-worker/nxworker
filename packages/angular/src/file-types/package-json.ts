@@ -5,7 +5,7 @@ export interface WorkspaceRootPackageJson {
   /**
    * Workspace scripts.
    */
-  readonly scripts: {
+  readonly scripts?: {
     /**
      * Script name mapped to local command.
      */

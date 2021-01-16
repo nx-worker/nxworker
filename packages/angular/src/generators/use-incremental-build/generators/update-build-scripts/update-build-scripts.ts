@@ -12,12 +12,12 @@ export function updateBuildScripts(host: Tree): void {
     scripts: {
       ...packageJson.scripts,
       'affected:build':
-        packageJson.scripts['affected:build']?.replace(
+        packageJson.scripts?.['affected:build']?.replace(
           'nx affected:build',
           affectedIncrementalBuildCommand
         ) ?? affectedIncrementalBuildCommand,
       build:
-        packageJson.scripts.build?.replace(
+        packageJson.scripts?.build?.replace(
           'nx build',
           incrementalBuildCommand
         ) ?? incrementalBuildCommand,
