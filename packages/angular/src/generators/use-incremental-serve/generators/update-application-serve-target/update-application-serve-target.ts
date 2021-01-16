@@ -28,7 +28,7 @@ export function updateApplicationServeTarget(
 
   if (executor === incrementalServeExecutor) {
     console.info(
-      `Application with name "${projectName}" is already set up for incremental build. Skipping...`
+      `Application with name "${projectName}" is already set up for incremental serve. Skipping...`
     );
 
     return;
@@ -47,10 +47,6 @@ export function updateApplicationServeTarget(
     executor: incrementalServeExecutor,
     options: {
       ...(serveTarget.options ?? {}),
-      // I would default these, but I would add a `skipExecutorOptions`
-      //  optional flag as a generator argument.
-      parallel: true,
-      withDeps: true,
     },
   };
 

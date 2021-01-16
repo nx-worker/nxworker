@@ -1,16 +1,10 @@
 {
   "$schema": "http://json-schema.org/schema",
   "cli": "nx",
-  "id": "ConvertToIncrementalServe",
-  "title": "Convert applications to use incremental serve.",
+  "id": "UseIncrementalServe",
+  "title": "Use incremental serve in Applications",
   "type": "object",
   "properties": {
-    "enableIvy": {
-      "type": "boolean",
-      "description": "Enable incremental Angular Ivy compilation? (default: true)",
-      "alias": "i",
-      "default": true
-    },
     "project": {
       "type": "string",
       "description": "The name of the project",
