@@ -1,7 +1,12 @@
 import { addPackages, fixPnpmInstallInCiPipeline } from '@internal/e2e-util';
-import { copyNodeModules, ensureNxProject, runNxCommandAsync, uniq } from '@nrwl/nx-plugin/testing';
+import {
+  copyNodeModules,
+  ensureNxProject,
+  runNxCommandAsync,
+  uniq,
+} from '@nrwl/nx-plugin/testing';
 
-describe.skip('@nxworker/angular:use-incremental-build generator e2e', () => {
+describe('@nxworker/angular:use-incremental-build generator e2e', () => {
   beforeAll(() => {
     copyNodeModules(['@nrwl/angular']);
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
