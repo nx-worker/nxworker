@@ -1,6 +1,6 @@
 import { readJson, Tree } from '@nrwl/devkit';
 
-import { WorkspaceRootPackageJson } from '../../file-types';
+import { WorkspaceRootPackageJson } from '../../../../file-types';
 
 export function addNgPackagr(host: Tree) {
   const packageJsonPath = 'package.json';

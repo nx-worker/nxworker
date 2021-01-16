@@ -3,6 +3,15 @@
  */
 export interface WorkspaceRootPackageJson {
   /**
+   * Workspace scripts.
+   */
+  readonly scripts: {
+    /**
+     * Script name mapped to local command.
+     */
+    readonly [scriptName: string]: string;
+  };
+  /**
    * Package dependencies not used during runtime.
    */
   readonly devDependencies?: {

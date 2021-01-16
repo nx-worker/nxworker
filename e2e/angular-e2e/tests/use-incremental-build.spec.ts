@@ -1,7 +1,13 @@
-import { addPackages, fixPnpmInstallInCiPipeline } from '@internal/e2e-util';
+import {
+  addPackages,
+  fixPnpmInstallInCiPipeline,
+  updateJsonFile,
+} from '@internal/e2e-util';
+import { NxJsonConfiguration } from '@nrwl/devkit';
 import {
   copyNodeModules,
   ensureNxProject,
+  runCommandAsync,
   runNxCommandAsync,
   uniq,
 } from '@nrwl/nx-plugin/testing';
@@ -16,6 +22,13 @@ describe('@nxworker/angular:use-incremental-build generator e2e', () => {
         ['@nrwl/angular']: '*',
       },
     });
+    updateJsonFile<NxJsonConfiguration>('nx.json', nxJson => ({
+      ...nxJson,
+      affected: {
+        ...nxJson.affected,
+        defaultBase: 'main',
+      },
+    }));
   });
 
   beforeEach(async () => {
@@ -32,7 +45,27 @@ describe('@nxworker/angular:use-incremental-build generator e2e', () => {
       `generate @nxworker/angular:use-incremental-build ${projectName}`
     );
 
-    const result = await runNxCommandAsync(`build ${projectName} --with-deps`);
+    const result = await runNxCommandAsync(
+      `build ${projectName} --parallel --with-deps`
+    );
+    expect(result.stdout).toContain('Running target "build" succeeded');
+  });
+
+  it('updates the "build" script', async () => {
+    await runNxCommandAsync(
+      `generate @nxworker/angular:use-incremental-build ${projectName}`
+    );
+
+    const result = await runCommandAsync(`npm run build -- ${projectName}`);
+    expect(result.stdout).toContain('Running target "build" succeeded');
+  });
+
+  it('updates the "affected:build" script', async () => {
+    await runNxCommandAsync(
+      `generate @nxworker/angular:use-incremental-build ${projectName}`
+    );
+
+    const result = await runCommandAsync(`npm run affected:build`);
     expect(result.stdout).toContain('Running target "build" succeeded');
   });
 });
