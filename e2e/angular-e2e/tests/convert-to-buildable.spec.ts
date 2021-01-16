@@ -21,66 +21,42 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
     });
   });
 
-  beforeEach(() => {
+  beforeEach(async () => {
     projectName = uniq('convert-to-buildable');
+    await runNxCommandAsync(`generate @nrwl/angular:library ${projectName}`);
   });
 
   let projectName: string;
 
-  describe('Libraries', () => {
-    beforeEach(async () => {
-      await runNxCommandAsync(`generate @nrwl/angular:library ${projectName}`);
-    });
+  it('generates buildable library configurations', async () => {
+    const configurationFileNames = [
+      'ng-package.json',
+      'package.json',
+      'tsconfig.lib.prod.json',
+    ].map(fileName => path.join('libs', projectName, fileName));
 
-    it('generates buildable library configurations', async () => {
-      const configurationFileNames = [
-        'ng-package.json',
-        'package.json',
-        'tsconfig.lib.prod.json',
-      ].map(fileName => path.join('libs', projectName, fileName));
+    await runNxCommandAsync(
+      `generate @nxworker/angular:convert-to-buildable ${projectName}`
+    );
 
-      await runNxCommandAsync(
-        `generate @nxworker/angular:convert-to-buildable ${projectName}`
-      );
-
-      expect(() => checkFilesExist(...configurationFileNames)).not.toThrow();
-    });
-
-    it('adds ng-packagr', async () => {
-      await runNxCommandAsync(
-        `generate @nxworker/angular:convert-to-buildable ${projectName}`
-      );
-
-      const { devDependencies = {} } = readJson('package.json');
-      expect(devDependencies['ng-packagr']).toBeDefined();
-    });
-
-    it('adds a "build" execution target', async () => {
-      await runNxCommandAsync(
-        `generate @nxworker/angular:convert-to-buildable ${projectName}`
-      );
-
-      const result = await runNxCommandAsync(`build ${projectName}`);
-      expect(result.stdout).toContain('Built Angular Package');
-    });
+    expect(() => checkFilesExist(...configurationFileNames)).not.toThrow();
   });
 
-  describe('Applications', () => {
-    beforeEach(async () => {
-      await runNxCommandAsync(
-        `generate @nrwl/angular:application ${projectName}`
-      );
-    });
+  it('adds ng-packagr', async () => {
+    await runNxCommandAsync(
+      `generate @nxworker/angular:convert-to-buildable ${projectName}`
+    );
 
-    it('updates the "build" execution target', async () => {
-      await runNxCommandAsync(
-        `generate @nxworker/angular:convert-to-buildable ${projectName}`
-      );
+    const { devDependencies = {} } = readJson('package.json');
+    expect(devDependencies['ng-packagr']).toBeDefined();
+  });
 
-      const result = await runNxCommandAsync(
-        `build ${projectName} --with-deps`
-      );
-      expect(result.stdout).toContain('Running target "build" succeeded');
-    });
+  it('adds a "build" execution target', async () => {
+    await runNxCommandAsync(
+      `generate @nxworker/angular:convert-to-buildable ${projectName}`
+    );
+
+    const result = await runNxCommandAsync(`build ${projectName}`);
+    expect(result.stdout).toContain('Built Angular Package');
   });
 });
