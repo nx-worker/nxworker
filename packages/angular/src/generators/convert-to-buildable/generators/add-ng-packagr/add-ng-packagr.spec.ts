@@ -6,7 +6,8 @@ import {
 } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 
-import { TsconfigBaseJson, WorkspaceRootPackageJson } from '../../file-types';
+import { TsconfigBaseJson } from '../../../../file-types';
+import { WorkspaceRootPackageJson } from '../../file-types';
 import { addNgPackagr } from './add-ng-packagr';
 
 describe(addNgPackagr.name, () => {

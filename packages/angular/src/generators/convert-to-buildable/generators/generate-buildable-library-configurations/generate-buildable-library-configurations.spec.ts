@@ -7,7 +7,7 @@ import {
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import * as path from 'path';
 
-import { TsconfigBaseJson } from '../../file-types';
+import { TsconfigBaseJson } from '../../../../file-types';
 import { NormalizedSchema, normalizeOptions } from '../../util';
 import {
   AngularCompilerOptions,
