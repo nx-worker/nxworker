@@ -6,6 +6,7 @@ module.exports = {
       tsConfig: '<rootDir>/tsconfig.spec.json',
     },
   },
+  runner: 'jest-serial-runner',
   testTimeout: 120_000,
   transform: {
     '^.+\\.[tj]s$': 'ts-jest',
