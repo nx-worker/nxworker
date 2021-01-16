@@ -65,7 +65,9 @@ describe('@nxworker/angular:use-incremental-build generator e2e', () => {
       `generate @nxworker/angular:use-incremental-build ${projectName}`
     );
 
-    const result = await runCommandAsync(`npm run affected:build`);
+    const result = await runCommandAsync(
+      `npm run affected:build -- --base=remotes/origin/main`
+    );
     expect(result.stdout).toContain('Running target "build" succeeded');
   });
 });
