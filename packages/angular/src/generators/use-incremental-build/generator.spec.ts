@@ -1,4 +1,9 @@
-import { addProjectConfiguration, ProjectConfiguration, readProjectConfiguration, Tree } from '@nrwl/devkit';
+import {
+  addProjectConfiguration,
+  ProjectConfiguration,
+  readProjectConfiguration,
+  Tree,
+} from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 
 import generator from './generator';

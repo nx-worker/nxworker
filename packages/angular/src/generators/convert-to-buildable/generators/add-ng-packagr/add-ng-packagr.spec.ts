@@ -1,4 +1,9 @@
-import { addProjectConfiguration, ProjectConfiguration, readJson, Tree } from '@nrwl/devkit';
+import {
+  addProjectConfiguration,
+  ProjectConfiguration,
+  readJson,
+  Tree,
+} from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 
 import { TsconfigBaseJson, WorkspaceRootPackageJson } from '../../file-types';
