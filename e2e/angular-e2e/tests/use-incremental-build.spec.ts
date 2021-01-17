@@ -1,10 +1,8 @@
 import {
   addPackages,
   fixPnpmInstallInCiPipeline,
-  updateJsonFile,
   useDefaultBaseBranch,
 } from '@internal/e2e-util';
-import { NxJsonConfiguration } from '@nrwl/devkit';
 import {
   copyNodeModules,
   ensureNxProject,
