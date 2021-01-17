@@ -1,78 +1,43 @@
-import {
-  addProjectConfiguration,
-  ProjectConfiguration,
-  readJson,
-  Tree,
-} from '@nrwl/devkit';
+import { addAngularLibrary, createProjectName, LibraryType } from '@internal/test-util';
+import { readJson, Tree } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import * as path from 'path';
 
 import { TsconfigBaseJson } from '../../../../file-types';
 import { NormalizedSchema, normalizeOptions } from '../../util';
-import {
-  AngularCompilerOptions,
-  BuildableLibraryPackageJson,
-  NgPackageJson,
-  TsconfigLibProdJson,
-} from './file-types';
+import { AngularCompilerOptions, BuildableLibraryPackageJson, NgPackageJson, TsconfigLibProdJson } from './file-types';
 import { generateBuildableLibraryConfigurations } from './generate-buildable-library-configurations';
 
 describe(generateBuildableLibraryConfigurations.name, () => {
   beforeEach(() => {
     host = createTreeWithEmptyWorkspace();
-    projectName = 'shared-ui-buttons';
-    importPath = `@nrwl-airlines/shared/ui-buttons`;
-    project = {
-      projectType: 'library',
-      root: 'libs/shared/ui-buttons',
-      sourceRoot: 'libs/shared/ui-buttons/src',
-      targets: {
-        lint: {
-          executor: '@nrwl/linter:eslint',
-          options: {
-            lintFilePatterns: [
-              'libs/shared/ui-buttons/src/**/*.ts',
-              'libs/shared/ui-buttons/src/**/*.html',
-            ],
-          },
-        },
-        test: {
-          executor: '@nrwl/jest:jest',
-          outputs: ['coverage/libs/shared/ui-buttons'],
-          options: {
-            jestConfig: 'libs/shared/ui-buttons/jest.config.js',
-            passWithNoTests: true,
-          },
-        },
-      },
-    };
-    const tsconfigBase: TsconfigBaseJson = {
-      compilerOptions: {
-        paths: {
-          [importPath]: [`${project.sourceRoot}/index.ts`],
-        },
-      },
-    };
-
-    host.write('tsconfig.base.json', JSON.stringify(tsconfigBase));
-    addProjectConfiguration(host, projectName, project);
+    const name = 'ui-buttons';
+    const directory = 'shared';
+    projectName = createProjectName({
+      directory,
+      name,
+    });
+    addAngularLibrary(host, {
+      directory,
+      name,
+      npmScope: 'nrwl-airlines',
+      type: LibraryType.WorkspaceLibrary,
+    });
     options = normalizeOptions(host, {
       project: projectName,
     });
   });
 
   let host: Tree;
-  let importPath: string;
   let options: NormalizedSchema;
-  let project: ProjectConfiguration;
   let projectName: string;
 
   describe('Package configurations', () => {
     it('generates ng-package.json', async () => {
-      const filePath = path.join(project.root, 'ng-package.json');
+      const filePath = path.join(options.projectRoot, 'ng-package.json');
       const expectedNgPackageJson: NgPackageJson = {
         $schema: '../../../node_modules/ng-packagr/ng-package.schema.json',
-        dest: `../../../dist/${project.root}`,
+        dest: `../../../dist/${options.projectRoot}`,
         lib: {
           entryFile: 'src/index.ts',
         },
@@ -86,9 +51,9 @@ describe(generateBuildableLibraryConfigurations.name, () => {
     });
 
     it('generates package.json', async () => {
-      const filePath = path.join(project.root, 'package.json');
+      const filePath = path.join(options.projectRoot, 'package.json');
       const expectedPackageJson: BuildableLibraryPackageJson = {
-        name: importPath,
+        name: options.importPath,
         private: true,
       };
 
@@ -103,7 +68,7 @@ describe(generateBuildableLibraryConfigurations.name, () => {
     });
 
     it('generates tsconfig.lib.prod.json', async () => {
-      const filePath = path.join(project.root, 'tsconfig.lib.prod.json');
+      const filePath = path.join(options.projectRoot, 'tsconfig.lib.prod.json');
       const expectedTsconfig: TsconfigLibProdJson = {
         extends: './tsconfig.lib.json',
         compilerOptions: {
@@ -123,10 +88,13 @@ describe(generateBuildableLibraryConfigurations.name, () => {
 
     it('keeps package configurations when they all exist', async () => {
       const testConfiguration = { test: true };
-      const ngPackageJsonPath = path.join(project.root, 'ng-package.json');
-      const packageJsonPath = path.join(project.root, 'package.json');
+      const ngPackageJsonPath = path.join(
+        options.projectRoot,
+        'ng-package.json'
+      );
+      const packageJsonPath = path.join(options.projectRoot, 'package.json');
       const productionTsconfigPath = path.join(
-        project.root,
+        options.projectRoot,
         'tsconfig.lib.prod.json'
       );
       host.write(ngPackageJsonPath, JSON.stringify(testConfiguration));
@@ -145,8 +113,11 @@ describe(generateBuildableLibraryConfigurations.name, () => {
 
     it('overwrites package configurations when only some of them exist', async () => {
       const testConfiguration = { test: true };
-      const ngPackageJsonPath = path.join(project.root, 'ng-package.json');
-      const packageJsonPath = path.join(project.root, 'package.json');
+      const ngPackageJsonPath = path.join(
+        options.projectRoot,
+        'ng-package.json'
+      );
+      const packageJsonPath = path.join(options.projectRoot, 'package.json');
       host.write(ngPackageJsonPath, JSON.stringify(testConfiguration));
       host.write(packageJsonPath, JSON.stringify(testConfiguration));
 
@@ -161,7 +132,7 @@ describe(generateBuildableLibraryConfigurations.name, () => {
 
   describe('enableIvy option', () => {
     beforeEach(() => {
-      filePath = path.join(project.root, 'tsconfig.lib.prod.json');
+      filePath = path.join(options.projectRoot, 'tsconfig.lib.prod.json');
     });
 
     let filePath: string;
