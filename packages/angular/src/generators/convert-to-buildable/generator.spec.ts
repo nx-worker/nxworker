@@ -1,57 +1,28 @@
-import {
-  addProjectConfiguration,
-  ProjectConfiguration,
-  readJson,
-  readProjectConfiguration,
-  TargetConfiguration,
-  Tree,
-} from '@nrwl/devkit';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { addAngularLibrary, createProjectName, LibraryType } from '@internal/test-util';
+import { ProjectConfiguration, readJson, readProjectConfiguration, TargetConfiguration, Tree } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import * as path from 'path';
 
-import { TsconfigBaseJson, WorkspaceRootPackageJson } from '../../file-types';
+import { WorkspaceRootPackageJson } from '../../file-types';
 import generator from './generator';
 
 describe('convert-to-buildable generator', () => {
   beforeEach(() => {
     host = createTreeWithEmptyWorkspace();
-    projectName = 'booking-feature-flight-search';
-    project = {
-      projectType: 'library',
-      root: 'libs/booking/feature-flight-search',
-      sourceRoot: 'libs/booking/feature-flight-search/src',
-      targets: {
-        lint: {
-          executor: '@nrwl/linter:eslint',
-          options: {
-            lintFilePatterns: [
-              'libs/booking/feature-flight-search/src/**/*.ts',
-              'libs/booking/feature-flight-search/**/*.html',
-            ],
-          },
-        },
-        test: {
-          executor: '@nrwl/jest:jest',
-          outputs: ['coverage/libs/booking/feature-flight-search'],
-          options: {
-            jestConfig: 'libs/booking/feature-flight-search/jest.config.js',
-            passWithNoTests: true,
-          },
-        },
-      },
-    };
-    const tsconfigBase: TsconfigBaseJson = {
-      compilerOptions: {
-        paths: {
-          '@nrwl-airlines/booking/feature-flight-search': [
-            path.join(project.sourceRoot ?? '', 'index.ts'),
-          ],
-        },
-      },
-    };
-
-    host.write('tsconfig.base.json', JSON.stringify(tsconfigBase));
-    addProjectConfiguration(host, projectName, project);
+    const name = 'feature-flight-search';
+    const directory = 'booking';
+    projectName = createProjectName({
+      directory,
+      name,
+    });
+    addAngularLibrary(host, {
+      directory,
+      name,
+      type: LibraryType.WorkspaceLibrary,
+      npmScope: 'nrwl-airlines',
+    });
+    project = readProjectConfiguration(host, projectName);
   });
 
   let project: ProjectConfiguration;
