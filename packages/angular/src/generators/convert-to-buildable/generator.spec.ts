@@ -1,6 +1,16 @@
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { addAngularLibrary, createProjectName, LibraryType } from '@internal/test-util';
-import { ProjectConfiguration, readJson, readProjectConfiguration, TargetConfiguration, Tree } from '@nrwl/devkit';
+import {
+  addAngularLibrary,
+  createProjectName,
+  LibraryType,
+} from '@internal/test-util';
+import {
+  ProjectConfiguration,
+  readJson,
+  readProjectConfiguration,
+  TargetConfiguration,
+  Tree,
+} from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import * as path from 'path';
 

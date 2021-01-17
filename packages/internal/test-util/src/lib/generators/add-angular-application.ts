@@ -1,4 +1,9 @@
-import { addProjectConfiguration, getWorkspaceLayout, ProjectConfiguration, Tree } from '@nrwl/devkit';
+import {
+  addProjectConfiguration,
+  getWorkspaceLayout,
+  ProjectConfiguration,
+  Tree,
+} from '@nrwl/devkit';
 import * as path from 'path';
 
 import { createProjectName, normalizePath } from '../util';
