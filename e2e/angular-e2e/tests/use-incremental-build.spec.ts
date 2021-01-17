@@ -2,6 +2,7 @@ import {
   addPackages,
   fixPnpmInstallInCiPipeline,
   updateJsonFile,
+  useDefaultBaseBranch,
 } from '@internal/e2e-util';
 import { NxJsonConfiguration } from '@nrwl/devkit';
 import {
@@ -22,13 +23,7 @@ describe('@nxworker/angular:use-incremental-build generator e2e', () => {
         ['@nrwl/angular']: '*',
       },
     });
-    updateJsonFile<NxJsonConfiguration>('nx.json', nxJson => ({
-      ...nxJson,
-      affected: {
-        ...nxJson.affected,
-        defaultBase: 'main',
-      },
-    }));
+    useDefaultBaseBranch('main');
   });
 
   beforeEach(async () => {
