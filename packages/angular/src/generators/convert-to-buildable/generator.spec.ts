@@ -19,8 +19,8 @@ describe('convert-to-buildable generator', () => {
     addAngularLibrary(host, {
       directory,
       name,
-      type: LibraryType.WorkspaceLibrary,
       npmScope: 'nrwl-airlines',
+      type: LibraryType.WorkspaceLibrary,
     });
     project = readProjectConfiguration(host, projectName);
   });
