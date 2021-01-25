@@ -1,5 +1,11 @@
 import { addPackages, useDefaultBaseBranch } from '@internal/e2e-util';
-import { copyNodeModules, ensureNxProject, runCommandAsync, runNxCommandAsync, uniq } from '@nrwl/nx-plugin/testing';
+import {
+  copyNodeModules,
+  ensureNxProject,
+  runCommandAsync,
+  runNxCommandAsync,
+  uniq,
+} from '@nrwl/nx-plugin/testing';
 
 describe('@nxworker/angular:use-incremental-build generator e2e', () => {
   beforeAll(() => {

@@ -18,7 +18,8 @@
     "use-incremental-serve": {
       "factory": "./src/generators/use-incremental-serve/generator",
       "schema": "./src/generators/use-incremental-serve/schema.json",
-      "description": "use-incremental-serve generator"
+      "description": "Use incremental serve executor for Angular application project.",
+      "aliases": ["inc-serve"]
     }
   }
 }
