@@ -1,4 +1,4 @@
-import { addPackages, fixPnpmInstallInCiPipeline } from '@internal/e2e-util';
+import { addPackages } from '@internal/e2e-util';
 import {
   checkFilesExist,
   copyNodeModules,
@@ -13,10 +13,10 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
   beforeAll(() => {
     copyNodeModules(['@nrwl/angular', 'ng-packagr']);
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
-    fixPnpmInstallInCiPipeline();
+    // fixPnpmInstallInCiPipeline();
     addPackages({
       devDependencies: {
-        ['@nrwl/angular']: '*',
+        ['@nrwl/angular']: '11.2.0-beta.1',
       },
     });
   });

@@ -1,24 +1,14 @@
-import {
-  addPackages,
-  fixPnpmInstallInCiPipeline,
-  useDefaultBaseBranch,
-} from '@internal/e2e-util';
-import {
-  copyNodeModules,
-  ensureNxProject,
-  runCommandAsync,
-  runNxCommandAsync,
-  uniq,
-} from '@nrwl/nx-plugin/testing';
+import { addPackages, useDefaultBaseBranch } from '@internal/e2e-util';
+import { copyNodeModules, ensureNxProject, runCommandAsync, runNxCommandAsync, uniq } from '@nrwl/nx-plugin/testing';
 
 describe('@nxworker/angular:use-incremental-build generator e2e', () => {
   beforeAll(() => {
     copyNodeModules(['@nrwl/angular']);
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
-    fixPnpmInstallInCiPipeline();
+    // fixPnpmInstallInCiPipeline();
     addPackages({
       devDependencies: {
-        ['@nrwl/angular']: '*',
+        ['@nrwl/angular']: '11.2.0-beta.1',
       },
     });
     useDefaultBaseBranch('main');
