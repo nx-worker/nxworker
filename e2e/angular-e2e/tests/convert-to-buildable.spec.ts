@@ -13,7 +13,6 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
   beforeAll(() => {
     copyNodeModules(['@nrwl/angular', 'ng-packagr']);
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
-    // fixPnpmInstallInCiPipeline();
     addPackages({
       devDependencies: {
         ['@nrwl/angular']: '11.2.0-beta.1',

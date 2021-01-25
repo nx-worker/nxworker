@@ -5,7 +5,6 @@ describe('@nxworker/angular:use-incremental-build generator e2e', () => {
   beforeAll(() => {
     copyNodeModules(['@nrwl/angular']);
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
-    // fixPnpmInstallInCiPipeline();
     addPackages({
       devDependencies: {
         ['@nrwl/angular']: '11.2.0-beta.1',
