@@ -36,7 +36,7 @@ describe('@nxworker/angular:use-incremental-serve generator e2e', () => {
     const result = await runNxCommandAsync(
       `serve ${projectName} --parallel --with-deps`
     );
-    expect(result.stdout).toContain('Running target "serve" succeeded');
+    expect(result.stdout).toContain('Running target "build" succeeded');
   });
 
   it('updates the "serve" script', async () => {
@@ -45,7 +45,7 @@ describe('@nxworker/angular:use-incremental-serve generator e2e', () => {
     );
 
     const result = await runCommandAsync(`npm run serve -- ${projectName}`);
-    expect(result.stdout).toContain('Running target "serve" succeeded');
+    expect(result.stdout).toContain('Running target "build" succeeded');
   });
 
   it('updates the "affected:serve" script', async () => {
@@ -56,6 +56,6 @@ describe('@nxworker/angular:use-incremental-serve generator e2e', () => {
     const result = await runCommandAsync(
       `npm run affected:serve -- --base=remotes/origin/main`
     );
-    expect(result.stdout).toContain('Running target "serve" succeeded');
+    expect(result.stdout).toContain('Running target "build" succeeded');
   });
 });
