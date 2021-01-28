@@ -1,5 +1,11 @@
 import { addPackages, useDefaultBaseBranch } from '@internal/e2e-util';
-import { copyNodeModules, ensureNxProject, runCommandAsync, runNxCommandAsync, uniq } from '@nrwl/nx-plugin/testing';
+import {
+  copyNodeModules,
+  ensureNxProject,
+  runCommandAsync,
+  runNxCommandAsync,
+  uniq,
+} from '@nrwl/nx-plugin/testing';
 
 describe('@nxworker/angular:use-incremental-build generator e2e', () => {
   beforeAll(() => {
@@ -7,7 +13,7 @@ describe('@nxworker/angular:use-incremental-build generator e2e', () => {
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
     addPackages({
       devDependencies: {
-        ['@nrwl/angular']: '11.2.0-beta.1',
+        ['@nrwl/angular']: '^11.2.0 || >=11.2.0-rc.2',
       },
     });
     useDefaultBaseBranch('main');

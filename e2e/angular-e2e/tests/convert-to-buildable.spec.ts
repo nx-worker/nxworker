@@ -15,7 +15,7 @@ describe('@nxworker/angular:convert-to-buildable generator e2e', () => {
     ensureNxProject('@nxworker/angular', 'dist/packages/angular');
     addPackages({
       devDependencies: {
-        ['@nrwl/angular']: '11.2.0-beta.1',
+        ['@nrwl/angular']: '^11.2.0 || >=11.2.0-rc.2',
       },
     });
   });
