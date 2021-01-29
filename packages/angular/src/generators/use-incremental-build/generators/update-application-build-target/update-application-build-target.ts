@@ -47,6 +47,7 @@ export function updateApplicationBuildTarget(
     executor: incrementalBuildExecutor,
     options: {
       ...(buildTarget.options ?? {}),
+      // guarded by schema, see https://github.com/nrwl/nx/pull/4548
       // parallel: true,
       // withDeps: true,
     },
