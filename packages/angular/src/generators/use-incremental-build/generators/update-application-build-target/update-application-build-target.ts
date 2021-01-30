@@ -1,20 +1,14 @@
-import {
-  TargetConfiguration,
-  Tree,
-  updateProjectConfiguration,
-} from '@nrwl/devkit';
+import { TargetConfiguration, Tree, updateProjectConfiguration } from '@nrwl/devkit';
 
 import { NormalizedSchema } from '../../util';
-
-const defaultAngularBuildExecutor = '@angular-devkit/build-angular:browser';
-const incrementalBuildExecutor = '@nrwl/angular:webpack-browser';
+import { defaultAngularBuildExecutor, incrementalBuildExecutor } from './executors';
 
 export function updateApplicationBuildTarget(
   host: Tree,
   { projectConfiguration, projectName }: NormalizedSchema
 ): void {
-  const { targets: executionTargets } = projectConfiguration;
-  const { build: buildTarget } = executionTargets;
+  const { targets } = projectConfiguration;
+  const { build: buildTarget } = targets;
 
   if (!buildTarget) {
     console.warn(
@@ -56,7 +50,7 @@ export function updateApplicationBuildTarget(
   updateProjectConfiguration(host, projectName, {
     ...projectConfiguration,
     targets: {
-      ...executionTargets,
+      ...targets,
       build: incrementalBuildTarget,
     },
   });
