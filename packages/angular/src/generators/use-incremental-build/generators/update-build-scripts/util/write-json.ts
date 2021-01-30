@@ -6,5 +6,5 @@ export function writeJson<TJson>(
   mapper: (json: TJson) => TJson
 ): void {
   const json = readJson<TJson>(host, file);
-  host.write('package.json', JSON.stringify(mapper(json), null, 2));
+  host.write(file, JSON.stringify(mapper(json), null, 2));
 }
