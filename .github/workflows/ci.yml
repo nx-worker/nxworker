@@ -168,4 +168,4 @@ jobs:
           --verify-store-integrity false
       - run: pnpm store prune
 
-      - run: pnpm e2e
+      - run: pnpm e2e -- --skip-nx-cache

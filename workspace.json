@@ -1,8 +1,7 @@
 {
   "version": 2,
   "cli": {
-    "defaultCollection": "@nrwl/angular",
-    "packageManager": "pnpm"
+    "defaultCollection": "@nrwl/angular"
   },
   "generators": {
     "@nrwl/angular:application": {
@@ -754,6 +753,48 @@
           ],
           "options": {
             "jestConfig": "packages/examples/angular/nrwl-airlines/shared/util-formatting/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "internal-e2e-util": {
+      "root": "packages/internal/e2e-util",
+      "sourceRoot": "packages/internal/e2e-util/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/internal/e2e-util/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/internal/e2e-util"],
+          "options": {
+            "jestConfig": "packages/internal/e2e-util/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "internal-test-util": {
+      "root": "packages/internal/test-util",
+      "sourceRoot": "packages/internal/test-util/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/internal/test-util/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/internal/test-util"],
+          "options": {
+            "jestConfig": "packages/internal/test-util/jest.config.js",
             "passWithNoTests": true
           }
         }

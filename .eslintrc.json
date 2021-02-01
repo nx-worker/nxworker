@@ -24,8 +24,16 @@
                 ]
               },
               {
+                "sourceTag": "scope:internal",
+                "onlyDependOnLibsWithTags": ["scope:internal", "scope:shared"]
+              },
+              {
                 "sourceTag": "type:e2e",
-                "onlyDependOnLibsWithTags": ["type:package"]
+                "onlyDependOnLibsWithTags": ["type:package", "type:e2e-util"]
+              },
+              {
+                "sourceTag": "type:e2e-util",
+                "onlyDependOnLibsWithTags": ["type:e2e-util"]
               },
               {
                 "sourceTag": "type:tool",

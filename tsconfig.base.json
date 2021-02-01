@@ -19,6 +19,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
+      "@internal/e2e-util": ["packages/internal/e2e-util/src/index.ts"],
+      "@internal/test-util": ["packages/internal/test-util/src/index.ts"],
       "@nxworker/angular": ["packages/angular/src/index.ts"],
       "@nrwl-airlines/booking/data-access": [
         "packages/examples/angular/nrwl-airlines/booking/data-access/src/index.ts"

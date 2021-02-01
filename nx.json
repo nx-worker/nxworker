@@ -117,6 +117,12 @@
     "examples-angular-nrwl-airlines-shared-util-formatting": {
       "tags": ["domain:shared", "platform:web", "scope:shared", "type:util"]
     },
+    "internal-e2e-util": {
+      "tags": ["platform:node", "scope:internal", "type:e2e-util"]
+    },
+    "internal-test-util": {
+      "tags": ["platform:node", "scope:internal", "type:test-util"]
+    },
     "workspace-tools": {
       "tags": ["platform:node", "type:tool"]
     }

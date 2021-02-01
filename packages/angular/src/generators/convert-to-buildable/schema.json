@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "id": "ConvertToBuildable",
+  "title": "Convert to buildable but non-publishable project. Supports application and workspace library projects.",
+  "type": "object",
+  "properties": {
+    "enableIvy": {
+      "type": "boolean",
+      "description": "Enable incremental Angular Ivy compilation? (default: true)",
+      "alias": "i",
+      "default": true
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "skipFormat": {
+      "type": "boolean",
+      "description": "Skip formatting files? (default: false)",
+      "default": false
+    }
+  },
+  "required": ["project"]
+}

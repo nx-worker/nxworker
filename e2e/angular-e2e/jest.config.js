@@ -6,10 +6,11 @@ module.exports = {
       tsConfig: '<rootDir>/tsconfig.spec.json',
     },
   },
-  testTimeout: 30000,
+  runner: 'jest-serial-runner',
+  testTimeout: 120_000,
   transform: {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/e2eangular-e2e',
+  coverageDirectory: '../../coverage/e2e/angular-e2e',
 };
