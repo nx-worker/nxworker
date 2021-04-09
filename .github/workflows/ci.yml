@@ -13,7 +13,7 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - if: github.event_name == 'push'
@@ -52,7 +52,7 @@ jobs:
         run: pnpm affected:lint -- --base=origin/main
 
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - if: github.event_name == 'push'
@@ -91,7 +91,7 @@ jobs:
         run: pnpm affected:test -- --base=origin/main
 
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - if: github.event_name == 'push'
@@ -135,7 +135,7 @@ jobs:
           if-no-files-found: warn
 
   e2e:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - if: github.event_name == 'push'
