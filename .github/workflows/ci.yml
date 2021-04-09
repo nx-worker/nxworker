@@ -1,7 +1,8 @@
 name: '@nxworker CI pipeline'
 
 env:
-  NODE_OPTIONS: --max_old_space_size=4096
+  BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
+  NODE_OPTIONS: --max_old_space_size=6144
   NX_BRANCH: ${{ github.event.number }}
   NX_RUN_GROUP: ${{ github.run_id }}
   PNPM_STORE_PATH: ~/.pnpm-store
@@ -13,7 +14,7 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - if: github.event_name == 'push'
@@ -22,10 +23,10 @@ jobs:
       - if: github.event_name == 'pull_request'
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
+      # needed for nx affected command
       - if: github.event_name == 'pull_request'
-        run: git fetch --no-tags --prune --depth=5 origin main
+        run: git fetch --no-tags --depth=1 origin $BASE_BRANCH
 
       - name: Use Node.js
         uses: actions/setup-node@v2
@@ -49,10 +50,10 @@ jobs:
       - if: github.event_name == 'push'
         run: pnpm lint
       - if: github.event_name == 'pull_request'
-        run: pnpm affected:lint -- --base=origin/main
+        run: pnpm affected:lint -- --base=origin/$BASE_BRANCH
 
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - if: github.event_name == 'push'
@@ -61,10 +62,10 @@ jobs:
       - if: github.event_name == 'pull_request'
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
+      # needed for nx affected command
       - if: github.event_name == 'pull_request'
-        run: git fetch --no-tags --prune --depth=5 origin main
+        run: git fetch --no-tags --depth=1 origin $BASE_BRANCH
 
       - name: Use Node.js
         uses: actions/setup-node@v2
@@ -88,10 +89,10 @@ jobs:
       - if: github.event_name == 'push'
         run: pnpm test
       - if: github.event_name == 'pull_request'
-        run: pnpm affected:test -- --base=origin/main
+        run: pnpm affected:test -- --base=origin/$BASE_BRANCH
 
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - if: github.event_name == 'push'
@@ -100,10 +101,10 @@ jobs:
       - if: github.event_name == 'pull_request'
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
+      # needed for nx affected command
       - if: github.event_name == 'pull_request'
-        run: git fetch --no-tags --prune --depth=5 origin main
+        run: git fetch --no-tags --depth=1 origin $BASE_BRANCH
 
       - name: Use Node.js
         uses: actions/setup-node@v2
@@ -127,7 +128,7 @@ jobs:
       - if: github.event_name == 'push'
         run: pnpm build
       - if: github.event_name == 'pull_request'
-        run: pnpm affected:build -- --base=origin/main
+        run: pnpm affected:build -- --base=origin/$BASE_BRANCH
       - uses: actions/upload-artifact@v2
         with:
           name: angular-package
@@ -135,19 +136,10 @@ jobs:
           if-no-files-found: warn
 
   e2e:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
-      - if: github.event_name == 'push'
-        uses: actions/checkout@v2
-      # needed for nx affected command
-      - if: github.event_name == 'pull_request'
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
-      - if: github.event_name == 'pull_request'
-        run: git fetch --no-tags --prune --depth=5 origin main
+      - uses: actions/checkout@v2
 
       - name: Use Node.js
         uses: actions/setup-node@v2
