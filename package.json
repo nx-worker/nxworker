@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "preinstall": "(pnpm remove codelyzer --silent || echo ✅ Codelyzer is already removed.) && (pnpm remove tslint --silent || echo ✅ TSLint is already removed.)",
-    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "nx": "nx",
     "start": "nx serve examples-angular-nrwl-airlines-booking-desktop-app",
     "build": "nx run-many --target=build --configuration=production --all",
@@ -113,10 +113,6 @@
   "lint-staged": {
     "*.{js,json,css,scss,ts,html,component.html}": [
       "pnpm format:write",
-      "git add"
-    ],
-    "{angular,workspace}.json": [
-      "pnpm sort-projects",
       "git add"
     ]
   },

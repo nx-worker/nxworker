@@ -135,7 +135,6 @@
             "main": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/main.ts",
             "polyfills": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/polyfills.ts",
             "tsConfig": "e2e/examples/angular/nrwl-airlines/booking/desktop-app/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/favicon.ico",
               "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/assets"
@@ -143,7 +142,13 @@
             "styles": [
               "e2e/examples/angular/nrwl-airlines/booking/desktop-app/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -281,7 +286,6 @@
             "main": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/main.ts",
             "polyfills": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/polyfills.ts",
             "tsConfig": "e2e/examples/angular/nrwl-airlines/booking/mobile-app/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/favicon.ico",
               "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/assets"
@@ -289,7 +293,13 @@
             "styles": [
               "e2e/examples/angular/nrwl-airlines/booking/mobile-app/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -427,7 +437,6 @@
             "main": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/main.ts",
             "polyfills": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/polyfills.ts",
             "tsConfig": "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/favicon.ico",
               "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/assets"
@@ -435,7 +444,13 @@
             "styles": [
               "e2e/examples/angular/nrwl-airlines/check-in/desktop-app/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -519,7 +534,6 @@
             "main": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/main.ts",
             "polyfills": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/polyfills.ts",
             "tsConfig": "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/favicon.ico",
               "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/assets"
@@ -527,7 +541,13 @@
             "styles": [
               "e2e/examples/angular/nrwl-airlines/check-in/mobile-app/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
