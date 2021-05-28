@@ -114,6 +114,10 @@
     "*.{js,json,css,scss,ts,html,component.html}": [
       "pnpm format:write",
       "git add"
+    ],
+    "{angular,workspace}.json": [
+      "pnpm sort-projects",
+      "git add"
     ]
   },
   "husky": {
