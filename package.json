@@ -25,7 +25,7 @@
     "format": "pnpm sort-projects && nx format:write && pnpx prettier --config .prettierrc --write \"**/*.*\" \"!dist/**\" \"!pnmpm-lock.yaml\"",
     "format:write": "nx format:write",
     "format:check": "nx format:check",
-    "update": "nx migrate @nrwl/worskpace && nx migrate latest",
+    "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "hooks:pre-commit": "node hooks/pre-commit.js",
