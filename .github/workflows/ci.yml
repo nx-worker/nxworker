@@ -7,6 +7,7 @@ env:
   NX_BRANCH: ${{ github.event.number }}
   NX_RUN_GROUP: ${{ github.run_id }}
   PNPM_STORE_PATH: ~/.pnpm-store
+  PNPM_VERSION: 5.x
   is-feature-branch: ${{ github.ref != 'refs/heads/$BASE_BRANCH' && (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') }}
   is-main-branch: ${{ github.ref == 'refs/heads/$BASE_BRANCH' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
 
@@ -38,7 +39,7 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm@v5.x
+      - run: npm install --global pnpm@$PNPM_VERSION
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
@@ -75,7 +76,7 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm@v5.x
+      - run: npm install --global pnpm@$PNPM_VERSION
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
@@ -112,7 +113,7 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm@v5.x
+      - run: npm install --global pnpm@$PNPM_VERSION
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
@@ -145,7 +146,7 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm@v5.x
+      - run: npm install --global pnpm@$PNPM_VERSION
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
