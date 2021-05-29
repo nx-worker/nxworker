@@ -38,7 +38,7 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm
+      - run: npm install --global pnpm@v5.x
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
@@ -75,7 +75,7 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm
+      - run: npm install --global pnpm@v5.x
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
@@ -112,7 +112,7 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm
+      - run: npm install --global pnpm@v5.x
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
@@ -145,7 +145,7 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm
+      - run: npm install --global pnpm@v5.x
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
