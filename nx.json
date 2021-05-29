@@ -20,7 +20,9 @@
       "options": {
         "accessToken": "ZDQ2ZDk2Y2MtODU2Ny00YzhhLWI5NzMtYzNkN2YzN2ZiYjJlfHJlYWQtd3JpdGU=",
         "cacheableOperations": ["build", "test", "lint", "e2e"],
-        "canTrackAnalytics": false,
+        "canTrackAnalytics": true,
+        "maxParallel": 6,
+        "parallel": true,
         "showUsageWarnings": true
       }
     }
