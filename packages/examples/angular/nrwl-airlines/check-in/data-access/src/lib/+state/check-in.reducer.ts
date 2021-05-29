@@ -16,9 +16,7 @@ export interface CheckInPartialState {
   readonly [CHECK_IN_FEATURE_KEY]: State;
 }
 
-export const checkInAdapter: EntityAdapter<CheckInEntity> = createEntityAdapter<
-  CheckInEntity
->();
+export const checkInAdapter: EntityAdapter<CheckInEntity> = createEntityAdapter<CheckInEntity>();
 
 export const initialState: State = checkInAdapter.getInitialState({
   // set initial required properties

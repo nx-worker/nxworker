@@ -16,9 +16,7 @@ export interface SeatmapPartialState {
   readonly [SEATMAP_FEATURE_KEY]: State;
 }
 
-export const seatmapAdapter: EntityAdapter<SeatmapEntity> = createEntityAdapter<
-  SeatmapEntity
->();
+export const seatmapAdapter: EntityAdapter<SeatmapEntity> = createEntityAdapter<SeatmapEntity>();
 
 export const initialState: State = seatmapAdapter.getInitialState({
   // set initial required properties

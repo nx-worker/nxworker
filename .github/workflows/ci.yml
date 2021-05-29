@@ -3,37 +3,43 @@ name: '@nxworker CI pipeline'
 env:
   BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
   NODE_OPTIONS: --max_old_space_size=6144
+  node-version: 14.x
   NX_BRANCH: ${{ github.event.number }}
   NX_RUN_GROUP: ${{ github.run_id }}
   PNPM_STORE_PATH: ~/.pnpm-store
+  PNPM_VERSION: 5.x
+  is-feature-branch: ${{ github.ref != 'refs/heads/$BASE_BRANCH' && (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') }}
+  is-main-branch: ${{ github.ref == 'refs/heads/$BASE_BRANCH' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
 
 on:
   push:
-    branches: [main]
-  pull_request:
+    branches:
+      - main
+  pull_request: {}
+  workflow_dispatch: {}
 
 jobs:
   lint:
     runs-on: ubuntu-latest
 
     steps:
-      - if: github.event_name == 'push'
+      - if: ${{ env.is-main-branch }}
         uses: actions/checkout@v2
       # needed for nx affected command
-      - if: github.event_name == 'pull_request'
+      - if: ${{ env.is-feature-branch }}
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
       # needed for nx affected command
-      - if: github.event_name == 'pull_request'
+      - if: ${{ env.is-feature-branch }}
         run: git fetch --no-tags --depth=1 origin $BASE_BRANCH
 
-      - name: Use Node.js
+      - name: Use Node.js ${{ env.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm
+      - run: npm install --global pnpm@$PNPM_VERSION
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
@@ -42,37 +48,35 @@ jobs:
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
+      - run: pnpm install
       - run: pnpm store prune
 
-      - if: github.event_name == 'push'
+      - if: ${{ env.is-main-branch }}
         run: pnpm lint
-      - if: github.event_name == 'pull_request'
+      - if: ${{ env.is-feature-branch }}
         run: pnpm affected:lint -- --base=origin/$BASE_BRANCH
 
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - if: github.event_name == 'push'
+      - if: ${{ env.is-main-branch }}
         uses: actions/checkout@v2
       # needed for nx affected command
-      - if: github.event_name == 'pull_request'
+      - if: ${{ env.is-feature-branch }}
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
       # needed for nx affected command
-      - if: github.event_name == 'pull_request'
+      - if: ${{ env.is-feature-branch }}
         run: git fetch --no-tags --depth=1 origin $BASE_BRANCH
 
-      - name: Use Node.js
+      - name: Use Node.js ${{ env.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm
+      - run: npm install --global pnpm@$PNPM_VERSION
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
@@ -81,37 +85,35 @@ jobs:
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
+      - run: pnpm install
       - run: pnpm store prune
 
-      - if: github.event_name == 'push'
+      - if: ${{ env.is-main-branch }}
         run: pnpm test
-      - if: github.event_name == 'pull_request'
+      - if: ${{ env.is-feature-branch }}
         run: pnpm affected:test -- --base=origin/$BASE_BRANCH
 
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - if: github.event_name == 'push'
+      - if: ${{ env.is-main-branch }}
         uses: actions/checkout@v2
       # needed for nx affected command
-      - if: github.event_name == 'pull_request'
+      - if: ${{ env.is-feature-branch }}
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
       # needed for nx affected command
-      - if: github.event_name == 'pull_request'
+      - if: ${{ env.is-feature-branch }}
         run: git fetch --no-tags --depth=1 origin $BASE_BRANCH
 
-      - name: Use Node.js
+      - name: Use Node.js ${{ env.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm
+      - run: npm install --global pnpm@$PNPM_VERSION
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
@@ -120,14 +122,12 @@ jobs:
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
+      - run: pnpm install
       - run: pnpm store prune
 
-      - if: github.event_name == 'push'
+      - if: ${{ env.is-main-branch }}
         run: pnpm build
-      - if: github.event_name == 'pull_request'
+      - if: ${{ env.is-feature-branch }}
         run: pnpm affected:build -- --base=origin/$BASE_BRANCH
       - uses: actions/upload-artifact@v2
         with:
@@ -141,12 +141,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use Node.js
+      - name: Use Node.js ${{ env.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: ${{ env.node-version }}
 
-      - run: npm install --global pnpm
+      - run: npm install --global pnpm@$PNPM_VERSION
       - run: pnpm config set store-dir $PNPM_STORE_PATH
       - name: Cache PNPM store
         uses: actions/cache@v2
@@ -155,9 +155,7 @@ jobs:
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
-      - run:
-          pnpm install --reporter silent --frozen-lockfile false
-          --verify-store-integrity false
+      - run: pnpm install
       - run: pnpm store prune
 
       - run: pnpm e2e

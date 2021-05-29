@@ -16,9 +16,7 @@ export interface BookingPartialState {
   readonly [BOOKING_FEATURE_KEY]: State;
 }
 
-export const bookingAdapter: EntityAdapter<BookingEntity> = createEntityAdapter<
-  BookingEntity
->();
+export const bookingAdapter: EntityAdapter<BookingEntity> = createEntityAdapter<BookingEntity>();
 
 export const initialState: State = bookingAdapter.getInitialState({
   // set initial required properties
