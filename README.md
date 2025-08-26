@@ -33,16 +33,6 @@ developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
 
-### Systemate 🇩🇰
-
-Nxworker is produced in collaboration with
-[Systemate A/S](https://www.systemate.dk/?utm_source=github.com/nx-worker/nxworker&utm_medium=link&utm_campaign=lars) in
-Denmark.
-
-> Better Software Faster®.
->
-> –[Systemate](https://www.systemate.dk/?utm_source=github.com/nx-worker/nxworker&utm_medium=link&utm_campaign=lars)
-
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
